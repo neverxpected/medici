@@ -331,13 +331,9 @@ export default function Home() {
               year: '2023',
               img: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000&auto=format&fit=crop&sat=-100',
             },
-          ].map((project, idx) => (
-            <motion.div
+          ].map((project) => (
+            <div
               key={project.name}
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={viewportConfig}
               className="group cursor-pointer rounded-2xl bg-[#EEEEEE] hover:bg-[#121212] p-3 pb-4 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]"
             >
               <div className="aspect-[4/3] rounded-xl overflow-hidden border-2 border-transparent group-hover:border-gray-700 transition-all duration-500">
@@ -356,7 +352,7 @@ export default function Home() {
                 </div>
                 <span className="text-[#6B6B6B] text-sm group-hover:text-gray-500 transition-colors duration-500">{project.year}</span>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </section>
