@@ -7,7 +7,7 @@ module.exports = {
     extend: {
       colors: {
         crimson: {
-          DEFAULT: '#8B0000',
+          DEFAULT: '#810100',
           light: '#A00000',
         },
         'off-white': '#F9F6F2',
@@ -23,6 +23,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
+        serif: ['var(--font-playfair)', 'Georgia', 'serif'],
       },
     },
   },
