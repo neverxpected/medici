@@ -15,11 +15,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: 'Your Business Name | Short Tagline',
   description: 'One clear sentence about what you do and who you serve.',
-  metadataBase: new URL('https://yoursite.vercel.app'),
+  metadataBase: new URL('https://medici-zeta.vercel.app'),
   openGraph: {
     title: 'Your Business Name | Short Tagline',
     description: 'One clear sentence about what you do and who you serve.',
-    url: 'https://yoursite.vercel.app',
+    url: 'https://medici-zeta.vercel.app',
     siteName: 'Your Business Name',
     images: [{ url: '/og-image.jpg', width: 1200, height: 630 }],
     type: 'website',

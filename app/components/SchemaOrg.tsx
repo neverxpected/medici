@@ -3,7 +3,7 @@ export default function SchemaOrg() {
         '@context': 'https://schema.org',
         '@type': 'LocalBusiness',
         name: 'Your Business Name',
-        url: 'https://yoursite.vercel.app',
+        url: 'https://medici-zeta.vercel.app',
         description: 'One clear sentence about what you do.',
         address: {
             '@type': 'PostalAddress',
