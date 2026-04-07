@@ -20,6 +20,9 @@ export const metadata: Metadata = {
   title: 'Medici Social | Social Media Marketing Agency',
   description: 'A social media marketing agency blending storytelling, aesthetics, and data-driven strategy to elevate brands.',
   metadataBase: new URL('https://medici-zeta.vercel.app'),
+  other: {
+    'viewport': 'width=device-width, initial-scale=1, viewport-fit=cover',
+  },
   openGraph: {
     title: 'Medici Social | Social Media Marketing Agency',
     description: 'A social media marketing agency blending storytelling, aesthetics, and data-driven strategy to elevate brands.',

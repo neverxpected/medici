@@ -42,9 +42,9 @@ export default function Navbar() {
 
       {/* ─── Navbar Container ─── */}
       {/* ─── Fixed positioning wrapper (transparent, full width) ─── */}
-      <div className="fixed top-0 w-full z-50 px-4 md:px-8 pt-0 pointer-events-none">
+      <div className="fixed top-0 w-full z-50 px-4 md:px-8 pt-[env(safe-area-inset-top)] pointer-events-none">
         <motion.header
-          className="max-w-screen-xl mx-auto overflow-hidden pointer-events-auto"
+          className={`max-w-screen-xl mx-auto pointer-events-auto ${isOpen ? 'overflow-hidden' : 'overflow-visible'}`}
           initial={false}
           animate={{
             height: isOpen ? '85vh' : '52px',
