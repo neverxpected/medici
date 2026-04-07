@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 
 const services = [
@@ -37,9 +37,25 @@ const services = [
 export default function ServicesList() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [isTouch, setIsTouch] = useState(false);
+
+  useEffect(() => {
+    const handleTouch = () => setIsTouch(true);
+    window.addEventListener('touchstart', handleTouch, { once: true });
+    return () => window.removeEventListener('touchstart', handleTouch);
+  }, []);
 
   const handleClick = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
+    if (openIndex === index) {
+      setOpenIndex(null);
+      setHoveredIndex(null); // Force close sticky hover
+    } else {
+      setOpenIndex(index);
+    }
+  };
+
+  const handleMouseEnter = (index: number) => {
+    if (!isTouch) setHoveredIndex(index);
   };
 
   return (
@@ -63,7 +79,7 @@ export default function ServicesList() {
               {/* Title row */}
               <button
                 className="w-full text-left group cursor-pointer"
-                onMouseEnter={() => setHoveredIndex(i)}
+                onMouseEnter={() => handleMouseEnter(i)}
                 onMouseLeave={() => setHoveredIndex(null)}
                 onClick={() => handleClick(i)}
               >
