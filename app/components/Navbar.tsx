@@ -10,14 +10,14 @@ const navLinks = [
 
 export default function Navbar() {
   return (
-    <header className="sticky top-0 z-50 w-full bg-crimson border-b border-crimson-light/40">
-      <nav className="flex items-center justify-between px-6 md:px-12 py-4 max-w-[1400px] mx-auto">
+    <header className="fixed top-0 left-0 right-0 z-50 pt-5 px-6 md:px-10">
+      <nav className="flex items-center justify-between max-w-7xl mx-auto bg-crimson rounded-full px-8 py-3 shadow-lg">
         {/* Logo */}
         <Link href="/" className="flex flex-col items-center leading-none">
-          <span className="text-white text-2xl font-bold tracking-[0.25em] uppercase">
+          <span className="text-white text-lg font-bold tracking-[0.25em] uppercase">
             MEDICI
           </span>
-          <span className="text-white/80 text-[0.65rem] tracking-[0.35em] uppercase mt-0.5">
+          <span className="text-white/80 text-[0.5rem] tracking-[0.35em] uppercase mt-0.5">
             SOCIAL
           </span>
         </Link>
