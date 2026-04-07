@@ -43,8 +43,13 @@ export default function Home() {
   const heroVideoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-    // Attempt to auto play the video if iOS pauses it initially
+    // Force iOS Safari strict autoplay policies
     if (heroVideoRef.current) {
+      heroVideoRef.current.defaultMuted = true;
+      heroVideoRef.current.muted = true;
+      heroVideoRef.current.setAttribute('muted', '');
+      heroVideoRef.current.setAttribute('playsinline', '');
+      
       heroVideoRef.current.play().catch(error => {
         console.log("Video auto-play prevented:", error);
       });
@@ -112,29 +117,33 @@ export default function Home() {
               {/* Fade edges */}
               <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-[#F9F9F8] to-transparent z-10 pointer-events-none" />
               <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-[#F9F9F8] to-transparent z-10 pointer-events-none" />
-              <div className="flex animate-marquee items-center">
-                {/* First copy */}
-                {clientLogos.map((logo, i) => (
-                  <Image
-                    key={`a-${i}`}
-                    src={logo.src}
-                    alt={logo.alt}
-                    width={400}
-                    height={130}
-                    className="h-28 md:h-32 w-auto object-contain grayscale opacity-70 shrink-0 mx-1 md:mx-8"
-                  />
-                ))}
-                {/* Second copy (identical) */}
-                {clientLogos.map((logo, i) => (
-                  <Image
-                    key={`b-${i}`}
-                    src={logo.src}
-                    alt={logo.alt}
-                    width={400}
-                    height={130}
-                    className="h-28 md:h-32 w-auto object-contain grayscale opacity-70 shrink-0 mx-1 md:mx-8"
-                  />
-                ))}
+              <div className="flex items-center group">
+                {/* First wrapper */}
+                <div className="flex flex-nowrap animate-marquee shrink-0 items-center">
+                  {clientLogos.map((logo, i) => (
+                    <Image
+                      key={`a-${i}`}
+                      src={logo.src}
+                      alt={logo.alt}
+                      width={400}
+                      height={130}
+                      className="h-28 md:h-32 w-auto object-contain grayscale opacity-70 shrink-0 mx-4 md:mx-8"
+                    />
+                  ))}
+                </div>
+                {/* Second wrapper (identical) */}
+                <div className="flex flex-nowrap animate-marquee shrink-0 items-center" aria-hidden="true">
+                  {clientLogos.map((logo, i) => (
+                    <Image
+                      key={`b-${i}`}
+                      src={logo.src}
+                      alt={logo.alt}
+                      width={400}
+                      height={130}
+                      className="h-28 md:h-32 w-auto object-contain grayscale opacity-70 shrink-0 mx-4 md:mx-8"
+                    />
+                  ))}
+                </div>
               </div>
             </div>
 
@@ -177,7 +186,7 @@ export default function Home() {
             muted
             playsInline
             controls={false}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover pointer-events-none"
           />
         </div>
       </motion.section>

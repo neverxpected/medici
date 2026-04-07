@@ -45,24 +45,22 @@ a {
 }
 
 /* Marquee scroll animation */
-@keyframes marquee {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
+/* ─── Infinite Marquee ─── */
 .animate-marquee {
   display: flex;
-  width: max-content;
-  animation: marquee 45s linear infinite;
+  white-space: nowrap;
+  /* Adjust scrolling speed: lower = faster */
+  animation: marquee 30s linear infinite;
 }
 
-@media (min-width: 768px) {
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+@media (max-width: 768px) {
   .animate-marquee {
-    animation: marquee 30s linear infinite;
+    animation: marquee 45s linear infinite;
   }
 }
 
