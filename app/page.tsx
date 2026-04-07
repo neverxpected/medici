@@ -100,20 +100,28 @@ export default function Home() {
               {/* Fade edges */}
               <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-[#F9F9F8] to-transparent z-10 pointer-events-none" />
               <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-[#F9F9F8] to-transparent z-10 pointer-events-none" />
-              <div className="flex animate-marquee items-center gap-2 md:gap-16">
-                {[...Array(4)].map((_, setIdx) => (
-                  <div key={setIdx} className="flex items-center gap-2 md:gap-16 shrink-0">
-                    {clientLogos.map((logo) => (
-                      <Image
-                        key={`${setIdx}-${logo.alt}`}
-                        src={logo.src}
-                        alt={logo.alt}
-                        width={400}
-                        height={130}
-                        className="h-28 md:h-32 w-auto object-contain grayscale opacity-70 transition-all duration-500 hover:grayscale-0 hover:opacity-100"
-                      />
-                    ))}
-                  </div>
+              <div className="flex animate-marquee items-center">
+                {/* First copy */}
+                {clientLogos.map((logo, i) => (
+                  <Image
+                    key={`a-${i}`}
+                    src={logo.src}
+                    alt={logo.alt}
+                    width={400}
+                    height={130}
+                    className="h-28 md:h-32 w-auto object-contain grayscale opacity-70 shrink-0 mx-1 md:mx-8"
+                  />
+                ))}
+                {/* Second copy (identical) */}
+                {clientLogos.map((logo, i) => (
+                  <Image
+                    key={`b-${i}`}
+                    src={logo.src}
+                    alt={logo.alt}
+                    width={400}
+                    height={130}
+                    className="h-28 md:h-32 w-auto object-contain grayscale opacity-70 shrink-0 mx-1 md:mx-8"
+                  />
                 ))}
               </div>
             </div>
