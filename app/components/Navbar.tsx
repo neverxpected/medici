@@ -130,7 +130,7 @@ export default function Navbar() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 10 }}
-              transition={{ delay: 0.15, duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+              transition={{ delay: 0.15, duration: 0.4, ease: [0.4, 0, 0.2, 1] as const }}
               className="flex flex-col h-[calc(85vh-52px)] px-5 md:px-8"
             >
               {/* ─── Main Content Grid ─── */}
@@ -145,7 +145,7 @@ export default function Navbar() {
                       transition={{
                         delay: 0.2 + i * 0.06,
                         duration: 0.4,
-                        ease: [0.4, 0, 0.2, 1],
+                        ease: [0.4, 0, 0.2, 1] as const,
                       }}
                     >
                       <Link
@@ -169,7 +169,7 @@ export default function Navbar() {
                   className="md:w-[55%] flex-1"
                   initial={{ opacity: 0, scale: 0.97 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.3, duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+                  transition={{ delay: 0.3, duration: 0.5, ease: [0.4, 0, 0.2, 1] as const }}
                 >
                   <div className="relative w-full h-48 md:h-full rounded-2xl overflow-hidden bg-gray-800">
                     <img
