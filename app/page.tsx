@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import FaqAccordion from './components/FaqAccordion';
 import PricingPlans from './components/PricingPlans';
@@ -28,6 +29,15 @@ const staggerItem = {
 
 const viewportConfig = { once: true, margin: '-100px' as const };
 
+const clientLogos = [
+  { src: '/logos/best-regards.webp', alt: 'Best Regards' },
+  { src: '/logos/ciel.webp', alt: 'Ciel' },
+  { src: '/logos/dobel.webp', alt: 'Dobel' },
+  { src: '/logos/my-tennis-wall.webp', alt: 'My Tennis Wall' },
+  { src: '/logos/plume.webp', alt: 'Plume' },
+  { src: '/logos/sun.webp', alt: 'Suntory' },
+];
+
 export default function Home() {
   return (
     <>
@@ -36,7 +46,7 @@ export default function Home() {
       {/* ═══════════════════════════════════════════════════════════
           SECTION 1 — HERO TITLE
       ═══════════════════════════════════════════════════════════ */}
-      <section className="pt-24 md:pt-36 lg:pt-48 pb-12">
+      <section className="pt-24 md:pt-36 lg:pt-48 pb-0">
         <motion.div
           className="flex flex-col md:flex-row md:items-end md:justify-between gap-10 md:gap-20"
           variants={staggerContainer}
@@ -60,7 +70,7 @@ export default function Home() {
 
         {/* Logo Ticker Strip */}
         <motion.div
-          className="mt-16 md:mt-24 flex flex-col py-6"
+          className="mt-6 md:mt-8 flex flex-col mb-0"
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
@@ -90,17 +100,19 @@ export default function Home() {
               {/* Fade edges */}
               <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-[#F9F9F8] to-transparent z-10 pointer-events-none" />
               <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-[#F9F9F8] to-transparent z-10 pointer-events-none" />
-              <div className="flex animate-marquee items-center gap-14">
+              <div className="flex animate-marquee items-center gap-16">
                 {[...Array(2)].map((_, setIdx) => (
-                  <div key={setIdx} className="flex items-center gap-14 shrink-0">
-                    <svg className="w-14 h-8 text-gray-300" viewBox="0 0 60 24" fill="currentColor"><ellipse cx="15" cy="12" rx="10" ry="8" fill="none" stroke="currentColor" strokeWidth="2"/><ellipse cx="30" cy="12" rx="10" ry="8" fill="none" stroke="currentColor" strokeWidth="2"/><ellipse cx="45" cy="12" rx="10" ry="8" fill="none" stroke="currentColor" strokeWidth="2"/></svg>
-                    <svg className="w-8 h-8 text-gray-300" viewBox="0 0 24 24" fill="currentColor"><path d="M4 20V4h2.5l10 13V4H19v16h-2.5L6.5 7v13H4z"/></svg>
-                    <svg className="w-14 h-8 text-gray-300" viewBox="0 0 56 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M2 12c4-8 8-8 12 0s8 8 12 0 8-8 12 0 8 8 12 0" strokeLinecap="round"/></svg>
-                    <svg className="w-8 h-8 text-gray-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2" fill="currentColor"/></svg>
-                    <svg className="w-8 h-8 text-gray-300" viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="10" width="3" height="4" rx="1"/><rect x="7" y="6" width="3" height="12" rx="1"/><rect x="12" y="8" width="3" height="8" rx="1"/><rect x="17" y="4" width="3" height="16" rx="1"/></svg>
-                    <span className="text-gray-300 text-lg font-bold tracking-widest select-none whitespace-nowrap">LOGO</span>
-                    <svg className="w-8 h-8 text-gray-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 2l10 10-10 10L2 12z"/></svg>
-                    <svg className="w-10 h-8 text-gray-300" viewBox="0 0 36 24" fill="currentColor"><rect x="4" y="4" width="28" height="2.5" rx="1"/><rect x="8" y="11" width="20" height="2.5" rx="1"/><rect x="4" y="18" width="28" height="2.5" rx="1"/></svg>
+                  <div key={setIdx} className="flex items-center gap-16 shrink-0">
+                    {clientLogos.map((logo) => (
+                      <Image
+                        key={`${setIdx}-${logo.alt}`}
+                        src={logo.src}
+                        alt={logo.alt}
+                        width={400}
+                        height={130}
+                        className="h-28 md:h-32 w-auto object-contain grayscale opacity-70 transition-all duration-500 hover:grayscale-0 hover:opacity-100"
+                      />
+                    ))}
                   </div>
                 ))}
               </div>
@@ -130,6 +142,7 @@ export default function Home() {
           SECTION 2 — HERO IMAGE
       ═══════════════════════════════════════════════════════════ */}
       <motion.section
+        className="mt-0.5"
         variants={fadeUp}
         initial="hidden"
         whileInView="visible"
@@ -567,7 +580,7 @@ export default function Home() {
         SECTION 10 — CTA CLOSING (Full-width, outside boxed layout)
     ═══════════════════════════════════════════════════════════ */}
     <motion.section
-      className="bg-crimson py-10 md:py-16 px-4 md:px-10"
+      className="bg-crimson py-5 md:py-10 px-4 md:px-10"
       variants={fadeUp}
       initial="hidden"
       whileInView="visible"
@@ -582,9 +595,9 @@ export default function Home() {
       >
         <motion.img
           variants={staggerItem}
-          src="/images/Medici 10.png"
+          src="/images/medici slim.png"
           alt="Medici Social"
-          className="w-48 md:w-64 mx-auto mb-0"
+          className="w-48 md:w-72 mx-auto mb-2"
         />
 
         <motion.h2 variants={staggerItem} className="font-serif text-3xl md:text-5xl lg:text-6xl font-medium tracking-[-0.02em] text-white leading-tight">
@@ -596,18 +609,12 @@ export default function Home() {
           Let&apos;s create something extraordinary together.
         </motion.p>
 
-        <motion.div variants={staggerItem} className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-6 md:mt-8">
+        <motion.div variants={staggerItem} className="flex items-center justify-center mt-6 md:mt-8">
           <Link
             href="/contact"
             className="bg-white text-crimson text-sm font-medium px-8 py-3 rounded-full hover:bg-gray-100 transition-colors duration-200"
           >
             Book a Consultation
-          </Link>
-          <Link
-            href="/services"
-            className="border border-white/30 text-white/70 text-sm font-medium px-8 py-3 rounded-full hover:border-white hover:text-white transition-all duration-200"
-          >
-            View Our Work
           </Link>
         </motion.div>
       </motion.div>
