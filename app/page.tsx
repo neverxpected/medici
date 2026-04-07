@@ -100,9 +100,9 @@ export default function Home() {
               {/* Fade edges */}
               <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-[#F9F9F8] to-transparent z-10 pointer-events-none" />
               <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-[#F9F9F8] to-transparent z-10 pointer-events-none" />
-              <div className="flex animate-marquee items-center gap-16">
-                {[...Array(2)].map((_, setIdx) => (
-                  <div key={setIdx} className="flex items-center gap-16 shrink-0">
+              <div className="flex animate-marquee items-center gap-2 md:gap-16">
+                {[...Array(4)].map((_, setIdx) => (
+                  <div key={setIdx} className="flex items-center gap-2 md:gap-16 shrink-0">
                     {clientLogos.map((logo) => (
                       <Image
                         key={`${setIdx}-${logo.alt}`}

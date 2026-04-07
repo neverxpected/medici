@@ -13,6 +13,7 @@ const menuLinks = [
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   // Lock body scroll when menu is open
   useEffect(() => {
@@ -23,6 +24,16 @@ export default function Navbar() {
     }
     return () => { document.body.style.overflow = ''; };
   }, [isOpen]);
+
+  // Detect scroll for transparency effect
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Determine closed background color
+  const closedBg = scrolled ? 'rgba(235, 235, 235, 0.75)' : '#EBEBEB';
 
   return (
     <>
@@ -44,13 +55,13 @@ export default function Navbar() {
       {/* ─── Fixed positioning wrapper (transparent, full width) ─── */}
       <div className="fixed top-0 w-full z-50 px-4 md:px-8 pt-[env(safe-area-inset-top)] pointer-events-none">
         <motion.header
-          className={`max-w-screen-xl mx-auto pointer-events-auto ${isOpen ? 'overflow-hidden' : 'overflow-visible'}`}
+          className={`max-w-screen-xl mx-auto pointer-events-auto ${isOpen ? 'overflow-hidden' : 'overflow-visible'} ${scrolled && !isOpen ? 'backdrop-blur-md' : ''}`}
           initial={false}
           animate={{
             height: isOpen ? '85vh' : '52px',
             borderBottomLeftRadius: isOpen ? '2rem' : '1.5rem',
             borderBottomRightRadius: isOpen ? '2rem' : '1.5rem',
-            backgroundColor: isOpen ? '#EBEBEB' : '#810100',
+            backgroundColor: isOpen ? '#EBEBEB' : closedBg,
           }}
           transition={{
             type: 'spring',
@@ -65,7 +76,7 @@ export default function Navbar() {
           <div className="flex items-center gap-3">
             <Link
               href="/"
-              className={`text-[15px] font-bold tracking-[0.01em] transition-colors duration-300 ${isOpen ? 'text-[#121212]' : 'text-white'}`}
+              className="text-[15px] font-bold tracking-[0.01em] transition-colors duration-300 text-[#121212]"
               onClick={() => setIsOpen(false)}
             >
               Medici Social®
@@ -77,13 +88,13 @@ export default function Navbar() {
             {/* Inline links (hidden on mobile, hidden when menu is open) */}
             {!isOpen && (
               <>
-                <Link href="/about" className="hidden lg:inline-block text-white/70 text-xs hover:text-white transition-colors duration-200">
+                <Link href="/about" className="hidden lg:inline-block text-[#121212]/60 text-xs hover:text-[#121212] transition-colors duration-200">
                   About
                 </Link>
-                <Link href="/services" className="hidden lg:inline-block text-white/70 text-xs hover:text-white transition-colors duration-200">
+                <Link href="/services" className="hidden lg:inline-block text-[#121212]/60 text-xs hover:text-[#121212] transition-colors duration-200">
                   Services
                 </Link>
-                <Link href="/contact" className="hidden lg:inline-block text-white/70 text-xs hover:text-white transition-colors duration-200">
+                <Link href="/contact" className="hidden lg:inline-block text-[#121212]/60 text-xs hover:text-[#121212] transition-colors duration-200">
                   Contact
                 </Link>
               </>
@@ -95,7 +106,7 @@ export default function Navbar() {
               className={`text-[11px] font-medium px-4 py-1.5 rounded-full transition-colors duration-300 ${
                 isOpen
                   ? 'bg-[#121212] text-white hover:bg-black/80'
-                  : 'bg-white text-[#810100] hover:bg-white/90'
+                  : 'bg-[#121212] text-white hover:bg-black/80'
               }`}
               onClick={() => setIsOpen(false)}
             >
@@ -108,12 +119,12 @@ export default function Navbar() {
               className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-300 shrink-0 ${
                 isOpen
                   ? 'bg-[#121212] hover:bg-black/80'
-                  : 'bg-white/20 hover:bg-white/30'
+                  : 'bg-[#121212]/10 hover:bg-[#121212]/20'
               }`}
               aria-label={isOpen ? 'Close menu' : 'Open menu'}
             >
               <motion.span
-                className="text-white text-sm font-light leading-none"
+                className={`text-sm font-light leading-none transition-colors duration-300 ${isOpen ? 'text-white' : 'text-[#121212]'}`}
                 animate={{ rotate: isOpen ? 45 : 0 }}
                 transition={{ type: 'spring', stiffness: 200, damping: 15 }}
               >
