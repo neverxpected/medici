@@ -158,8 +158,8 @@ export default function Home() {
       >
         <div className="w-full h-[40vh] md:h-[60vh] bg-gray-200 rounded-2xl overflow-hidden relative">
           <img
-            src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=1400&h=900&fit=crop&q=80"
-            alt="Creative team collaborating on a social media strategy"
+            src="/images/karsten-winegeart-R6brDfEXJk0-unsplash.jpg"
+            alt="Single dancer in monochrome"
             className="w-full h-full object-cover"
             style={{ filter: 'grayscale(100%)' }}
           />
