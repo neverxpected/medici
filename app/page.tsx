@@ -599,24 +599,42 @@ export default function Home() {
       <section className="py-20 md:py-32">
         <div className="max-w-screen-xl mx-auto px-5 md:px-8">
           <motion.div
-            className="bg-crimson border border-crimson/50 rounded-3xl p-12 md:p-20 text-center"
+            className="relative rounded-3xl overflow-hidden"
             variants={fadeUp}
             initial="hidden"
             whileInView="visible"
             viewport={viewportConfig}
           >
-            <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6">
-              Stop Guessing.<br />Start Growing.
-            </h2>
-            <p className="text-white/70 text-base md:text-lg max-w-xl mx-auto mb-8">
-              Work with a team built to test, optimize, and scale what works on social media.
-            </p>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 bg-white text-crimson md:bg-white md:text-crimson text-sm font-medium px-8 py-4 rounded-full hover:bg-white/90 transition-colors"
+            {/* Background video */}
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover"
             >
-              Book a Call
-            </Link>
+              <source src="/videos/hero-vid-small.mp4" type="video/mp4" />
+            </video>
+
+            {/* Crimson gradient overlay — fades from solid center to transparent edges */}
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-crimson to-transparent" />
+            <div className="absolute inset-0 bg-crimson/40" />
+
+            {/* Content */}
+            <div className="relative z-10 p-12 md:p-20 text-center">
+              <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6">
+                Stop Guessing.<br />Start Growing.
+              </h2>
+              <p className="text-white/80 text-base md:text-lg max-w-xl mx-auto mb-8">
+                Work with a team built to test, optimize, and scale what works on social media.
+              </p>
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 bg-white text-crimson text-sm font-medium px-8 py-4 rounded-full hover:bg-white/90 transition-colors"
+              >
+                Book a Call
+              </Link>
+            </div>
           </motion.div>
         </div>
       </section>
