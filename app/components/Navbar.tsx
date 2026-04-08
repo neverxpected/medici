@@ -33,7 +33,7 @@ export default function Navbar() {
   }, []);
 
   // Determine closed background color
-  const closedBg = scrolled ? 'rgba(129, 1, 0, 0.95)' : '#810100';
+  const closedBg = '#810100';
 
   return (
     <>
