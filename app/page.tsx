@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, Variants } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import FaqAccordion from './components/FaqAccordion';
 import PricingPlans from './components/PricingPlans';
@@ -13,13 +13,13 @@ const heroEase = [0.16, 1, 0.3, 1] as const;
 const scrollEase = [0.21, 0.47, 0.32, 0.98] as const;
 
 /* Section-level scroll reveal (y: 40) */
-const fadeUp = {
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: scrollEase } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [...scrollEase] as [number, number, number, number] } },
 };
 
 /* Hero stagger container (above-the-fold, uses animate not whileInView) */
-const staggerContainer = {
+const staggerContainer: Variants = {
   hidden: {},
   visible: {
     transition: { staggerChildren: 0.15 },
@@ -27,15 +27,15 @@ const staggerContainer = {
 };
 
 /* Hero stagger child (0.8s with premium easing) */
-const staggerItem = {
+const staggerItem: Variants = {
   hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: heroEase } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [...heroEase] as [number, number, number, number] } },
 };
 
 /* Card stagger child for grids (0.6s with easeOut) */
-const cardItem = {
+const cardItem: Variants = {
   hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0, 0, 0.58, 1] } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
 };
 
 const viewportConfig = { once: true, margin: '-100px' as const };
