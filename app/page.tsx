@@ -90,10 +90,28 @@ export default function Home() {
         viewport={viewportConfig}
       >
         <div className="max-w-screen-xl mx-auto px-4 md:px-8">
-          <div className="w-full flex flex-row items-center justify-between gap-4 md:gap-12">
+          {/* Mobile: column (rating top, logos bottom) | Desktop: row (logos left, rating right) */}
+          <div className="w-full flex flex-col md:flex-row items-center md:items-center md:justify-between gap-3 md:gap-12">
+
+            {/* Rating - Center on Mobile, Right on Desktop */}
+            <div className="flex flex-col items-center md:items-end text-center md:text-right gap-1 shrink-0 order-1 md:order-2">
+              <span className="text-xs md:text-sm text-black/50 md:text-white/50">
+                Trusted by <span className="font-semibold text-black/80 md:text-white/80">100+</span> businesses
+              </span>
+              <div className="flex items-center justify-center md:justify-end gap-1.5">
+                <div className="flex gap-0.5">
+                  {[...Array(5)].map((_, i) => (
+                    <svg key={i} className="w-3.5 h-3.5 md:w-4 md:h-4 text-crimson" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                  ))}
+                </div>
+                <span className="text-sm md:text-base text-black/90 md:text-white/90 font-semibold">4.9/5</span>
+              </div>
+            </div>
             
-            {/* Ticker - Left */}
-            <div className="w-full flex-1 overflow-hidden relative flex items-center">
+            {/* Ticker - Full width on Mobile, Left on Desktop */}
+            <div className="w-full flex-1 overflow-hidden relative flex items-center order-2 md:order-1">
               <div className="absolute left-0 top-0 bottom-0 w-8 md:w-24 bg-gradient-to-r from-[#F9F9F8] md:from-[#0a0a0a] to-transparent z-10 pointer-events-none" />
               <div className="absolute right-0 top-0 bottom-0 w-8 md:w-24 bg-gradient-to-l from-[#F9F9F8] md:from-[#0a0a0a] to-transparent z-10 pointer-events-none" />
               <div className="flex items-center group">
@@ -124,22 +142,6 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Rating - Right */}
-            <div className="flex flex-col items-end text-right gap-1 shrink-0">
-              <div className="flex items-center justify-end gap-1.5">
-                <div className="flex gap-0.5">
-                  {[...Array(5)].map((_, i) => (
-                    <svg key={i} className="w-3.5 h-3.5 md:w-4 md:h-4 text-crimson" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  ))}
-                </div>
-                <span className="text-sm md:text-base text-black/90 md:text-white/90 font-semibold">4.9/5</span>
-              </div>
-              <span className="text-xs md:text-sm text-black/50 md:text-white/50">
-                Trusted by <span className="font-semibold text-black/80 md:text-white/80">100+</span> businesses
-              </span>
-            </div>
           </div>
         </div>
       </motion.div>
