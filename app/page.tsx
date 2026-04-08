@@ -29,7 +29,7 @@ const staggerItem = {
 
 const viewportConfig = { once: true, margin: '-80px' as const };
 
-const rotatingWords = ['Growth.', 'Revenue.', 'Followers.', 'Results.', 'Sales.'];
+const rotatingWords = ['Traffic.', 'Revenue.', 'Growth.', 'Results.'];
 
 /* ── Data ── */
 const clientLogos = [
@@ -133,7 +133,7 @@ export default function Home() {
                       animate={{ y: 0, opacity: 1 }}
                       exit={{ y: '-100%', opacity: 0 }}
                       transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                      className="inline-block text-[2.6rem] md:text-6xl lg:text-[5.5rem]"
+                      className="inline-block text-[2rem] md:text-6xl lg:text-[5.5rem]"
                     >
                       {rotatingWords[wordIndex]}
                     </motion.span>
@@ -179,7 +179,7 @@ export default function Home() {
                     muted
                     loop
                     playsInline
-                    className="w-full aspect-[3/4] object-cover"
+                    className="w-full aspect-[9/16] object-cover"
                   />
                 </div>
 
@@ -286,9 +286,9 @@ export default function Home() {
               { number: '60+', label: 'Brands served' },
               { number: '50M+', label: 'Views generated' },
             ].map(stat => (
-              <motion.div key={stat.label} variants={staggerItem} className="bg-[#0a0a0a] border border-white/5 rounded-2xl p-6 md:p-8">
-                <span className="text-3xl md:text-5xl font-bold text-white">{stat.number}</span>
-                <span className="block text-white/40 text-sm mt-2">{stat.label}</span>
+              <motion.div key={stat.label} variants={staggerItem} className="bg-white md:bg-[#0a0a0a] border border-gray-200 md:border-white/5 rounded-2xl p-6 md:p-8">
+                <span className="text-3xl md:text-5xl font-bold text-crimson md:text-white">{stat.number}</span>
+                <span className="block text-gray-600 md:text-white/40 text-sm mt-2">{stat.label}</span>
               </motion.div>
             ))}
           </motion.div>
@@ -317,18 +317,18 @@ export default function Home() {
             viewport={viewportConfig}
           >
             {services.map(svc => (
-              <motion.div key={svc.title} variants={staggerItem} className="bg-[#0a0a0a] border border-white/5 rounded-2xl p-8 md:p-10 hover:border-crimson/30 transition-colors duration-300 group">
+              <motion.div key={svc.title} variants={staggerItem} className="bg-white md:bg-[#0a0a0a] border border-gray-200 md:border-white/5 rounded-2xl p-8 md:p-10 hover:border-crimson/30 transition-colors duration-300 group">
                 {/* Icon */}
                 <div className="w-10 h-10 rounded-xl bg-crimson/10 flex items-center justify-center mb-6 group-hover:bg-crimson/20 transition-colors">
                   <div className="w-2.5 h-2.5 rounded-sm bg-crimson" />
                 </div>
-                <h3 className="text-xl md:text-2xl font-semibold text-white mb-3">{svc.title}</h3>
-                <p className="text-white/40 text-sm leading-relaxed mb-6">{svc.desc}</p>
+                <h3 className="text-xl md:text-2xl font-semibold text-crimson md:text-white mb-3">{svc.title}</h3>
+                <p className="text-gray-600 md:text-white/40 text-sm leading-relaxed mb-6">{svc.desc}</p>
                 <ul className="space-y-2.5">
                   {svc.items.map(item => (
                     <li key={item} className="flex items-center gap-3">
                       <span className="w-1 h-1 rounded-full bg-crimson shrink-0" />
-                      <span className="text-sm text-white/60">{item}</span>
+                      <span className="text-sm text-gray-700 md:text-white/60">{item}</span>
                     </li>
                   ))}
                 </ul>
