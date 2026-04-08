@@ -2,13 +2,12 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
-import { useEffect, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useEffect } from 'react';
 import FaqAccordion from './components/FaqAccordion';
 import PricingPlans from './components/PricingPlans';
-import ServicesList from './components/ServicesList';
 
-/* ── Kanso-style animation variants ── */
+/* ── Animation variants ── */
 const ease = [0.16, 1, 0.3, 1] as const;
 
 const fadeUp = {
@@ -19,17 +18,20 @@ const fadeUp = {
 const staggerContainer = {
   hidden: {},
   visible: {
-    transition: { staggerChildren: 0.15 },
+    transition: { staggerChildren: 0.12 },
   },
 };
 
 const staggerItem = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.9, ease } },
+  hidden: { opacity: 0, y: 25 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease } },
 };
 
-const viewportConfig = { once: true, margin: '-100px' as const };
+const viewportConfig = { once: true, margin: '-80px' as const };
 
+const rotatingWords = ['Growth.', 'Revenue.', 'Followers.', 'Results.', 'Sales.'];
+
+/* ── Data ── */
 const clientLogos = [
   { src: '/logos/small (1).png', alt: 'Client 1' },
   { src: '/logos/small (2).png', alt: 'Client 2' },
@@ -39,583 +41,611 @@ const clientLogos = [
   { src: '/logos/small (6).png', alt: 'Client 6' },
 ];
 
+const services = [
+  {
+    title: 'Content Creation',
+    desc: 'Scroll-stopping video content built for TikTok, Reels, and Shorts.',
+    items: ['Concept development', 'Video production', 'Editing & pacing', 'Captions & formatting'],
+  },
+  {
+    title: 'Social Media Strategy',
+    desc: 'A clear plan for what to post, why it works, and how it grows.',
+    items: ['Posting strategy', 'Growth frameworks', 'Trend & research', 'Content planning'],
+  },
+  {
+    title: 'Performance & Optimization',
+    desc: 'Maximize watch time and engagement with content refined through data.',
+    items: ['Engagement analysis', 'Performance reporting', 'Ongoing optimization'],
+  },
+  {
+    title: 'Paid Social Content',
+    desc: 'Ad-ready creatives designed to convert attention into results.',
+    items: ['Paid ads', 'Creative testing', 'Content formats'],
+  },
+];
+
+const caseStudies = [
+  {
+    name: 'Axiom',
+    type: 'Personal Brand Scaling',
+    desc: 'Scaling a founder\'s personal brand using optimized short-form storytelling and content structure.',
+    stat1: { value: '295%', label: 'Increase in average watch time' },
+    stat2: { value: '92%', label: 'Follower growth in 90 days' },
+    img: 'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=800&h=500&fit=crop&q=80',
+  },
+  {
+    name: 'Lunera',
+    type: 'E-commerce Brand Growth',
+    desc: 'Helping a direct-to-consumer skincare brand scale sales through performance-driven short-form content.',
+    stat1: { value: '3.4x', label: 'Increase in average video views' },
+    stat2: { value: '58%', label: 'Growth in social-driven sales' },
+    img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=500&fit=crop&q=80',
+  },
+  {
+    name: 'Flowly',
+    type: 'SaaS Startup Acquisition',
+    desc: 'Driving user acquisition for an early-stage SaaS through educational and problem-driven short-form content.',
+    stat1: { value: '176%', label: 'Increase in organic reach' },
+    stat2: { value: '64%', label: 'Increase in sign-ups from social' },
+    img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop&q=80',
+  },
+];
+
 export default function Home() {
-  const heroVideoRef = useRef<HTMLVideoElement>(null);
+  const [wordIndex, setWordIndex] = useState(0);
 
   useEffect(() => {
-    // Force iOS Safari strict autoplay policies
-    if (heroVideoRef.current) {
-      heroVideoRef.current.defaultMuted = true;
-      heroVideoRef.current.muted = true;
-      heroVideoRef.current.setAttribute('muted', '');
-      heroVideoRef.current.setAttribute('playsinline', '');
-
-      heroVideoRef.current.play().catch(error => {
-        console.log("Video auto-play prevented:", error);
-      });
-    }
+    const interval = setInterval(() => {
+      setWordIndex((prev) => (prev + 1) % rotatingWords.length);
+    }, 2500);
+    return () => clearInterval(interval);
   }, []);
 
   return (
     <>
-      <motion.section
-        className="w-full relative"
-        variants={fadeUp}
-        initial="hidden"
-        whileInView="visible"
-        viewport={viewportConfig}
-      >
-        <div className="w-full h-auto md:h-[75vh] lg:h-[85vh] bg-[#0a0a0a] overflow-hidden relative">
-          <video
-            ref={heroVideoRef}
-            src="/videos/hero-vid-small.mp4"
-            autoPlay
-            loop
-            muted
-            playsInline
-            controls={false}
-            className="w-full h-auto block md:absolute md:inset-0 md:h-full md:object-cover pointer-events-none"
-          />
-        </div>
-      </motion.section>
-
       {/* ═══════════════════════════════════════════════════════════
-          HERO FOOTER BAR — Ticker & Rating
+          SECTION 1 — HERO
       ═══════════════════════════════════════════════════════════ */}
-      <motion.div
-        className="w-full bg-[#F9F9F8] md:bg-[#0a0a0a] py-3 md:py-4 -mt-1 relative z-10"
-        variants={fadeUp}
-        initial="hidden"
-        whileInView="visible"
-        viewport={viewportConfig}
-      >
-        <div className="max-w-screen-xl mx-auto px-4 md:px-8">
-          {/* Mobile: column (rating top, logos bottom) | Desktop: row (logos left, rating right) */}
-          <div className="w-full flex flex-col md:flex-row items-center md:items-center md:justify-between gap-3 md:gap-12">
+      <section className="relative pt-8 md:pt-16 pb-0">
+        <div className="max-w-screen-xl mx-auto px-5 md:px-8">
+          {/* Split layout: text left, image right */}
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 items-center min-h-[60vh] md:min-h-[70vh]"
+            variants={staggerContainer}
+            initial="hidden"
+            animate="visible"
+          >
+            {/* Left — Text */}
+            <div className="text-center md:text-left flex flex-col items-center md:items-start">
 
-            {/* Rating - Center on Mobile, Right on Desktop */}
-            <div className="flex flex-col items-center md:items-end text-center md:text-right gap-1 shrink-0 order-1 md:order-2">
-              <span className="text-xs md:text-sm text-black/50 md:text-white/50">
-                Trusted by <span className="font-semibold text-black/80 md:text-white/80">100+</span> businesses
-              </span>
-              <div className="flex items-center justify-center md:justify-end gap-1.5">
-                <div className="flex gap-0.5">
-                  {[...Array(5)].map((_, i) => (
-                    <svg key={i} className="w-3.5 h-3.5 md:w-4 md:h-4 text-crimson" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  ))}
+
+              <motion.h1
+                variants={staggerItem}
+                className="text-5xl md:text-6xl lg:text-[5.5rem] font-bold tracking-tight leading-[1.05]"
+              >
+                Turn Views<br />
+                Into{' '}
+                <span className="bg-crimson text-white px-4 py-1 rounded-xl inline-flex items-center justify-center overflow-hidden relative w-[200px] md:w-[300px]">
+                  <AnimatePresence mode="wait">
+                    <motion.span
+                      key={rotatingWords[wordIndex]}
+                      initial={{ y: '100%', opacity: 0 }}
+                      animate={{ y: 0, opacity: 1 }}
+                      exit={{ y: '-100%', opacity: 0 }}
+                      transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                      className="inline-block"
+                    >
+                      {rotatingWords[wordIndex]}
+                    </motion.span>
+                  </AnimatePresence>
+                </span>
+              </motion.h1>
+
+              <motion.p
+                variants={staggerItem}
+                className="text-white/50 text-base md:text-lg mt-6 max-w-md leading-relaxed mx-auto md:mx-0"
+              >
+                We&apos;re a social-first marketing agency focused on short-form content that captures attention and drives real growth.
+              </motion.p>
+
+              {/* CTAs */}
+              <motion.div variants={staggerItem} className="flex flex-col md:flex-row items-center justify-center md:justify-start gap-3 md:gap-4 mt-8 w-full md:w-auto">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center justify-center gap-2 bg-white text-black text-sm font-medium px-7 py-3.5 rounded-full hover:bg-white/90 transition-colors w-full md:w-auto"
+                >
+                  Book a Call
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </Link>
+                <Link
+                  href="#pricing"
+                  className="border border-white/20 text-white text-sm font-medium px-7 py-3.5 rounded-full hover:bg-white/5 transition-colors text-center w-full md:w-auto"
+                >
+                  See Pricing
+                </Link>
+              </motion.div>
+            </div>
+
+            {/* Right — Image with floating badges */}
+            <motion.div variants={staggerItem} className="relative flex justify-center md:justify-end">
+              <div className="relative w-[280px] md:w-[380px] lg:w-[420px]">
+                {/* Main image */}
+                <div className="rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl shadow-black/50 border border-white/5">
+                  <video
+                    src="/videos/Intro Video HD.mov"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="w-full aspect-[3/4] object-cover"
+                  />
                 </div>
-                <span className="text-sm md:text-base text-black/90 md:text-white/90 font-semibold">4.9/5</span>
+
+                {/* Floating badges — top */}
+                <div className="absolute -top-2 -left-2 md:top-6 md:-left-4 flex flex-col gap-2 z-10">
+                  <span className="bg-white/10 backdrop-blur-xl text-white text-[11px] md:text-xs px-4 py-2.5 rounded-xl border border-white/10 shadow-lg">
+                    Social Media Content
+                  </span>
+                  <span className="bg-white/10 backdrop-blur-xl text-white text-[11px] md:text-xs px-4 py-2.5 rounded-xl border border-white/10 shadow-lg">
+                    Marketing Strategies
+                  </span>
+                </div>
+
+                {/* Floating badges — bottom */}
+                <div className="absolute -bottom-2 -right-2 md:bottom-12 md:-right-4 flex flex-col gap-2 items-end z-10">
+                  <span className="bg-white/10 backdrop-blur-xl text-white text-[11px] md:text-xs px-4 py-2.5 rounded-xl border border-white/10 shadow-lg">
+                    Performance Analysis
+                  </span>
+                  <span className="bg-white/10 backdrop-blur-xl text-white text-[11px] md:text-xs px-4 py-2.5 rounded-xl border border-white/10 shadow-lg">
+                    Paid Social Content
+                  </span>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+
+          {/* ─── Trust bar ─── */}
+          <motion.div
+            className="mt-4 md:mt-6 flex flex-col md:flex-row items-center justify-between gap-4 md:gap-8 py-4 border-t border-white/5"
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
+          >
+            {/* Avatars + Rating */}
+            <div className="flex items-center gap-3 shrink-0">
+              <div className="flex -space-x-2.5">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop&crop=face" alt="" className="w-8 h-8 rounded-full border-2 border-black object-cover" />
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face" alt="" className="w-8 h-8 rounded-full border-2 border-black object-cover" />
+                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&crop=face" alt="" className="w-8 h-8 rounded-full border-2 border-black object-cover" />
+              </div>
+              <div className="flex flex-col">
+                <div className="flex items-center gap-1.5">
+                  <div className="flex gap-0.5">
+                    {[...Array(5)].map((_, i) => (
+                      <svg key={i} className="w-3 h-3 text-crimson" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                    ))}
+                  </div>
+                  <span className="text-xs text-white/80 font-semibold">4.9/5</span>
+                </div>
+                <span className="text-[10px] text-white/40">60+ Trusted Partners</span>
               </div>
             </div>
-            
-            {/* Ticker - Full width on Mobile, Left on Desktop */}
-            <div className="w-full flex-1 overflow-hidden relative flex items-center order-2 md:order-1">
-              <div className="absolute left-0 top-0 bottom-0 w-8 md:w-24 bg-gradient-to-r from-[#F9F9F8] md:from-[#0a0a0a] to-transparent z-10 pointer-events-none" />
-              <div className="absolute right-0 top-0 bottom-0 w-8 md:w-24 bg-gradient-to-l from-[#F9F9F8] md:from-[#0a0a0a] to-transparent z-10 pointer-events-none" />
-              <div className="flex items-center group">
+
+            {/* Logo ticker */}
+            <div className="flex-1 overflow-hidden relative flex items-center">
+              <div className="absolute left-0 top-0 bottom-0 w-8 md:w-16 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none" />
+              <div className="absolute right-0 top-0 bottom-0 w-8 md:w-16 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none" />
+              <div className="flex items-center">
                 <div className="flex flex-nowrap animate-marquee shrink-0 items-center">
                   {clientLogos.map((logo, i) => (
-                    <Image
-                      key={`logo-a-${i}`}
-                      src={logo.src}
-                      alt={logo.alt}
-                      width={400}
-                      height={130}
-                      className="h-14 md:h-12 w-auto object-contain md:brightness-0 md:invert opacity-60 hover:opacity-100 transition-opacity duration-300 shrink-0 mx-4 md:mx-6"
-                    />
+                    <Image key={`a-${i}`} src={logo.src} alt={logo.alt} width={400} height={130} className="h-7 md:h-10 w-auto object-contain brightness-0 invert opacity-40 shrink-0 mx-4 md:mx-6" />
                   ))}
                 </div>
                 <div className="flex flex-nowrap animate-marquee shrink-0 items-center" aria-hidden="true">
                   {clientLogos.map((logo, i) => (
-                    <Image
-                      key={`logo-b-${i}`}
-                      src={logo.src}
-                      alt={logo.alt}
-                      width={400}
-                      height={130}
-                      className="h-14 md:h-12 w-auto object-contain md:brightness-0 md:invert opacity-60 hover:opacity-100 transition-opacity duration-300 shrink-0 mx-4 md:mx-6"
-                    />
+                    <Image key={`b-${i}`} src={logo.src} alt={logo.alt} width={400} height={130} className="h-7 md:h-10 w-auto object-contain brightness-0 invert opacity-40 shrink-0 mx-4 md:mx-6" />
                   ))}
                 </div>
               </div>
             </div>
-
-          </div>
-        </div>
-      </motion.div>
-
-      <div className="relative max-w-screen-xl mx-auto px-4 md:px-8">
-
-        {/* ═══════════════════════════════════════════════════════════
-          SECTION 3 — ABOUT
-      ═══════════════════════════════════════════════════════════ */}
-        <section className="py-10 md:py-36">
-          {/* Label row */}
-          <motion.div
-            className="flex items-center justify-between mb-12"
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={viewportConfig}
-          >
-            <span className="text-crimson text-sm">
-              <span className="mr-1">//</span> About us
-            </span>
-            <span className="text-[#6B6B6B] text-sm">(01)</span>
           </motion.div>
+        </div>
+      </section>
 
-          {/* Split headline — staggered reveal */}
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={viewportConfig}
-          >
-            <motion.h2
-              variants={staggerItem}
-              className="font-serif text-3xl md:text-[2.75rem] lg:text-5xl leading-[1.2] tracking-[-0.01em] max-w-4xl"
-            >
-              <span className="text-crimson font-medium">
-                We believe social media marketing is more than just strategy
-              </span>
-              {' — '}
-              <span className="text-[#6B6B6B] font-light">
-                it&apos;s an art form that shapes how brands connect with the world.
-              </span>
+      {/* ═══════════════════════════════════════════════════════════
+          SECTION 2 — WHO WE ARE
+      ═══════════════════════════════════════════════════════════ */}
+      <section className="py-20 md:py-32">
+        <div className="max-w-screen-xl mx-auto px-5 md:px-8">
+          <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={viewportConfig}>
+            <motion.span variants={staggerItem} className="inline-flex items-center gap-2 bg-white/5 text-white/60 text-xs font-medium px-4 py-1.5 rounded-full border border-white/10 mb-8">
+              Who we are
+            </motion.span>
+
+            <motion.h2 variants={staggerItem} className="text-2xl md:text-4xl lg:text-5xl font-bold leading-tight max-w-4xl mb-16">
+              Medici Social helps brands grow through{' '}
+              <span className="text-white/40">performance-driven short-form content built for today&apos;s social platforms.</span>
             </motion.h2>
           </motion.div>
 
-          {/* Stats ticker row */}
+          {/* Stats grid */}
           <motion.div
-            className="mt-16 md:mt-24 flex flex-col md:flex-row md:items-start md:justify-between gap-8 border-t border-gray-200 pt-10"
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={viewportConfig}
-          >
-            <div className="flex-1 overflow-hidden">
-              <div className="flex whitespace-nowrap animate-stats-marquee">
-                {[...Array(2)].map((_, i) => (
-                  <span key={i} className="text-[#6B6B6B] text-sm tracking-wide mr-4">
-                    15+ Brands Elevated &nbsp;/&nbsp; 100% Client Retention &nbsp;/&nbsp; 5+ Years Experience &nbsp;/&nbsp; 140+ Campaigns Delivered &nbsp;/&nbsp; 97% Client Satisfaction &nbsp;/&nbsp;&nbsp;
-                  </span>
-                ))}
-              </div>
-            </div>
-            <p className="text-[#6B6B6B] text-sm leading-relaxed max-w-sm shrink-0 md:text-right">
-              Our studio is dedicated to crafting compelling,
-              purposeful strategies that cut through the noise.
-            </p>
-          </motion.div>
-        </section>
-
-        {/* ═══════════════════════════════════════════════════════════
-          SECTION 4 — SHOWREEL / VIDEO
-      ═══════════════════════════════════════════════════════════ */}
-        <motion.section
-          className="pb-4"
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewportConfig}
-        >
-          <div className="w-full h-[40vh] md:h-[70vh] rounded-2xl overflow-hidden relative">
-            <img
-              src="https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=1400&auto=format&fit=crop"
-              alt="Medici Social showreel"
-              className="w-full h-full object-cover"
-              style={{ filter: 'grayscale(100%)' }}
-            />
-            <div className="absolute inset-0 bg-black/20 pointer-events-none" />
-            <div className="absolute bottom-6 left-0 right-0 text-center">
-              <span className="text-white/50 text-xs tracking-wider">© 2025 Medici Social</span>
-            </div>
-          </div>
-        </motion.section>
-
-        {/* ═══════════════════════════════════════════════════════════
-          SECTION 5 — SELECTED WORK
-      ═══════════════════════════════════════════════════════════ */}
-        <section className="py-24 md:py-36">
-          {/* Header row — staggered */}
-          <motion.div
-            className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-16"
+            className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8"
             variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
             viewport={viewportConfig}
           >
-            <div>
-              <motion.span variants={staggerItem} className="text-crimson text-sm mb-4 block">
-                <span className="mr-1">//</span> Selected Work
-              </motion.span>
-              <motion.h2 variants={staggerItem} className="font-serif text-4xl md:text-5xl lg:text-6xl font-medium tracking-[-0.01em] text-crimson">
-                Selected Work.
-              </motion.h2>
-              <motion.p variants={staggerItem} className="text-[#6B6B6B] text-sm leading-relaxed max-w-sm mt-4">
-                A curated selection of projects that reflect our
-                commitment to purposeful, elevated brand storytelling.
-              </motion.p>
-            </div>
-            <motion.div variants={staggerItem}>
-              <Link
-                href="/services"
-                className="inline-flex items-center gap-2 border border-gray-300 text-[#121212] text-sm font-medium px-6 py-2.5 rounded-full hover:bg-gray-100 transition-colors duration-200 self-start md:self-auto"
-              >
-                View all projects
-                <span className="text-lg">+</span>
-              </Link>
-            </motion.div>
+            {[
+              { number: '5+', label: 'Years of experience' },
+              { number: '140+', label: 'Campaigns launched' },
+              { number: '60+', label: 'Brands served' },
+              { number: '50M+', label: 'Views generated' },
+            ].map(stat => (
+              <motion.div key={stat.label} variants={staggerItem} className="bg-[#0a0a0a] border border-white/5 rounded-2xl p-6 md:p-8">
+                <span className="text-3xl md:text-5xl font-bold text-white">{stat.number}</span>
+                <span className="block text-white/40 text-sm mt-2">{stat.label}</span>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════════
+          SECTION 3 — SERVICES
+      ═══════════════════════════════════════════════════════════ */}
+      <section className="py-20 md:py-32">
+        <div className="max-w-screen-xl mx-auto px-5 md:px-8">
+          <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={viewportConfig} className="mb-14 md:mb-20">
+            <motion.span variants={staggerItem} className="inline-flex items-center gap-2 bg-white/5 text-white/60 text-xs font-medium px-4 py-1.5 rounded-full border border-white/10 mb-6">
+              Services
+            </motion.span>
+            <motion.h2 variants={staggerItem} className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight">
+              We help brands grow through short-form content.
+            </motion.h2>
           </motion.div>
 
-          {/* Project Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-2 gap-6"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportConfig}
+          >
+            {services.map(svc => (
+              <motion.div key={svc.title} variants={staggerItem} className="bg-[#0a0a0a] border border-white/5 rounded-2xl p-8 md:p-10 hover:border-crimson/30 transition-colors duration-300 group">
+                {/* Icon */}
+                <div className="w-10 h-10 rounded-xl bg-crimson/10 flex items-center justify-center mb-6 group-hover:bg-crimson/20 transition-colors">
+                  <div className="w-2.5 h-2.5 rounded-sm bg-crimson" />
+                </div>
+                <h3 className="text-xl md:text-2xl font-semibold text-white mb-3">{svc.title}</h3>
+                <p className="text-white/40 text-sm leading-relaxed mb-6">{svc.desc}</p>
+                <ul className="space-y-2.5">
+                  {svc.items.map(item => (
+                    <li key={item} className="flex items-center gap-3">
+                      <span className="w-1 h-1 rounded-full bg-crimson shrink-0" />
+                      <span className="text-sm text-white/60">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════════
+          SECTION 4 — PROCESS
+      ═══════════════════════════════════════════════════════════ */}
+      <section className="py-20 md:py-32">
+        <div className="max-w-screen-xl mx-auto px-5 md:px-8">
+          <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={viewportConfig} className="mb-14 md:mb-20">
+            <motion.span variants={staggerItem} className="inline-flex items-center gap-2 bg-white/5 text-white/60 text-xs font-medium px-4 py-1.5 rounded-full border border-white/10 mb-6">
+              Process
+            </motion.span>
+            <motion.h2 variants={staggerItem} className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight">
+              A streamlined process built for consistent performance.
+            </motion.h2>
+          </motion.div>
+
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportConfig}
+          >
             {[
               {
-                name: 'Suntory',
-                category: 'Social Campaign',
-                year: '2024',
-                img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1000&auto=format&fit=crop&sat=-100',
+                step: '01',
+                title: 'Define the Hook',
+                desc: 'We identify your audience and the content angles that capture attention.',
               },
               {
-                name: 'Dobel',
-                category: 'Brand Content',
-                year: '2024',
-                img: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=1000&auto=format&fit=crop&sat=-100',
+                step: '02',
+                title: 'Create & Distribute',
+                desc: 'We produce high-impact short-form content, optimized for engagement.',
               },
               {
-                name: "Landry's",
-                category: 'Content Strategy',
-                year: '2023',
-                img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1000&auto=format&fit=crop&sat=-100',
+                step: '03',
+                title: 'Analyze & Scale',
+                desc: 'We track performance and scale winning formats to drive growth.',
               },
-              {
-                name: 'Le Ciel',
-                category: 'Visual Direction',
-                year: '2023',
-                img: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000&auto=format&fit=crop&sat=-100',
-              },
-            ].map((project) => (
-              <div
-                key={project.name}
-                className="group cursor-pointer rounded-2xl bg-[#EEEEEE] hover:bg-[#121212] p-3 pb-4 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]"
-              >
-                <div className="aspect-[4/3] rounded-xl overflow-hidden border-2 border-transparent group-hover:border-gray-700 transition-all duration-500">
-                  <img
-                    src={project.img}
-                    alt={`${project.name} — ${project.category}`}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-                <div className="flex items-baseline justify-between mt-3 px-1">
-                  <div>
-                    <h3 className="text-base font-semibold text-[#121212] group-hover:text-white transition-colors duration-500">
-                      {project.name}
-                    </h3>
-                    <span className="text-[#6B6B6B] text-sm group-hover:text-gray-500 transition-colors duration-500">{project.category}</span>
-                  </div>
-                  <span className="text-[#6B6B6B] text-sm group-hover:text-gray-500 transition-colors duration-500">{project.year}</span>
-                </div>
-              </div>
+            ].map(step => (
+              <motion.div key={step.step} variants={staggerItem} className="bg-[#0a0a0a] border border-white/5 rounded-2xl p-8 md:p-10">
+                <span className="text-crimson text-sm font-mono font-bold mb-6 block">{step.step}</span>
+                <h3 className="text-xl md:text-2xl font-semibold text-white mb-3">{step.title}</h3>
+                <p className="text-white/40 text-sm leading-relaxed">{step.desc}</p>
+              </motion.div>
             ))}
-          </div>
-        </section>
-
-        {/* ═══════════════════════════════════════════════════════════
-          SECTION 6 — WHY US (BENTO GRID)
-      ═══════════════════════════════════════════════════════════ */}
-        <section className="py-24 md:py-36">
-          {/* Header — staggered */}
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={viewportConfig}
-          >
-            <motion.div variants={staggerItem} className="flex items-center justify-between mb-12">
-              <span className="text-crimson text-sm">
-                <span className="mr-1">//</span> Why us
-              </span>
-              <span className="text-[#6B6B6B] text-sm">(03)</span>
-            </motion.div>
-
-            <motion.h2 variants={staggerItem} className="font-serif text-3xl md:text-[2.75rem] lg:text-5xl leading-[1.2] tracking-[-0.01em] max-w-4xl mb-16">
-              <span className="text-crimson font-medium">
-                We cut through noise to create campaigns
-              </span>
-              {' '}
-              <span className="text-[#6B6B6B] font-light">
-                that are thoughtful, timeless, and impactful.
-              </span>
-            </motion.h2>
           </motion.div>
+        </div>
+      </section>
 
-          {/* Bento Grid — staggered cards */}
+      {/* ═══════════════════════════════════════════════════════════
+          SECTION 5 — TESTIMONIAL QUOTE
+      ═══════════════════════════════════════════════════════════ */}
+      <section className="py-20 md:py-32">
+        <div className="max-w-screen-xl mx-auto px-5 md:px-8">
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 auto-rows-auto"
-            variants={staggerContainer}
+            className="bg-[#0a0a0a] border border-white/5 rounded-3xl p-8 md:p-16 text-center"
+            variants={fadeUp}
             initial="hidden"
             whileInView="visible"
             viewport={viewportConfig}
           >
-            {/* CARD 1 */}
-            <motion.div variants={staggerItem} className="lg:row-span-2 bg-[#EEEEEE] border border-gray-200/50 rounded-xl p-6 flex flex-col justify-between min-h-[320px] lg:min-h-0">
-              <div>
-                <h3 className="text-xl font-semibold text-[#121212] mb-4 leading-snug">
-                  Purposeful Strategy for Modern Brands
-                </h3>
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {['Collaborative', 'Quick turnaround', 'Clear communication', 'Quality'].map((tag) => (
-                    <span key={tag} className="text-xs text-[#6B6B6B] bg-[#F9F9F8] border border-gray-200/50 px-3 py-1.5 rounded-full">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-              <Link href="/contact" className="inline-flex items-center justify-center bg-[#121212] text-white text-sm font-medium px-6 py-3 rounded-full hover:bg-black/80 transition-colors duration-200 w-full">
-                Get started
-              </Link>
-            </motion.div>
-
-            {/* CARD 2 */}
-            <motion.div variants={staggerItem} className="bg-[#EEEEEE] border border-gray-200/50 rounded-xl p-6 flex flex-col items-start justify-center min-h-[160px]">
-              <div className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center mb-4">
-                <svg className="w-5 h-5 text-[#121212]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 18.75h-9m9 0a3 3 0 013 3h-15a3 3 0 013-3m9 0v-4.5A3.375 3.375 0 0019.875 10.875 3.375 3.375 0 0016.5 7.5h0A3.375 3.375 0 0013.125 4.125 3.375 3.375 0 009.75 7.5h0A3.375 3.375 0 006.375 10.875 3.375 3.375 0 003 14.25v4.5" />
-                </svg>
-              </div>
-              <span className="text-4xl font-bold text-[#121212]">15+</span>
-              <span className="text-[#6B6B6B] text-sm mt-1">Happy clients</span>
-            </motion.div>
-
-            {/* CARD 3 */}
-            <motion.div variants={staggerItem} className="bg-[#EEEEEE] border border-gray-200/50 rounded-xl p-6 flex flex-col justify-between min-h-[160px]">
-              <div>
-                <div className="flex gap-0.5 mb-3">
-                  {[...Array(5)].map((_, i) => (
-                    <svg key={i} className="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  ))}
-                </div>
-                <p className="text-sm text-gray-600 leading-relaxed">
-                  &ldquo;Medici Social transformed our brands presence. Their strategy was precise
-                  and their execution flawless.&rdquo;
-                </p>
-              </div>
-              <span className="text-xs text-[#6B6B6B] mt-4">— Alex Rivera, CEO at Le Ciel</span>
-            </motion.div>
-
-            {/* CARD 4 */}
-            <motion.div variants={staggerItem} className="bg-[#EEEEEE] border border-gray-200/50 rounded-xl p-6 flex flex-col justify-between min-h-[160px]">
-              <div className="mb-4">
-                <h4 className="text-sm font-semibold text-[#121212] mb-1">Streamlined Process</h4>
-                <p className="text-xs text-[#6B6B6B] leading-relaxed">
-                  From brief to launch, our workflow is optimized for speed and clarity.
-                </p>
-              </div>
-              <div className="pt-4 border-t border-gray-200/50">
-                <h4 className="text-sm font-semibold text-[#121212] mb-1">Scalable Design</h4>
-                <p className="text-xs text-[#6B6B6B] leading-relaxed">
-                  Systems built to grow with your brand across every platform.
-                </p>
-              </div>
-            </motion.div>
-
-            {/* CARD 5 */}
-            <motion.div variants={staggerItem} className="bg-[#EEEEEE] border border-gray-200/50 rounded-xl p-6 flex flex-col justify-center min-h-[160px]">
-              <div className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center mb-4">
-                <svg className="w-5 h-5 text-[#121212]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 01-.825-.242m9.345-8.334a2.126 2.126 0 00-.476-.095 48.64 48.64 0 00-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0011.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155" />
-                </svg>
-              </div>
-              <h4 className="text-sm font-semibold text-[#121212] mb-1">Dedicated Support</h4>
-              <p className="text-xs text-[#6B6B6B] leading-relaxed">
-                Your dedicated team available whenever you need, with transparent communication at every step.
-              </p>
-            </motion.div>
-
-            {/* CARD 6 */}
-            <motion.div variants={staggerItem} className="lg:col-span-2 bg-[#121212] rounded-xl p-6 md:p-8 flex items-center justify-between min-h-[160px] overflow-hidden relative">
-              <div className="z-10">
-                <h3 className="text-white text-2xl md:text-3xl font-serif font-medium leading-tight">
-                  Design with intent.
-                </h3>
-                <p className="text-gray-500 text-sm mt-2">
-                  No excess, no fluff.
-                </p>
-              </div>
-              <div className="w-24 h-24 md:w-32 md:h-32 rounded-xl overflow-hidden opacity-60 shrink-0 ml-6">
-                <img
-                  src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=200&h=200&fit=crop"
-                  alt="Design abstract"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </motion.div>
+            <blockquote className="text-xl md:text-3xl lg:text-4xl font-medium text-white leading-snug max-w-4xl mx-auto">
+              &ldquo;We struggled to turn social content into a reliable growth channel. Medici Social changed that by focusing on performance, testing, and optimization.&rdquo;
+            </blockquote>
+            <div className="mt-8">
+              <span className="text-white font-semibold text-sm">Michael Perry</span>
+              <span className="text-white/40 text-sm ml-2">— Marketing Director</span>
+            </div>
           </motion.div>
-        </section>
+        </div>
+      </section>
 
-        {/* ═══════════════════════════════════════════════════════════
-          SECTION 7 — SERVICES
+      {/* ═══════════════════════════════════════════════════════════
+          SECTION 6 — CASE STUDIES
       ═══════════════════════════════════════════════════════════ */}
-        <motion.section
-          className="py-24 md:py-36"
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewportConfig}
-        >
-          <ServicesList />
-        </motion.section>
-
-        {/* ═══════════════════════════════════════════════════════════
-          SECTION 8 — PRICING PLANS
-      ═══════════════════════════════════════════════════════════ */}
-        <section className="py-24 md:py-36">
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={viewportConfig}
-          >
-            <motion.div variants={staggerItem} className="flex items-center justify-between mb-6">
-              <span className="text-crimson text-sm">
-                <span className="mr-1">//</span> Pricing
-              </span>
-              <span className="text-[#6B6B6B] text-sm">(06)</span>
-            </motion.div>
-
-            <motion.h2 variants={staggerItem} className="font-serif text-4xl md:text-5xl lg:text-6xl font-medium tracking-[-0.01em] text-crimson mb-4">
-              Pricing Plans.
+      <section className="py-20 md:py-32">
+        <div className="max-w-screen-xl mx-auto px-5 md:px-8">
+          <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={viewportConfig} className="mb-14 md:mb-20">
+            <motion.span variants={staggerItem} className="inline-flex items-center gap-2 bg-white/5 text-white/60 text-xs font-medium px-4 py-1.5 rounded-full border border-white/10 mb-6">
+              Case studies
+            </motion.span>
+            <motion.h2 variants={staggerItem} className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight">
+              Work That Delivers Results.
             </motion.h2>
-            <motion.p variants={staggerItem} className="text-[#6B6B6B] text-sm leading-relaxed max-w-sm mb-12">
-              Transparent pricing tailored to your brand&apos;s
-              growth stage and creative needs.
+            <motion.p variants={staggerItem} className="text-white/40 text-base mt-4 max-w-xl">
+              Medici Social helps brands grow through social-first strategies.
             </motion.p>
           </motion.div>
 
           <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={viewportConfig}
-          >
-            <PricingPlans />
-          </motion.div>
-        </section>
-
-        {/* ═══════════════════════════════════════════════════════════
-          SECTION 9 — FAQs
-      ═══════════════════════════════════════════════════════════ */}
-        <section className="py-24 md:py-36">
-          <motion.div
-            className="flex items-center justify-between mb-12"
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={viewportConfig}
-          >
-            <span className="text-crimson text-sm">
-              <span className="mr-1">//</span> FAQs
-            </span>
-            <span className="text-[#6B6B6B] text-sm">(08)</span>
-          </motion.div>
-
-          <motion.div
-            className="flex flex-col lg:flex-row gap-16 lg:gap-20"
+            className="grid grid-cols-1 gap-8"
             variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
             viewport={viewportConfig}
           >
-            {/* Left side */}
-            <motion.div variants={staggerItem} className="lg:max-w-sm shrink-0">
-              <h2 className="font-serif text-3xl md:text-4xl lg:text-[2.75rem] font-medium tracking-[-0.01em] text-crimson leading-tight">
-                Wondering How We Work?
-              </h2>
-              <p className="text-[#6B6B6B] text-sm leading-relaxed mt-6 max-w-xs">
-                Answers to common questions about
-                our process, services, and how we work.
-              </p>
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 border border-gray-300 text-[#121212] text-sm font-medium px-6 py-2.5 rounded-full hover:bg-gray-100 transition-colors duration-200 mt-8"
-              >
-                Contact us
-                <span className="text-lg">+</span>
-              </Link>
-            </motion.div>
-
-            {/* Right side — Accordion */}
-            <motion.div variants={staggerItem} className="flex-1 border-t border-gray-200">
-              <FaqAccordion />
-            </motion.div>
+            {caseStudies.map(cs => (
+              <motion.div key={cs.name} variants={staggerItem} className="bg-[#0a0a0a] border border-white/5 rounded-2xl overflow-hidden group hover:border-crimson/20 transition-colors duration-300">
+                <div className="grid grid-cols-1 md:grid-cols-2">
+                  <div className="aspect-[4/3] md:aspect-auto overflow-hidden">
+                    <img src={cs.img} alt={cs.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                  </div>
+                  <div className="p-8 md:p-10 flex flex-col justify-center">
+                    <h3 className="text-2xl md:text-3xl font-bold text-white mb-1">{cs.name}.</h3>
+                    <span className="text-crimson text-sm font-medium mb-4">{cs.type}.</span>
+                    <p className="text-white/40 text-sm leading-relaxed mb-8">{cs.desc}</p>
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="bg-white/5 rounded-xl p-4">
+                        <span className="text-2xl md:text-3xl font-bold text-white">{cs.stat1.value}</span>
+                        <span className="block text-white/40 text-xs mt-1">{cs.stat1.label}</span>
+                      </div>
+                      <div className="bg-white/5 rounded-xl p-4">
+                        <span className="text-2xl md:text-3xl font-bold text-white">{cs.stat2.value}</span>
+                        <span className="block text-white/40 text-xs mt-1">{cs.stat2.label}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
           </motion.div>
-        </section>
-
-      </div>
-      {/* END BOXED CONTAINER */}
+        </div>
+      </section>
 
       {/* ═══════════════════════════════════════════════════════════
-        SECTION 10 — CTA CLOSING (Full-width, outside boxed layout)
-    ═══════════════════════════════════════════════════════════ */}
-      <motion.section
-        className="bg-crimson py-5 md:py-10 px-4 md:px-10"
-        variants={fadeUp}
-        initial="hidden"
-        whileInView="visible"
-        viewport={viewportConfig}
-      >
-        <motion.div
-          className="max-w-3xl mx-auto text-center"
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewportConfig}
-        >
-          <motion.img
-            variants={staggerItem}
-            src="/images/medici slim.png"
-            alt="Medici Social"
-            className="w-48 md:w-72 mx-auto mb-2"
-          />
-
-          <motion.div variants={staggerItem} className="flex items-center justify-center gap-4 mb-6">
-            <a href="https://www.facebook.com/medicisocial" target="_blank" rel="noopener noreferrer" className="text-white hover:text-white/70 transition-colors" aria-label="Facebook">
-              <svg fill="currentColor" viewBox="0 0 24 24" className="w-6 h-6">
-                <path fillRule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clipRule="evenodd" />
-              </svg>
-            </a>
-            <a href="https://www.instagram.com/medicisocial" target="_blank" rel="noopener noreferrer" className="text-white hover:text-white/70 transition-colors" aria-label="Instagram">
-              <svg fill="currentColor" viewBox="0 0 24 24" className="w-6 h-6">
-                <path fillRule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clipRule="evenodd" />
-              </svg>
-            </a>
+          SECTION 7 — WHY US (COMPARISON TABLE)
+      ═══════════════════════════════════════════════════════════ */}
+      <section className="py-20 md:py-32">
+        <div className="max-w-screen-xl mx-auto px-5 md:px-8">
+          <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={viewportConfig} className="mb-14 md:mb-20">
+            <motion.span variants={staggerItem} className="inline-flex items-center gap-2 bg-white/5 text-white/60 text-xs font-medium px-4 py-1.5 rounded-full border border-white/10 mb-6">
+              Why us
+            </motion.span>
+            <motion.h2 variants={staggerItem} className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight">
+              A better approach to social growth.
+            </motion.h2>
           </motion.div>
 
-          <motion.h2 variants={staggerItem} className="font-serif text-3xl md:text-5xl lg:text-6xl font-medium tracking-[-0.02em] text-white leading-tight">
-            Ready to elevate
-            <br />
-            your brand?
-          </motion.h2>
-          <motion.p variants={staggerItem} className="text-white/60 text-sm md:text-lg mt-3 md:mt-5">
-            Let&apos;s create something extraordinary together.
-          </motion.p>
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-2 gap-6"
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportConfig}
+          >
+            {/* Medici column */}
+            <div className="bg-crimson/10 border border-crimson/20 rounded-2xl p-8 md:p-10">
+              <h3 className="text-xl font-bold text-crimson mb-8">Medici Social</h3>
+              {[
+                'Social-first, platform-native',
+                'Performance & growth',
+                'Strategy + execution combined',
+                'Fast testing & iteration',
+                'Continuous improvement',
+              ].map(item => (
+                <div key={item} className="flex items-center gap-3 py-3 border-b border-crimson/10 last:border-0">
+                  <svg className="w-4 h-4 text-crimson shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-sm text-white/80">{item}</span>
+                </div>
+              ))}
+            </div>
 
-          <motion.div variants={staggerItem} className="flex items-center justify-center mt-6 md:mt-8">
+            {/* Others column */}
+            <div className="bg-[#0a0a0a] border border-white/5 rounded-2xl p-8 md:p-10">
+              <h3 className="text-xl font-bold text-white/40 mb-8">Other Agencies</h3>
+              {[
+                'Repurposed or generic',
+                'Aesthetics & vanity metrics',
+                'Often separated',
+                'Slow turnaround',
+                'One-off delivery',
+              ].map(item => (
+                <div key={item} className="flex items-center gap-3 py-3 border-b border-white/5 last:border-0">
+                  <svg className="w-4 h-4 text-white/20 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                  <span className="text-sm text-white/40">{item}</span>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════════
+          SECTION 8 — PRICING
+      ═══════════════════════════════════════════════════════════ */}
+      <section id="pricing" className="py-20 md:py-32">
+        <div className="max-w-screen-xl mx-auto px-5 md:px-8">
+          <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={viewportConfig} className="mb-14 md:mb-20">
+            <motion.span variants={staggerItem} className="inline-flex items-center gap-2 bg-white/5 text-white/60 text-xs font-medium px-4 py-1.5 rounded-full border border-white/10 mb-6">
+              Pricing
+            </motion.span>
+            <motion.h2 variants={staggerItem} className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight">
+              Simple & Flexible Pricing.
+            </motion.h2>
+            <motion.p variants={staggerItem} className="text-white/40 text-base mt-4 max-w-xl">
+              Choose a plan that fits how you work.
+            </motion.p>
+          </motion.div>
+
+          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={viewportConfig}>
+            <PricingPlans />
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════════
+          SECTION 9 — FAQ
+      ═══════════════════════════════════════════════════════════ */}
+      <section className="py-20 md:py-32">
+        <div className="max-w-screen-xl mx-auto px-5 md:px-8">
+          <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={viewportConfig} className="mb-14 md:mb-20">
+            <motion.span variants={staggerItem} className="inline-flex items-center gap-2 bg-white/5 text-white/60 text-xs font-medium px-4 py-1.5 rounded-full border border-white/10 mb-6">
+              FAQ
+            </motion.span>
+            <motion.h2 variants={staggerItem} className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight">
+              Got Questions?
+            </motion.h2>
+            <motion.p variants={staggerItem} className="text-white/40 text-base mt-4 max-w-xl">
+              Everything you need to know before working with us.
+            </motion.p>
+          </motion.div>
+
+          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={viewportConfig} className="max-w-3xl">
+            <FaqAccordion />
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════════
+          SECTION 10 — FINAL CTA
+      ═══════════════════════════════════════════════════════════ */}
+      <section className="py-20 md:py-32">
+        <div className="max-w-screen-xl mx-auto px-5 md:px-8">
+          <motion.div
+            className="bg-[#0a0a0a] border border-white/5 rounded-3xl p-10 md:p-20 text-center"
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportConfig}
+          >
+            <span className="inline-flex items-center gap-2 bg-crimson/10 border border-crimson/20 text-crimson text-xs font-medium px-4 py-1.5 rounded-full mb-6">
+              3 spots available
+            </span>
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6">
+              Stop Guessing.<br />Start Growing.
+            </h2>
+            <p className="text-white/40 text-base md:text-lg max-w-xl mx-auto mb-8">
+              Work with a team built to test, optimize, and scale what works on social media.
+            </p>
             <Link
               href="/contact"
-              className="bg-white text-crimson text-sm font-medium px-8 py-3 rounded-full hover:bg-gray-100 transition-colors duration-200"
+              className="inline-flex items-center gap-2 bg-crimson text-white text-sm font-medium px-8 py-4 rounded-full hover:bg-crimson/90 transition-colors"
             >
-              Book a Consultation
+              Book a Call
             </Link>
           </motion.div>
-        </motion.div>
-      </motion.section>
+        </div>
+      </section>
 
+      {/* ═══════════════════════════════════════════════════════════
+          FOOTER
+      ═══════════════════════════════════════════════════════════ */}
+      <footer className="border-t border-white/5 py-12 md:py-16">
+        <div className="max-w-screen-xl mx-auto px-5 md:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-8">
+            {/* Logo + tagline */}
+            <div className="md:col-span-2">
+              <img src="/images/medici slim.png?v=3" alt="Medici Social" className="h-10 w-auto object-contain invert brightness-200 mb-4" />
+              <p className="text-white/40 text-sm leading-relaxed max-w-xs">
+                We&apos;re a social-first marketing agency focused on short-form content.
+              </p>
+            </div>
+
+            {/* Pages */}
+            <div>
+              <span className="text-white/30 text-xs uppercase tracking-wider block mb-4">Pages</span>
+              <div className="flex flex-col gap-2.5">
+                {['Home', 'About', 'Projects', 'Contact'].map(page => (
+                  <Link key={page} href={page === 'Home' ? '/' : page === 'Projects' ? '/services' : `/${page.toLowerCase()}`} className="text-white/60 text-sm hover:text-white transition-colors">
+                    {page}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* Legal */}
+            <div>
+              <span className="text-white/30 text-xs uppercase tracking-wider block mb-4">Legal</span>
+              <div className="flex flex-col gap-2.5">
+                <Link href="/privacy" className="text-white/60 text-sm hover:text-white transition-colors">Privacy Policy</Link>
+                <Link href="/terms" className="text-white/60 text-sm hover:text-white transition-colors">Terms & Conditions</Link>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-12 pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4">
+            <span className="text-white/30 text-xs">© 2026 Medici Social. All rights reserved.</span>
+            <div className="flex items-center gap-5">
+              <a href="https://www.instagram.com/medicisocial" target="_blank" rel="noopener noreferrer" className="text-white/40 text-xs hover:text-white transition-colors">Instagram</a>
+              <a href="https://www.facebook.com/medicisocial" target="_blank" rel="noopener noreferrer" className="text-white/40 text-xs hover:text-white transition-colors">Facebook</a>
+              <a href="#" className="text-white/40 text-xs hover:text-white transition-colors">LinkedIn</a>
+            </div>
+          </div>
+        </div>
+      </footer>
     </>
   );
 }

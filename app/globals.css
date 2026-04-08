@@ -3,7 +3,7 @@
   --color-crimson-light: #A00000;
   --color-white: #FFFFFF;
   --color-off-white: #F9F6F2;
-  --color-black: #0D0D0D;
+  --color-black: #000000;
   --color-text-dark: #1A1A1A;
   --color-text-light: #FFFFFF;
 }
@@ -31,8 +31,8 @@ body {
   min-height: 100%;
   display: flex;
   flex-direction: column;
-  color: #121212;
-  background: #F9F9F8;
+  color: #FFFFFF;
+  background: #000000;
   font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -49,7 +49,6 @@ a {
 .animate-marquee {
   display: flex;
   white-space: nowrap;
-  /* Adjust scrolling speed: lower = faster */
   animation: marquee 30s linear infinite;
 }
 
@@ -89,6 +88,6 @@ a {
 
 /* Selection styling */
 ::selection {
-  background: #0D0D0D;
+  background: #810100;
   color: #FFFFFF;
 }
