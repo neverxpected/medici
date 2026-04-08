@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import FaqAccordion from './components/FaqAccordion';
 import PricingPlans from './components/PricingPlans';
+import TestimonialCarousel from './components/TestimonialCarousel';
 
 /* ── Animation variants ── */
 const ease = [0.16, 1, 0.3, 1] as const;
@@ -128,21 +129,23 @@ export default function Home() {
                 variants={staggerItem}
                 className="text-5xl md:text-6xl lg:text-[5.5rem] font-bold tracking-tight leading-[1.05]"
               >
-                Turn Views<br />
-                Into{' '}
-                <span className="bg-crimson text-white px-4 py-0.5 rounded-xl inline-flex items-center justify-center overflow-hidden relative align-baseline" style={{ height: '1.15em', minWidth: '4.5em' }}>
-                  <AnimatePresence mode="wait">
-                    <motion.span
-                      key={rotatingWords[wordIndex]}
-                      initial={{ y: '100%', opacity: 0 }}
-                      animate={{ y: 0, opacity: 1 }}
-                      exit={{ y: '-100%', opacity: 0 }}
-                      transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                      className="absolute inset-0 flex items-center justify-center font-bold"
-                    >
-                      {rotatingWords[wordIndex]}
-                    </motion.span>
-                  </AnimatePresence>
+                Turn Views
+                <span className="flex items-center gap-3 md:gap-4">
+                  <span>Into</span>
+                  <span className="bg-crimson text-white px-4 py-1 rounded-xl overflow-hidden relative flex items-center justify-center" style={{ height: '1.15em', minWidth: '4.5em' }}>
+                    <AnimatePresence mode="wait">
+                      <motion.span
+                        key={rotatingWords[wordIndex]}
+                        initial={{ y: '100%', opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        exit={{ y: '-100%', opacity: 0 }}
+                        transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                        className="absolute inset-0 flex items-center justify-center font-bold"
+                      >
+                        {rotatingWords[wordIndex]}
+                      </motion.span>
+                    </AnimatePresence>
+                  </span>
                 </span>
               </motion.h1>
 
@@ -157,7 +160,7 @@ export default function Home() {
               <motion.div variants={staggerItem} className="flex flex-col md:flex-row items-center justify-center md:justify-start gap-3 md:gap-4 mt-8">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center justify-center gap-2 bg-white text-black text-sm font-medium px-7 py-3.5 rounded-full hover:bg-white/90 transition-colors min-w-[200px]"
+                  className="inline-flex items-center justify-center gap-2 bg-white text-black text-sm font-medium px-7 py-3.5 rounded-full hover:bg-white/90 transition-colors w-full md:w-auto md:min-w-[200px]"
                 >
                   Book a Call
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
@@ -166,7 +169,7 @@ export default function Home() {
                 </Link>
                 <Link
                   href="#pricing"
-                  className="border border-white/20 text-white text-sm font-medium px-7 py-3.5 rounded-full hover:bg-white/5 transition-colors text-center min-w-[200px]"
+                  className="border border-white/20 text-white text-sm font-medium px-7 py-3.5 rounded-full hover:bg-white/5 transition-colors text-center w-full md:w-auto md:min-w-[200px]"
                 >
                   See Pricing
                 </Link>
@@ -247,12 +250,12 @@ export default function Home() {
               <div className="flex items-center">
                 <div className="flex flex-nowrap animate-marquee shrink-0 items-center">
                   {clientLogos.map((logo, i) => (
-                    <Image key={`a-${i}`} src={logo.src} alt={logo.alt} width={400} height={130} className="h-7 md:h-10 w-auto object-contain brightness-0 invert opacity-40 shrink-0 mx-4 md:mx-6" />
+                    <Image key={`a-${i}`} src={logo.src} alt={logo.alt} width={400} height={130} className="h-10 md:h-20 w-auto object-contain brightness-0 invert opacity-40 shrink-0 mx-4 md:mx-8" />
                   ))}
                 </div>
                 <div className="flex flex-nowrap animate-marquee shrink-0 items-center" aria-hidden="true">
                   {clientLogos.map((logo, i) => (
-                    <Image key={`b-${i}`} src={logo.src} alt={logo.alt} width={400} height={130} className="h-7 md:h-10 w-auto object-contain brightness-0 invert opacity-40 shrink-0 mx-4 md:mx-6" />
+                    <Image key={`b-${i}`} src={logo.src} alt={logo.alt} width={400} height={130} className="h-10 md:h-20 w-auto object-contain brightness-0 invert opacity-40 shrink-0 mx-4 md:mx-8" />
                   ))}
                 </div>
               </div>
@@ -291,9 +294,9 @@ export default function Home() {
               { number: '60+', label: 'Brands served' },
               { number: '50M+', label: 'Views generated' },
             ].map(stat => (
-              <motion.div key={stat.label} variants={cardItem} className="bg-white md:bg-[#0a0a0a] border border-gray-200 md:border-white/5 rounded-2xl p-6 md:p-8">
-                <span className="text-3xl md:text-5xl font-bold text-crimson md:text-white">{stat.number}</span>
-                <span className="block text-gray-600 md:text-white/40 text-sm mt-2">{stat.label}</span>
+              <motion.div key={stat.label} variants={cardItem} whileHover={{ y: -6, scale: 1.02, transition: { duration: 0.25 } }} className="bg-white border border-gray-200 rounded-2xl p-6 md:p-8 cursor-default">
+                <span className="text-3xl md:text-5xl font-bold text-crimson">{stat.number}</span>
+                <span className="block text-gray-500 text-sm mt-2">{stat.label}</span>
               </motion.div>
             ))}
           </motion.div>
@@ -322,48 +325,52 @@ export default function Home() {
             viewport={viewportConfig}
           >
             {services.map((svc, idx) => (
-              <motion.div key={svc.title} variants={cardItem} className="bg-transparent border border-white/10 rounded-2xl overflow-hidden hover:border-crimson/30 transition-colors duration-300 group">
+              <motion.div key={svc.title} variants={cardItem} whileHover={{ y: -6, scale: 1.02, transition: { duration: 0.25 } }} className="bg-transparent border border-white/10 rounded-2xl overflow-hidden hover:border-crimson/30 transition-colors duration-300 group cursor-default">
                 {/* Top — dark on desktop */}
-                <div className="p-8 md:p-10 bg-[#0a0a0a]">
+                <div className="p-8 md:p-10 bg-crimson">
                   <div className="flex items-center gap-4 mb-4">
-                    <div className="w-11 h-11 rounded-xl bg-crimson/10 flex items-center justify-center shrink-0 group-hover:bg-crimson/20 transition-colors">
+                    <div className="w-11 h-11 rounded-xl bg-white/20 flex items-center justify-center shrink-0 group-hover:bg-white/30 transition-colors">
                       {idx === 0 && (
-                        <svg className="w-5 h-5 text-crimson" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.8}>
+                        <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.8}>
                           <path strokeLinecap="round" strokeLinejoin="round" d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z" />
                         </svg>
                       )}
                       {idx === 1 && (
-                        <svg className="w-5 h-5 text-crimson" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.8}>
+                        <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.8}>
                           <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5a17.92 17.92 0 0 1-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418" />
                         </svg>
                       )}
                       {idx === 2 && (
-                        <svg className="w-5 h-5 text-crimson" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.8}>
+                        <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.8}>
                           <path strokeLinecap="round" strokeLinejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z" />
                         </svg>
                       )}
                       {idx === 3 && (
-                        <svg className="w-5 h-5 text-crimson" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.8}>
+                        <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.8}>
                           <path strokeLinecap="round" strokeLinejoin="round" d="M10.34 15.84c-.688-.06-1.386-.09-2.09-.09H7.5a4.5 4.5 0 1 1 0-9h.75c.704 0 1.402-.03 2.09-.09m0 9.18c.253.962.584 1.892.985 2.783.247.55.06 1.21-.463 1.511l-.657.38a.75.75 0 0 1-1.021-.26l-.365-.633a8.963 8.963 0 0 1-1.07-3.781m1.5-5.94c-.253-.962-.584-1.892-.985-2.783a1.125 1.125 0 0 1 .463-1.511l.657-.38a.75.75 0 0 1 1.021.26l.365.633a8.963 8.963 0 0 1 1.07 3.78M14.25 12h3m-3 0a2.25 2.25 0 0 0 0 4.5h3a2.25 2.25 0 0 0 0-4.5Z" />
                         </svg>
                       )}
                     </div>
                     <h3 className="text-xl md:text-2xl font-semibold text-white">{svc.title}</h3>
                   </div>
-                  <p className="text-white/40 text-sm leading-relaxed">{svc.desc}</p>
+                  <p className="text-white/70 text-sm leading-relaxed">{svc.desc}</p>
                 </div>
-                {/* Bottom — white on desktop */}
-                <div className="px-8 pb-8 pt-6 md:px-10 md:pb-10 md:pt-8 bg-white">
-                  <ul className="space-y-2.5">
-                    {svc.items.map(item => (
-                      <li key={item} className="flex items-center gap-3">
-                        <svg className="w-3.5 h-3.5 text-crimson shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                        </svg>
-                        <span className="text-sm text-gray-700 md:text-gray-800">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
+                {/* Bottom — scrolling tags */}
+                <div className="overflow-hidden relative py-4 md:py-5 bg-white rounded-b-2xl">
+                  <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+                  <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+                  <div className="flex">
+                    <div className="flex flex-nowrap animate-marquee shrink-0 items-center">
+                      {[...svc.items, ...svc.items].map((item, i) => (
+                        <span key={`a-${i}`} className="text-xs text-gray-600 border border-gray-200 rounded-full px-4 py-1.5 whitespace-nowrap mx-1.5">{item}</span>
+                      ))}
+                    </div>
+                    <div className="flex flex-nowrap animate-marquee shrink-0 items-center" aria-hidden="true">
+                      {[...svc.items, ...svc.items].map((item, i) => (
+                        <span key={`b-${i}`} className="text-xs text-gray-600 border border-gray-200 rounded-full px-4 py-1.5 whitespace-nowrap mx-1.5">{item}</span>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </motion.div>
             ))}
@@ -409,10 +416,10 @@ export default function Home() {
                 desc: 'We track performance and scale winning formats to drive growth.',
               },
             ].map(step => (
-              <motion.div key={step.step} variants={cardItem} className="bg-[#0a0a0a] border border-white/5 rounded-2xl p-8 md:p-10">
+              <motion.div key={step.step} variants={cardItem} whileHover={{ y: -6, scale: 1.02, transition: { duration: 0.25 } }} className="bg-white border border-gray-200 rounded-2xl p-8 md:p-10 cursor-default">
                 <span className="text-crimson text-sm font-mono font-bold mb-6 block">{step.step}</span>
-                <h3 className="text-xl md:text-2xl font-semibold text-white mb-3">{step.title}</h3>
-                <p className="text-white/40 text-sm leading-relaxed">{step.desc}</p>
+                <h3 className="text-xl md:text-2xl font-semibold text-gray-900 mb-3">{step.title}</h3>
+                <p className="text-gray-500 text-sm leading-relaxed">{step.desc}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -422,25 +429,7 @@ export default function Home() {
       {/* ═══════════════════════════════════════════════════════════
           SECTION 5 — TESTIMONIAL QUOTE
       ═══════════════════════════════════════════════════════════ */}
-      <section className="py-20 md:py-32">
-        <div className="max-w-screen-xl mx-auto px-5 md:px-8">
-          <motion.div
-            className="bg-[#0a0a0a] border border-white/5 rounded-3xl p-8 md:p-16 text-center"
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={viewportConfig}
-          >
-            <blockquote className="text-xl md:text-3xl lg:text-4xl font-medium text-white leading-snug max-w-4xl mx-auto">
-              &ldquo;We struggled to turn social content into a reliable growth channel. Medici Social changed that by focusing on performance, testing, and optimization.&rdquo;
-            </blockquote>
-            <div className="mt-8">
-              <span className="text-white font-semibold text-sm">Michael Perry</span>
-              <span className="text-white/40 text-sm ml-2">— Marketing Director</span>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+      <TestimonialCarousel />
 
       {/* ═══════════════════════════════════════════════════════════
           SECTION 6 — CASE STUDIES
@@ -459,20 +448,19 @@ export default function Home() {
             </motion.p>
           </motion.div>
 
-          <motion.div
-            className="grid grid-cols-1 gap-8"
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={viewportConfig}
-          >
-            {caseStudies.map(cs => (
-              <motion.div key={cs.name} variants={cardItem} className="bg-[#0a0a0a] border border-white/5 rounded-2xl overflow-hidden group hover:border-crimson/20 transition-colors duration-300">
+          <div className="flex flex-col gap-8 md:gap-0">
+            {caseStudies.map((cs, idx) => (
+              <motion.div
+                key={cs.name}
+                variants={cardItem}
+                initial="hidden"
+                whileInView="visible"
+                viewport={viewportConfig}
+                className="bg-[#0a0a0a] border border-white/5 rounded-2xl overflow-hidden group hover:border-crimson/20 transition-colors duration-300 md:sticky md:mb-6"
+                style={{ top: `${100 + idx * 40}px`, zIndex: idx + 1 }}
+              >
                 <div className="grid grid-cols-1 md:grid-cols-2">
-                  <div className="aspect-[4/3] md:aspect-auto overflow-hidden">
-                    <img src={cs.img} alt={cs.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                  </div>
-                  <div className="p-8 md:p-10 flex flex-col justify-center">
+                  <div className="p-8 md:p-10 flex flex-col justify-center order-2 md:order-1">
                     <h3 className="text-2xl md:text-3xl font-bold text-white mb-1">{cs.name}.</h3>
                     <span className="text-crimson text-sm font-medium mb-4">{cs.type}.</span>
                     <p className="text-white/40 text-sm leading-relaxed mb-8">{cs.desc}</p>
@@ -487,10 +475,13 @@ export default function Home() {
                       </div>
                     </div>
                   </div>
+                  <div className="aspect-[4/3] md:aspect-auto overflow-hidden order-1 md:order-2">
+                    <img src={cs.img} alt={cs.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                  </div>
                 </div>
               </motion.div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -596,7 +587,7 @@ export default function Home() {
             </motion.p>
           </motion.div>
 
-          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={viewportConfig} className="max-w-3xl">
+          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={viewportConfig}>
             <FaqAccordion />
           </motion.div>
         </div>
@@ -608,24 +599,21 @@ export default function Home() {
       <section className="py-20 md:py-32">
         <div className="max-w-screen-xl mx-auto px-5 md:px-8">
           <motion.div
-            className="bg-[#0a0a0a] border border-white/5 rounded-3xl p-10 md:p-20 text-center"
+            className="bg-crimson border border-crimson/50 rounded-3xl p-12 md:p-20 text-center"
             variants={fadeUp}
             initial="hidden"
             whileInView="visible"
             viewport={viewportConfig}
           >
-            <span className="inline-flex items-center gap-2 bg-crimson/10 border border-crimson/20 text-crimson text-xs font-medium px-4 py-1.5 rounded-full mb-6">
-              3 spots available
-            </span>
             <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6">
               Stop Guessing.<br />Start Growing.
             </h2>
-            <p className="text-white/40 text-base md:text-lg max-w-xl mx-auto mb-8">
+            <p className="text-white/70 text-base md:text-lg max-w-xl mx-auto mb-8">
               Work with a team built to test, optimize, and scale what works on social media.
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 bg-crimson text-white text-sm font-medium px-8 py-4 rounded-full hover:bg-crimson/90 transition-colors"
+              className="inline-flex items-center gap-2 bg-white text-crimson md:bg-white md:text-crimson text-sm font-medium px-8 py-4 rounded-full hover:bg-white/90 transition-colors"
             >
               Book a Call
             </Link>
@@ -641,7 +629,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-8">
             {/* Logo + tagline */}
             <div className="md:col-span-2">
-              <img src="/images/medici slim.png?v=3" alt="Medici Social" className="h-10 w-auto object-contain invert brightness-200 mb-4" />
+              <img src="/images/medici slim.png?v=3" alt="Medici Social" className="h-12 md:h-14 w-auto object-contain mb-4" style={{ filter: 'brightness(0) invert(1)' }} />
               <p className="text-white/40 text-sm leading-relaxed max-w-xs">
                 We&apos;re a social-first marketing agency focused on short-form content.
               </p>
