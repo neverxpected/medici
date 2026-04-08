@@ -79,11 +79,12 @@ export default function Home() {
         </div>
       </motion.section>
 
+
       {/* ═══════════════════════════════════════════════════════════
           HERO BLACK FOOTER BAR — Ticker & Rating
       ═══════════════════════════════════════════════════════════ */}
       <motion.div
-        className="w-full bg-[#F9F9F8] md:bg-[#0a0a0a] py-2 md:py-4 -mt-1 relative z-10"
+        className="w-full bg-[#E8E8E8] md:bg-[#0a0a0a] py-2 md:py-4 -mt-1 relative z-10"
         variants={fadeUp}
         initial="hidden"
         whileInView="visible"
@@ -178,14 +179,12 @@ export default function Home() {
         </div>
       </div>
 
-
-
       <div className="relative max-w-screen-xl mx-auto px-4 md:px-8">
 
         {/* ═══════════════════════════════════════════════════════════
           SECTION 3 — ABOUT
       ═══════════════════════════════════════════════════════════ */}
-        <section className="py-24 md:py-36">
+        <section className="py-10 md:py-36">
           {/* Label row */}
           <motion.div
             className="flex items-center justify-between mb-12"
