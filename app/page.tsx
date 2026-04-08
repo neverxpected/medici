@@ -65,7 +65,7 @@ export default function Home() {
         whileInView="visible"
         viewport={viewportConfig}
       >
-        <div className="w-full h-[55vh] md:h-[75vh] lg:h-[85vh] bg-[#0a0a0a] overflow-hidden relative">
+        <div className="w-full h-auto md:h-[75vh] lg:h-[85vh] bg-[#0a0a0a] overflow-hidden relative">
           <video
             ref={heroVideoRef}
             src="/videos/hero-vid-small.mp4"
@@ -74,7 +74,7 @@ export default function Home() {
             muted
             playsInline
             controls={false}
-            className="w-full h-full object-cover md:absolute md:inset-0 md:h-full md:object-cover pointer-events-none"
+            className="w-full h-auto block md:absolute md:inset-0 md:h-full md:object-cover pointer-events-none"
           />
         </div>
       </motion.section>

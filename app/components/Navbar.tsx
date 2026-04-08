@@ -79,7 +79,7 @@ export default function Navbar() {
               className="flex items-center"
               onClick={() => setIsOpen(false)}
             >
-              <img src="/images/medici slim.png?v=3" alt="Medici Social" className="h-10 md:h-12 w-auto object-contain" />
+              <img src="/images/medici slim.png?v=3" alt="Medici Social" className="h-14 md:h-16 w-auto object-contain" />
             </Link>
           </div>
 
