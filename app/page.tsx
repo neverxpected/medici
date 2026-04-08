@@ -35,7 +35,7 @@ const staggerItem = {
 /* Card stagger child for grids (0.6s with easeOut) */
 const cardItem = {
   hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0, 0, 0.58, 1] } },
 };
 
 const viewportConfig = { once: true, margin: '-100px' as const };
