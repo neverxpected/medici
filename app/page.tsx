@@ -83,7 +83,7 @@ export default function Home() {
           HERO BLACK FOOTER BAR — Ticker & Rating
       ═══════════════════════════════════════════════════════════ */}
       <motion.div
-        className="w-full bg-[#0a0a0a] py-2 md:py-4"
+        className="w-full bg-[#0a0a0a] py-2 md:py-4 -mt-1 relative z-10"
         variants={fadeUp}
         initial="hidden"
         whileInView="visible"
