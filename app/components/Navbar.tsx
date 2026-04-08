@@ -33,7 +33,7 @@ export default function Navbar() {
   }, []);
 
   // Determine closed background color
-  const closedBg = scrolled ? 'rgba(235, 235, 235, 0.75)' : '#EBEBEB';
+  const closedBg = scrolled ? 'rgba(129, 1, 0, 0.95)' : '#810100';
 
   return (
     <>
@@ -61,7 +61,7 @@ export default function Navbar() {
             height: isOpen ? '85vh' : '52px',
             borderBottomLeftRadius: isOpen ? '2rem' : '1.5rem',
             borderBottomRightRadius: isOpen ? '2rem' : '1.5rem',
-            backgroundColor: isOpen ? '#EBEBEB' : closedBg,
+            backgroundColor: isOpen ? '#810100' : closedBg,
           }}
           transition={{
             type: 'spring',
@@ -76,7 +76,7 @@ export default function Navbar() {
           <div className="flex items-center gap-3">
             <Link
               href="/"
-              className="text-[15px] font-bold tracking-[0.01em] transition-colors duration-300 text-[#121212]"
+              className="text-[15px] font-bold tracking-[0.01em] transition-colors duration-300 text-white"
               onClick={() => setIsOpen(false)}
             >
               Medici Social®
@@ -88,13 +88,13 @@ export default function Navbar() {
             {/* Inline links (hidden on mobile, hidden when menu is open) */}
             {!isOpen && (
               <>
-                <Link href="/about" className="hidden lg:inline-block text-[#121212]/60 text-xs hover:text-[#121212] transition-colors duration-200">
+                <Link href="/about" className="hidden lg:inline-block text-white/80 text-xs hover:text-white transition-colors duration-200">
                   About
                 </Link>
-                <Link href="/services" className="hidden lg:inline-block text-[#121212]/60 text-xs hover:text-[#121212] transition-colors duration-200">
+                <Link href="/services" className="hidden lg:inline-block text-white/80 text-xs hover:text-white transition-colors duration-200">
                   Services
                 </Link>
-                <Link href="/contact" className="hidden lg:inline-block text-[#121212]/60 text-xs hover:text-[#121212] transition-colors duration-200">
+                <Link href="/contact" className="hidden lg:inline-block text-white/80 text-xs hover:text-white transition-colors duration-200">
                   Contact
                 </Link>
               </>
@@ -105,8 +105,8 @@ export default function Navbar() {
               href="/contact"
               className={`text-[11px] font-medium px-4 py-1.5 rounded-full transition-colors duration-300 ${
                 isOpen
-                  ? 'bg-[#121212] text-white hover:bg-black/80'
-                  : 'bg-[#121212] text-white hover:bg-black/80'
+                  ? 'bg-white text-crimson hover:bg-white/90'
+                  : 'bg-white text-crimson hover:bg-white/90'
               }`}
               onClick={() => setIsOpen(false)}
             >
@@ -118,13 +118,13 @@ export default function Navbar() {
               onClick={() => setIsOpen(!isOpen)}
               className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-300 shrink-0 ${
                 isOpen
-                  ? 'bg-[#121212] hover:bg-black/80'
-                  : 'bg-[#121212]/10 hover:bg-[#121212]/20'
+                  ? 'bg-white/20 hover:bg-white/30'
+                  : 'bg-white/10 hover:bg-white/20'
               }`}
               aria-label={isOpen ? 'Close menu' : 'Open menu'}
             >
               <motion.span
-                className={`text-sm font-light leading-none transition-colors duration-300 ${isOpen ? 'text-white' : 'text-[#121212]'}`}
+                className="text-sm font-light leading-none transition-colors duration-300 text-white"
                 animate={{ rotate: isOpen ? 45 : 0 }}
                 transition={{ type: 'spring', stiffness: 200, damping: 15 }}
               >
@@ -162,12 +162,12 @@ export default function Navbar() {
                       <Link
                         href={link.href}
                         onClick={() => setIsOpen(false)}
-                        className="flex items-center justify-between py-4 md:py-5 border-b border-gray-300 group"
+                        className="flex items-center justify-between py-4 md:py-5 border-b border-white/20 group"
                       >
-                        <span className="text-2xl md:text-3xl lg:text-4xl font-semibold text-brand-black group-hover:translate-x-3 transition-transform duration-300">
+                        <span className="text-2xl md:text-3xl lg:text-4xl font-semibold text-white group-hover:translate-x-3 transition-transform duration-300">
                           {link.label}
                         </span>
-                        <span className="text-[#9B9B9B] text-sm font-normal">
+                        <span className="text-white/60 text-sm font-normal">
                           ({link.num})
                         </span>
                       </Link>
@@ -206,25 +206,25 @@ export default function Navbar() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.45, duration: 0.4 }}
-                className="flex flex-col sm:flex-row items-start sm:items-center justify-between py-5 md:py-6 mt-auto border-t border-gray-300"
+                className="flex flex-col sm:flex-row items-start sm:items-center justify-between py-5 md:py-6 mt-auto border-t border-white/20"
               >
                 {/* Left — Contact */}
                 <div className="flex flex-col gap-0.5">
-                  <a href="mailto:hello@medicisocial.com" className="text-brand-black text-sm font-medium hover:underline">
+                  <a href="mailto:hello@medicisocial.com" className="text-white text-sm font-medium hover:underline">
                     hello@medicisocial.com
                   </a>
-                  <span className="text-[#6B6B6B] text-xs">(713) 505-7871</span>
+                  <span className="text-white/60 text-xs">(713) 505-7871</span>
                 </div>
 
                 {/* Right — Social Links */}
                 <div className="flex items-center gap-5 mt-3 sm:mt-0">
-                  <a href="#" className="text-[#6B6B6B] text-xs hover:text-brand-black transition-colors duration-200">
+                  <a href="#" className="text-white/60 text-xs hover:text-white transition-colors duration-200">
                     Twitter/X
                   </a>
-                  <a href="#" className="text-[#6B6B6B] text-xs hover:text-brand-black transition-colors duration-200">
+                  <a href="#" className="text-white/60 text-xs hover:text-white transition-colors duration-200">
                     Instagram
                   </a>
-                  <a href="#" className="text-[#6B6B6B] text-xs hover:text-brand-black transition-colors duration-200">
+                  <a href="#" className="text-white/60 text-xs hover:text-white transition-colors duration-200">
                     LinkedIn
                   </a>
                 </div>
