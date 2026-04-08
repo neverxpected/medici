@@ -73,7 +73,7 @@ export default function Navbar() {
         {/* ─── Top bar (always visible) ─── */}
         <nav className="flex items-center justify-between mx-auto w-full max-w-screen-xl px-5 md:px-8 h-[64px] shrink-0">
           {/* Left — Logo */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 -ml-2 md:ml-0">
             <Link
               href="/"
               className="flex items-center"
