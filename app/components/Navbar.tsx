@@ -93,7 +93,7 @@ export default function Navbar() {
 
               <Link
                 href="/contact"
-                className="hidden md:inline-flex items-center gap-2 bg-red-700 text-white text-sm font-medium px-5 py-2.5 rounded-full hover:bg-red-600 transition-colors duration-200"
+                className="hidden md:inline-flex items-center gap-2 bg-red-700 text-white text-sm font-medium px-5 py-2.5 rounded-full hover:bg-red-600 hover:scale-[1.02] transition-all duration-300"
                 onClick={() => setIsOpen(false)}
               >
                 Get in Touch
@@ -158,7 +158,7 @@ export default function Navbar() {
                 <Link
                   href="/contact"
                   onClick={() => setIsOpen(false)}
-                  className="bg-red-700 text-white text-center text-base font-medium px-8 py-4 rounded-full hover:bg-red-600 transition-colors duration-200 mt-auto"
+                  className="bg-red-700 text-white text-center text-base font-medium px-8 py-4 rounded-full hover:bg-red-600 hover:scale-[1.02] transition-all duration-300 mt-auto"
                 >
                   Get in Touch
                 </Link>

@@ -54,7 +54,7 @@ export default function TestimonialCarousel() {
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.7, ease: [0.21, 0.47, 0.32, 0.98] }}
         >
           <div className="min-h-[180px] md:min-h-[220px] flex items-center justify-center">
             <AnimatePresence mode="wait">
@@ -63,7 +63,7 @@ export default function TestimonialCarousel() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ duration: 0.5, ease: [0.21, 0.47, 0.32, 0.98] }}
                 className="flex flex-col items-center"
               >
                 <blockquote className="text-xl md:text-3xl lg:text-4xl font-medium text-white leading-snug max-w-4xl mx-auto">

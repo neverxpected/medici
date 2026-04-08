@@ -9,31 +9,36 @@ import PricingPlans from './components/PricingPlans';
 import TestimonialCarousel from './components/TestimonialCarousel';
 
 /* ── Animation variants ── */
-const ease = [0.16, 1, 0.3, 1] as const;
+const heroEase = [0.16, 1, 0.3, 1] as const;
+const scrollEase = [0.21, 0.47, 0.32, 0.98] as const;
 
+/* Section-level scroll reveal (y: 40) */
 const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.9, ease } },
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: scrollEase } },
 };
 
+/* Hero stagger container (above-the-fold, uses animate not whileInView) */
 const staggerContainer = {
   hidden: {},
   visible: {
-    transition: { staggerChildren: 0.12 },
+    transition: { staggerChildren: 0.15 },
   },
 };
 
+/* Hero stagger child (0.8s with premium easing) */
 const staggerItem = {
-  hidden: { opacity: 0, y: 25 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease } },
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: heroEase } },
 };
 
+/* Card stagger child for grids (0.6s with easeOut) */
 const cardItem = {
-  hidden: { opacity: 0, y: 30, scale: 0.96 },
-  visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.7, ease } },
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
 };
 
-const viewportConfig = { once: true, margin: '-80px' as const };
+const viewportConfig = { once: true, margin: '-100px' as const };
 
 const rotatingWords = ['Traffic.', 'Revenue.', 'Growth.', 'Results.'];
 
@@ -72,28 +77,28 @@ const services = [
 
 const caseStudies = [
   {
-    name: 'Axiom',
+    name: 'Plume',
     type: 'Personal Brand Scaling',
     desc: 'Scaling a founder\'s personal brand using optimized short-form storytelling and content structure.',
     stat1: { value: '295%', label: 'Increase in average watch time' },
     stat2: { value: '92%', label: 'Follower growth in 90 days' },
-    img: 'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=800&h=500&fit=crop&q=80',
+    img: '/images/plume.jpg',
   },
   {
-    name: 'Lunera',
+    name: 'Ciel',
     type: 'E-commerce Brand Growth',
     desc: 'Helping a direct-to-consumer skincare brand scale sales through performance-driven short-form content.',
     stat1: { value: '3.4x', label: 'Increase in average video views' },
     stat2: { value: '58%', label: 'Growth in social-driven sales' },
-    img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=500&fit=crop&q=80',
+    img: '/images/ciel.jpg',
   },
   {
-    name: 'Flowly',
+    name: 'Best Regards',
     type: 'SaaS Startup Acquisition',
     desc: 'Driving user acquisition for an early-stage SaaS through educational and problem-driven short-form content.',
     stat1: { value: '176%', label: 'Increase in organic reach' },
     stat2: { value: '64%', label: 'Increase in sign-ups from social' },
-    img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop&q=80',
+    img: '/images/bestregards-space-45.webp',
   },
 ];
 
@@ -160,7 +165,7 @@ export default function Home() {
               <motion.div variants={staggerItem} className="flex flex-col md:flex-row items-center justify-center md:justify-start gap-3 md:gap-4 mt-8 w-[280px] md:w-auto">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center justify-center gap-2 bg-red-700 text-white text-sm font-medium px-7 py-3.5 rounded-full hover:bg-red-600 transition-colors w-full md:w-auto md:min-w-[200px]"
+                  className="inline-flex items-center justify-center gap-2 bg-red-700 text-white text-sm font-medium px-7 py-3.5 rounded-full hover:bg-red-600 hover:scale-[1.02] transition-all duration-300 w-full md:w-auto md:min-w-[200px]"
                 >
                   Book a Call
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
@@ -169,7 +174,7 @@ export default function Home() {
                 </Link>
                 <Link
                   href="#pricing"
-                  className="border border-zinc-800 text-white text-sm font-medium px-7 py-3.5 rounded-full hover:bg-zinc-900 transition-colors text-center w-full md:w-auto md:min-w-[200px]"
+                  className="border border-zinc-800 text-white text-sm font-medium px-7 py-3.5 rounded-full hover:bg-zinc-900 hover:scale-[1.02] transition-all duration-300 text-center w-full md:w-auto md:min-w-[200px]"
                 >
                   See Pricing
                 </Link>
@@ -187,7 +192,9 @@ export default function Home() {
                     muted
                     loop
                     playsInline
-                    className="w-full aspect-[9/16] object-cover"
+                    preload="auto"
+                    poster="/images/hero-poster.webp"
+                    className="w-full aspect-[9/16] object-cover pointer-events-none"
                   />
                 </div>
 
@@ -250,12 +257,12 @@ export default function Home() {
               <div className="flex items-center">
                 <div className="flex flex-nowrap animate-marquee shrink-0 items-center">
                   {clientLogos.map((logo, i) => (
-                    <Image key={`a-${i}`} src={logo.src} alt={logo.alt} width={400} height={130} className="h-10 md:h-20 w-auto object-contain brightness-0 invert opacity-40 shrink-0 mx-4 md:mx-8" />
+                    <Image key={`a-${i}`} src={logo.src} alt={logo.alt} width={400} height={130} className="h-16 md:h-20 w-auto object-contain brightness-0 invert opacity-40 shrink-0 mx-4 md:mx-8" />
                   ))}
                 </div>
                 <div className="flex flex-nowrap animate-marquee shrink-0 items-center" aria-hidden="true">
                   {clientLogos.map((logo, i) => (
-                    <Image key={`b-${i}`} src={logo.src} alt={logo.alt} width={400} height={130} className="h-10 md:h-20 w-auto object-contain brightness-0 invert opacity-40 shrink-0 mx-4 md:mx-8" />
+                    <Image key={`b-${i}`} src={logo.src} alt={logo.alt} width={400} height={130} className="h-16 md:h-20 w-auto object-contain brightness-0 invert opacity-40 shrink-0 mx-4 md:mx-8" />
                   ))}
                 </div>
               </div>
@@ -611,7 +618,9 @@ export default function Home() {
               muted
               loop
               playsInline
-              className="absolute inset-0 w-full h-full object-cover opacity-35"
+              preload="auto"
+              poster="/images/cta-poster.webp"
+              className="absolute inset-0 w-full h-full object-cover opacity-35 pointer-events-none"
             >
               <source src="/videos/hero-vid-small.mp4" type="video/mp4" />
             </video>
@@ -627,7 +636,7 @@ export default function Home() {
               </p>
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 bg-red-700 text-white text-sm font-medium px-8 py-4 rounded-full hover:bg-red-600 transition-colors"
+                className="inline-flex items-center gap-2 bg-red-700 text-white text-sm font-medium px-8 py-4 rounded-full hover:bg-red-600 hover:scale-[1.02] transition-all duration-300"
               >
                 Book a Call
               </Link>
