@@ -31,12 +31,12 @@ const staggerItem = {
 const viewportConfig = { once: true, margin: '-100px' as const };
 
 const clientLogos = [
-  { src: '/logos/best-regards.webp', alt: 'Best Regards' },
-  { src: '/logos/ciel.webp', alt: 'Ciel' },
-  { src: '/logos/dobel.webp', alt: 'Dobel' },
-  { src: '/logos/my-tennis-wall.webp', alt: 'My Tennis Wall' },
-  { src: '/logos/plume.webp', alt: 'Plume' },
-  { src: '/logos/sun.webp', alt: 'Suntory' },
+  { src: '/logos/slim (1).png', alt: 'Client 1' },
+  { src: '/logos/slim (2).png', alt: 'Client 2' },
+  { src: '/logos/slim (3).png', alt: 'Client 3' },
+  { src: '/logos/slim (4).png', alt: 'Client 4' },
+  { src: '/logos/slim (5).png', alt: 'Client 5' },
+  { src: '/logos/slim (6).png', alt: 'Client 6' },
 ];
 
 export default function Home() {
@@ -58,126 +58,14 @@ export default function Home() {
 
   return (
     <>
-    <div className="max-w-screen-xl mx-auto px-4 md:px-8">
-
-      {/* ═══════════════════════════════════════════════════════════
-          SECTION 1 — HERO TITLE
-      ═══════════════════════════════════════════════════════════ */}
-      <section className="pt-12 md:pt-20 lg:pt-24 pb-0">
-        <motion.div
-          className="flex flex-col md:flex-row md:items-end md:justify-between gap-10 md:gap-20"
-          variants={staggerContainer}
-          initial="hidden"
-          animate="visible"
-        >
-          <motion.h1
-            variants={staggerItem}
-            className="font-serif text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-bold leading-[0.9] tracking-[-0.03em] text-crimson whitespace-nowrap"
-          >
-            Medici Social®
-          </motion.h1>
-          <motion.p
-            variants={staggerItem}
-            className="text-[#6B6B6B] text-base md:text-lg leading-relaxed max-w-xs md:text-right md:pb-4"
-          >
-            A social media marketing agency blending storytelling,
-            aesthetics, and data-driven strategy.
-          </motion.p>
-        </motion.div>
-
-        {/* Logo Ticker Strip */}
-        <motion.div
-          className="mt-6 md:mt-8 flex flex-col mb-0"
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewportConfig}
-        >
-          {/* Mobile: rating above logos */}
-          <div className="md:hidden flex flex-col gap-1 mb-4">
-            <div className="flex items-center gap-1.5">
-              <div className="flex gap-0.5">
-                {[...Array(5)].map((_, i) => (
-                  <svg key={i} className="w-3.5 h-3.5 text-crimson" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-                ))}
-              </div>
-              <span className="text-sm text-[#9B9B9B] font-semibold">4.9/5</span>
-            </div>
-            <span className="text-sm text-[#6B6B6B]">
-              Trusted by <span className="font-semibold text-[#9B9B9B]">100+</span> businesses
-            </span>
-          </div>
-
-          {/* Desktop: logos left, rating right */}
-          <div className="flex items-center">
-            {/* Scrolling logos */}
-            <div className="flex-1 overflow-hidden relative">
-              {/* Fade edges */}
-              <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-[#F9F9F8] to-transparent z-10 pointer-events-none" />
-              <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-[#F9F9F8] to-transparent z-10 pointer-events-none" />
-              <div className="flex items-center group">
-                {/* First wrapper */}
-                <div className="flex flex-nowrap animate-marquee shrink-0 items-center">
-                  {clientLogos.map((logo, i) => (
-                    <Image
-                      key={`a-${i}`}
-                      src={logo.src}
-                      alt={logo.alt}
-                      width={400}
-                      height={130}
-                      className="h-28 md:h-32 w-auto object-contain grayscale opacity-70 shrink-0 mx-4 md:mx-8"
-                    />
-                  ))}
-                </div>
-                {/* Second wrapper (identical) */}
-                <div className="flex flex-nowrap animate-marquee shrink-0 items-center" aria-hidden="true">
-                  {clientLogos.map((logo, i) => (
-                    <Image
-                      key={`b-${i}`}
-                      src={logo.src}
-                      alt={logo.alt}
-                      width={400}
-                      height={130}
-                      className="h-28 md:h-32 w-auto object-contain grayscale opacity-70 shrink-0 mx-4 md:mx-8"
-                    />
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* Desktop rating — right side */}
-            <div className="hidden md:flex flex-col items-end ml-10 shrink-0">
-              <div className="flex items-center gap-1.5">
-                <div className="flex gap-0.5">
-                  {[...Array(5)].map((_, i) => (
-                    <svg key={i} className="w-3.5 h-3.5 text-crimson" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  ))}
-                </div>
-                <span className="text-sm text-[#9B9B9B] font-semibold">4.9/5</span>
-              </div>
-              <span className="text-sm text-[#6B6B6B] mt-0.5">
-                Trusted by <span className="font-semibold text-[#9B9B9B]">100+</span> businesses
-              </span>
-            </div>
-          </div>
-        </motion.div>
-      </section>
-
-      {/* ═══════════════════════════════════════════════════════════
-          SECTION 2 — HERO IMAGE
-      ═══════════════════════════════════════════════════════════ */}
       <motion.section
-        className="mt-0.5"
+        className="w-full relative"
         variants={fadeUp}
         initial="hidden"
         whileInView="visible"
         viewport={viewportConfig}
       >
-        <div className="w-full h-[40vh] md:h-[60vh] bg-gray-200 rounded-2xl overflow-hidden relative border border-crimson/20">
+        <div className="w-full h-[55vh] md:h-[75vh] lg:h-[85vh] bg-gray-200 overflow-hidden relative">
           <video
             ref={heroVideoRef}
             src="/videos/hero-vid-small.mp4"
@@ -190,6 +78,72 @@ export default function Home() {
           />
         </div>
       </motion.section>
+
+      {/* ═══════════════════════════════════════════════════════════
+          HERO BLACK FOOTER BAR — Ticker & Rating
+      ═══════════════════════════════════════════════════════════ */}
+      <motion.div
+        className="w-full bg-[#0a0a0a] py-2 md:py-4"
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={viewportConfig}
+      >
+        <div className="max-w-screen-xl mx-auto px-4 md:px-8">
+          <div className="w-full flex flex-row items-center justify-between gap-4 md:gap-12">
+            {/* Ticker - Left */}
+            <div className="w-full flex-1 overflow-hidden relative flex items-center">
+              <div className="absolute left-0 top-0 bottom-0 w-8 md:w-24 bg-gradient-to-r from-[#0a0a0a] to-transparent z-10 pointer-events-none" />
+              <div className="absolute right-0 top-0 bottom-0 w-8 md:w-24 bg-gradient-to-l from-[#0a0a0a] to-transparent z-10 pointer-events-none" />
+              <div className="flex items-center group">
+                <div className="flex flex-nowrap animate-marquee shrink-0 items-center">
+                  {clientLogos.map((logo, i) => (
+                    <Image
+                      key={`logo-a-${i}`}
+                      src={logo.src}
+                      alt={logo.alt}
+                      width={400}
+                      height={130}
+                      className="h-8 md:h-12 w-auto object-contain brightness-0 invert opacity-60 hover:opacity-100 transition-opacity duration-300 shrink-0 mx-2 md:mx-3"
+                    />
+                  ))}
+                </div>
+                <div className="flex flex-nowrap animate-marquee shrink-0 items-center" aria-hidden="true">
+                  {clientLogos.map((logo, i) => (
+                    <Image
+                      key={`logo-b-${i}`}
+                      src={logo.src}
+                      alt={logo.alt}
+                      width={400}
+                      height={130}
+                      className="h-8 md:h-12 w-auto object-contain brightness-0 invert opacity-60 hover:opacity-100 transition-opacity duration-300 shrink-0 mx-2 md:mx-3"
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Rating - Right */}
+            <div className="flex flex-col items-end text-right gap-1 shrink-0">
+              <div className="flex items-center justify-end gap-1.5">
+                <div className="flex gap-0.5">
+                  {[...Array(5)].map((_, i) => (
+                    <svg key={i} className="w-3.5 h-3.5 md:w-4 md:h-4 text-crimson" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                  ))}
+                </div>
+                <span className="text-sm md:text-base text-white/90 font-semibold">4.9/5</span>
+              </div>
+              <span className="text-xs md:text-sm text-white/50">
+                Trusted by <span className="font-semibold text-white/80">100+</span> businesses
+              </span>
+            </div>
+          </div>
+        </div>
+      </motion.div>
+
+    <div className="relative max-w-screen-xl mx-auto px-4 md:px-8">
 
       {/* ═══════════════════════════════════════════════════════════
           SECTION 3 — ABOUT

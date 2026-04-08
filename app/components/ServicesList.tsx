@@ -62,8 +62,8 @@ export default function ServicesList() {
     <div className="bg-brand-black rounded-2xl px-8 md:px-12 py-10 md:py-14">
       {/* Header */}
       <div className="flex items-center justify-between mb-12">
-        <span className="text-crimson text-sm">
-          <span className="mr-1">//</span> Services
+        <span className="text-white text-sm">
+          <span className="text-crimson mr-1">//</span> Services
         </span>
         <span className="text-gray-600 text-sm">(04)</span>
       </div>

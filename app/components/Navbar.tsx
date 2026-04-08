@@ -53,14 +53,14 @@ export default function Navbar() {
 
       {/* ─── Navbar Container ─── */}
       {/* ─── Fixed positioning wrapper (transparent, full width) ─── */}
-      <div className="fixed top-0 w-full z-50 px-4 md:px-8 pt-[env(safe-area-inset-top)] pointer-events-none">
+      <div className="fixed top-0 w-full z-50 pt-[env(safe-area-inset-top)] pointer-events-none">
         <motion.header
-          className={`max-w-screen-xl mx-auto pointer-events-auto ${isOpen ? 'overflow-hidden' : 'overflow-visible'} ${scrolled && !isOpen ? 'backdrop-blur-md' : ''}`}
+          className={`w-full pointer-events-auto ${isOpen ? 'overflow-hidden' : 'overflow-visible'} ${scrolled && !isOpen ? 'backdrop-blur-md' : ''}`}
           initial={false}
           animate={{
-            height: isOpen ? '85vh' : '52px',
-            borderBottomLeftRadius: isOpen ? '2rem' : '1.5rem',
-            borderBottomRightRadius: isOpen ? '2rem' : '1.5rem',
+            height: isOpen ? '85vh' : '64px',
+            borderBottomLeftRadius: isOpen ? '2rem' : '0',
+            borderBottomRightRadius: isOpen ? '2rem' : '0',
             backgroundColor: isOpen ? '#810100' : closedBg,
           }}
           transition={{
@@ -71,15 +71,15 @@ export default function Navbar() {
           }}
         >
         {/* ─── Top bar (always visible) ─── */}
-        <nav className="flex items-center justify-between px-5 md:px-8 h-[52px] shrink-0">
+        <nav className="flex items-center justify-between mx-auto w-full max-w-screen-xl px-5 md:px-8 h-[64px] shrink-0">
           {/* Left — Logo */}
           <div className="flex items-center gap-3">
             <Link
               href="/"
-              className="text-[15px] font-bold tracking-[0.01em] transition-colors duration-300 text-white"
+              className="flex items-center"
               onClick={() => setIsOpen(false)}
             >
-              Medici Social®
+              <img src="/images/medici slim.png?v=3" alt="Medici Social" className="h-10 md:h-12 w-auto object-contain" />
             </Link>
           </div>
 
@@ -142,7 +142,7 @@ export default function Navbar() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 10 }}
               transition={{ delay: 0.15, duration: 0.4, ease: [0.4, 0, 0.2, 1] as const }}
-              className="flex flex-col h-[calc(85vh-52px)] px-5 md:px-8"
+              className="flex flex-col mx-auto w-full max-w-screen-xl h-[calc(85vh-52px)] px-5 md:px-8"
             >
               {/* ─── Main Content Grid ─── */}
               <div className="flex flex-col md:flex-row gap-8 md:gap-12 flex-1 pt-8 md:pt-12">
