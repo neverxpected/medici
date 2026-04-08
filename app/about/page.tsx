@@ -201,11 +201,11 @@ export default function About() {
                 key={v.num}
                 variants={cardItem}
                 whileHover={{ y: -6, scale: 1.02, transition: { duration: 0.25 } }}
-                className={`bg-zinc-900 border border-zinc-800 rounded-xl p-8 md:p-10 cursor-default ${idx === 0 ? 'md:col-span-2' : ''}`}
+                className={`bg-zinc-900 border border-zinc-800 rounded-xl p-8 md:p-10 cursor-default ${idx === 0 ? 'md:col-span-2' : idx === 2 ? 'md:col-span-3' : ''}`}
               >
                 <span className="text-red-600 text-sm font-mono font-bold mb-6 block">{v.num}</span>
                 <h3 className="text-xl md:text-2xl font-semibold text-white mb-3">{v.title}</h3>
-                <p className="text-zinc-400 text-sm leading-relaxed">{v.desc}</p>
+                <p className={`text-zinc-400 text-sm leading-relaxed ${idx === 2 ? 'max-w-xl' : ''}`}>{v.desc}</p>
               </motion.div>
             ))}
           </motion.div>
