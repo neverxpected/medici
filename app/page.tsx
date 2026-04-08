@@ -63,7 +63,7 @@ export default function Home() {
       {/* ═══════════════════════════════════════════════════════════
           SECTION 1 — HERO TITLE
       ═══════════════════════════════════════════════════════════ */}
-      <section className="pt-24 md:pt-36 lg:pt-48 pb-0">
+      <section className="pt-12 md:pt-20 lg:pt-24 pb-0">
         <motion.div
           className="flex flex-col md:flex-row md:items-end md:justify-between gap-10 md:gap-20"
           variants={staggerContainer}
@@ -177,7 +177,7 @@ export default function Home() {
         whileInView="visible"
         viewport={viewportConfig}
       >
-        <div className="w-full h-[40vh] md:h-[60vh] bg-gray-200 rounded-2xl overflow-hidden relative">
+        <div className="w-full h-[40vh] md:h-[60vh] bg-gray-200 rounded-2xl overflow-hidden relative border border-crimson/20">
           <video
             ref={heroVideoRef}
             src="/videos/hero-vid-small.mp4"
@@ -203,8 +203,8 @@ export default function Home() {
           whileInView="visible"
           viewport={viewportConfig}
         >
-          <span className="text-[#121212] text-sm">
-            <span className="text-crimson mr-1">//</span> About us
+          <span className="text-crimson text-sm">
+            <span className="mr-1">//</span> About us
           </span>
           <span className="text-[#6B6B6B] text-sm">(01)</span>
         </motion.div>
@@ -220,7 +220,7 @@ export default function Home() {
             variants={staggerItem}
             className="font-serif text-3xl md:text-[2.75rem] lg:text-5xl leading-[1.2] tracking-[-0.01em] max-w-4xl"
           >
-            <span className="text-[#121212] font-medium">
+            <span className="text-crimson font-medium">
               We believe social media marketing is more than just strategy
             </span>
             {' — '}
@@ -291,10 +291,10 @@ export default function Home() {
           viewport={viewportConfig}
         >
           <div>
-            <motion.span variants={staggerItem} className="text-[#6B6B6B] text-sm mb-4 block">
-              <span className="text-crimson mr-1">/</span> Selected Work
+            <motion.span variants={staggerItem} className="text-crimson text-sm mb-4 block">
+              <span className="mr-1">//</span> Selected Work
             </motion.span>
-            <motion.h2 variants={staggerItem} className="font-serif text-4xl md:text-5xl lg:text-6xl font-medium tracking-[-0.01em] text-[#121212]">
+            <motion.h2 variants={staggerItem} className="font-serif text-4xl md:text-5xl lg:text-6xl font-medium tracking-[-0.01em] text-crimson">
               Selected Work.
             </motion.h2>
             <motion.p variants={staggerItem} className="text-[#6B6B6B] text-sm leading-relaxed max-w-sm mt-4">
@@ -378,14 +378,14 @@ export default function Home() {
           viewport={viewportConfig}
         >
           <motion.div variants={staggerItem} className="flex items-center justify-between mb-12">
-            <span className="text-[#121212] text-sm">
-              <span className="text-crimson mr-1">/</span> Why us
+            <span className="text-crimson text-sm">
+              <span className="mr-1">//</span> Why us
             </span>
             <span className="text-[#6B6B6B] text-sm">(03)</span>
           </motion.div>
 
           <motion.h2 variants={staggerItem} className="font-serif text-3xl md:text-[2.75rem] lg:text-5xl leading-[1.2] tracking-[-0.01em] max-w-4xl mb-16">
-            <span className="text-[#121212] font-medium">
+            <span className="text-crimson font-medium">
               We cut through noise to create campaigns
             </span>
             {' '}
@@ -525,13 +525,13 @@ export default function Home() {
           viewport={viewportConfig}
         >
           <motion.div variants={staggerItem} className="flex items-center justify-between mb-6">
-            <span className="text-[#121212] text-sm">
-              <span className="text-crimson mr-1">/</span> Pricing
+            <span className="text-crimson text-sm">
+              <span className="mr-1">//</span> Pricing
             </span>
             <span className="text-[#6B6B6B] text-sm">(06)</span>
           </motion.div>
 
-          <motion.h2 variants={staggerItem} className="font-serif text-4xl md:text-5xl lg:text-6xl font-medium tracking-[-0.01em] text-[#121212] mb-4">
+          <motion.h2 variants={staggerItem} className="font-serif text-4xl md:text-5xl lg:text-6xl font-medium tracking-[-0.01em] text-crimson mb-4">
             Pricing Plans.
           </motion.h2>
           <motion.p variants={staggerItem} className="text-[#6B6B6B] text-sm leading-relaxed max-w-sm mb-12">
@@ -561,8 +561,8 @@ export default function Home() {
           whileInView="visible"
           viewport={viewportConfig}
         >
-          <span className="text-[#121212] text-sm">
-            <span className="text-crimson mr-1">/</span> FAQs
+          <span className="text-crimson text-sm">
+              <span className="mr-1">//</span> FAQs
           </span>
           <span className="text-[#6B6B6B] text-sm">(08)</span>
         </motion.div>
@@ -576,7 +576,7 @@ export default function Home() {
         >
           {/* Left side */}
           <motion.div variants={staggerItem} className="lg:max-w-sm shrink-0">
-            <h2 className="font-serif text-3xl md:text-4xl lg:text-[2.75rem] font-medium tracking-[-0.01em] text-[#121212] leading-tight">
+            <h2 className="font-serif text-3xl md:text-4xl lg:text-[2.75rem] font-medium tracking-[-0.01em] text-crimson leading-tight">
               Wondering How We Work?
             </h2>
             <p className="text-[#6B6B6B] text-sm leading-relaxed mt-6 max-w-xs">
