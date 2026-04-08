@@ -27,6 +27,11 @@ const staggerItem = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease } },
 };
 
+const cardItem = {
+  hidden: { opacity: 0, y: 30, scale: 0.96 },
+  visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.7, ease } },
+};
+
 const viewportConfig = { once: true, margin: '-80px' as const };
 
 const rotatingWords = ['Traffic.', 'Revenue.', 'Growth.', 'Results.'];
@@ -125,7 +130,7 @@ export default function Home() {
               >
                 Turn Views<br />
                 Into{' '}
-                <span className="bg-crimson text-white px-5 py-1.5 rounded-xl inline-flex items-center justify-center overflow-hidden relative w-[185px] md:w-[280px]">
+                <span className="bg-crimson text-white px-4 py-0.5 rounded-xl inline-flex items-center justify-center overflow-hidden relative align-baseline" style={{ height: '1.15em', minWidth: '4.5em' }}>
                   <AnimatePresence mode="wait">
                     <motion.span
                       key={rotatingWords[wordIndex]}
@@ -133,7 +138,7 @@ export default function Home() {
                       animate={{ y: 0, opacity: 1 }}
                       exit={{ y: '-100%', opacity: 0 }}
                       transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                      className="inline-block text-[2rem] md:text-6xl lg:text-[5.5rem]"
+                      className="absolute inset-0 flex items-center justify-center font-bold"
                     >
                       {rotatingWords[wordIndex]}
                     </motion.span>
@@ -149,10 +154,10 @@ export default function Home() {
               </motion.p>
 
               {/* CTAs */}
-              <motion.div variants={staggerItem} className="flex flex-col md:flex-row items-center justify-center md:justify-start gap-3 md:gap-4 mt-8 w-full md:w-auto">
+              <motion.div variants={staggerItem} className="flex flex-col md:flex-row items-center justify-center md:justify-start gap-3 md:gap-4 mt-8">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center justify-center gap-2 bg-white text-black text-sm font-medium px-7 py-3.5 rounded-full hover:bg-white/90 transition-colors w-full md:w-auto"
+                  className="inline-flex items-center justify-center gap-2 bg-white text-black text-sm font-medium px-7 py-3.5 rounded-full hover:bg-white/90 transition-colors min-w-[200px]"
                 >
                   Book a Call
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
@@ -161,7 +166,7 @@ export default function Home() {
                 </Link>
                 <Link
                   href="#pricing"
-                  className="border border-white/20 text-white text-sm font-medium px-7 py-3.5 rounded-full hover:bg-white/5 transition-colors text-center w-full md:w-auto"
+                  className="border border-white/20 text-white text-sm font-medium px-7 py-3.5 rounded-full hover:bg-white/5 transition-colors text-center min-w-[200px]"
                 >
                   See Pricing
                 </Link>
@@ -286,7 +291,7 @@ export default function Home() {
               { number: '60+', label: 'Brands served' },
               { number: '50M+', label: 'Views generated' },
             ].map(stat => (
-              <motion.div key={stat.label} variants={staggerItem} className="bg-white md:bg-[#0a0a0a] border border-gray-200 md:border-white/5 rounded-2xl p-6 md:p-8">
+              <motion.div key={stat.label} variants={cardItem} className="bg-white md:bg-[#0a0a0a] border border-gray-200 md:border-white/5 rounded-2xl p-6 md:p-8">
                 <span className="text-3xl md:text-5xl font-bold text-crimson md:text-white">{stat.number}</span>
                 <span className="block text-gray-600 md:text-white/40 text-sm mt-2">{stat.label}</span>
               </motion.div>
@@ -316,22 +321,50 @@ export default function Home() {
             whileInView="visible"
             viewport={viewportConfig}
           >
-            {services.map(svc => (
-              <motion.div key={svc.title} variants={staggerItem} className="bg-white md:bg-[#0a0a0a] border border-gray-200 md:border-white/5 rounded-2xl p-8 md:p-10 hover:border-crimson/30 transition-colors duration-300 group">
-                {/* Icon */}
-                <div className="w-10 h-10 rounded-xl bg-crimson/10 flex items-center justify-center mb-6 group-hover:bg-crimson/20 transition-colors">
-                  <div className="w-2.5 h-2.5 rounded-sm bg-crimson" />
+            {services.map((svc, idx) => (
+              <motion.div key={svc.title} variants={cardItem} className="bg-transparent border border-white/10 rounded-2xl overflow-hidden hover:border-crimson/30 transition-colors duration-300 group">
+                {/* Top — dark on desktop */}
+                <div className="p-8 md:p-10 bg-[#0a0a0a]">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-11 h-11 rounded-xl bg-crimson/10 flex items-center justify-center shrink-0 group-hover:bg-crimson/20 transition-colors">
+                      {idx === 0 && (
+                        <svg className="w-5 h-5 text-crimson" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.8}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z" />
+                        </svg>
+                      )}
+                      {idx === 1 && (
+                        <svg className="w-5 h-5 text-crimson" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.8}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5a17.92 17.92 0 0 1-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418" />
+                        </svg>
+                      )}
+                      {idx === 2 && (
+                        <svg className="w-5 h-5 text-crimson" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.8}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z" />
+                        </svg>
+                      )}
+                      {idx === 3 && (
+                        <svg className="w-5 h-5 text-crimson" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.8}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M10.34 15.84c-.688-.06-1.386-.09-2.09-.09H7.5a4.5 4.5 0 1 1 0-9h.75c.704 0 1.402-.03 2.09-.09m0 9.18c.253.962.584 1.892.985 2.783.247.55.06 1.21-.463 1.511l-.657.38a.75.75 0 0 1-1.021-.26l-.365-.633a8.963 8.963 0 0 1-1.07-3.781m1.5-5.94c-.253-.962-.584-1.892-.985-2.783a1.125 1.125 0 0 1 .463-1.511l.657-.38a.75.75 0 0 1 1.021.26l.365.633a8.963 8.963 0 0 1 1.07 3.78M14.25 12h3m-3 0a2.25 2.25 0 0 0 0 4.5h3a2.25 2.25 0 0 0 0-4.5Z" />
+                        </svg>
+                      )}
+                    </div>
+                    <h3 className="text-xl md:text-2xl font-semibold text-white">{svc.title}</h3>
+                  </div>
+                  <p className="text-white/40 text-sm leading-relaxed">{svc.desc}</p>
                 </div>
-                <h3 className="text-xl md:text-2xl font-semibold text-crimson md:text-white mb-3">{svc.title}</h3>
-                <p className="text-gray-600 md:text-white/40 text-sm leading-relaxed mb-6">{svc.desc}</p>
-                <ul className="space-y-2.5">
-                  {svc.items.map(item => (
-                    <li key={item} className="flex items-center gap-3">
-                      <span className="w-1 h-1 rounded-full bg-crimson shrink-0" />
-                      <span className="text-sm text-gray-700 md:text-white/60">{item}</span>
-                    </li>
-                  ))}
-                </ul>
+                {/* Bottom — white on desktop */}
+                <div className="px-8 pb-8 pt-6 md:px-10 md:pb-10 md:pt-8 bg-white">
+                  <ul className="space-y-2.5">
+                    {svc.items.map(item => (
+                      <li key={item} className="flex items-center gap-3">
+                        <svg className="w-3.5 h-3.5 text-crimson shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                        </svg>
+                        <span className="text-sm text-gray-700 md:text-gray-800">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </motion.div>
             ))}
           </motion.div>
@@ -376,7 +409,7 @@ export default function Home() {
                 desc: 'We track performance and scale winning formats to drive growth.',
               },
             ].map(step => (
-              <motion.div key={step.step} variants={staggerItem} className="bg-[#0a0a0a] border border-white/5 rounded-2xl p-8 md:p-10">
+              <motion.div key={step.step} variants={cardItem} className="bg-[#0a0a0a] border border-white/5 rounded-2xl p-8 md:p-10">
                 <span className="text-crimson text-sm font-mono font-bold mb-6 block">{step.step}</span>
                 <h3 className="text-xl md:text-2xl font-semibold text-white mb-3">{step.title}</h3>
                 <p className="text-white/40 text-sm leading-relaxed">{step.desc}</p>
@@ -434,7 +467,7 @@ export default function Home() {
             viewport={viewportConfig}
           >
             {caseStudies.map(cs => (
-              <motion.div key={cs.name} variants={staggerItem} className="bg-[#0a0a0a] border border-white/5 rounded-2xl overflow-hidden group hover:border-crimson/20 transition-colors duration-300">
+              <motion.div key={cs.name} variants={cardItem} className="bg-[#0a0a0a] border border-white/5 rounded-2xl overflow-hidden group hover:border-crimson/20 transition-colors duration-300">
                 <div className="grid grid-cols-1 md:grid-cols-2">
                   <div className="aspect-[4/3] md:aspect-auto overflow-hidden">
                     <img src={cs.img} alt={cs.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
@@ -477,13 +510,13 @@ export default function Home() {
 
           <motion.div
             className="grid grid-cols-1 md:grid-cols-2 gap-6"
-            variants={fadeUp}
+            variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
             viewport={viewportConfig}
           >
             {/* Medici column */}
-            <div className="bg-crimson/10 border border-crimson/20 rounded-2xl p-8 md:p-10">
+            <motion.div variants={cardItem} className="bg-crimson/10 border border-crimson/20 rounded-2xl p-8 md:p-10">
               <h3 className="text-xl font-bold text-crimson mb-8">Medici Social</h3>
               {[
                 'Social-first, platform-native',
@@ -499,10 +532,10 @@ export default function Home() {
                   <span className="text-sm text-white/80">{item}</span>
                 </div>
               ))}
-            </div>
+            </motion.div>
 
             {/* Others column */}
-            <div className="bg-[#0a0a0a] border border-white/5 rounded-2xl p-8 md:p-10">
+            <motion.div variants={cardItem} className="bg-[#0a0a0a] border border-white/5 rounded-2xl p-8 md:p-10">
               <h3 className="text-xl font-bold text-white/40 mb-8">Other Agencies</h3>
               {[
                 'Repurposed or generic',
@@ -518,7 +551,7 @@ export default function Home() {
                   <span className="text-sm text-white/40">{item}</span>
                 </div>
               ))}
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </section>
