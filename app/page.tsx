@@ -31,12 +31,12 @@ const staggerItem = {
 const viewportConfig = { once: true, margin: '-100px' as const };
 
 const clientLogos = [
-  { src: '/logos/slim (1).png', alt: 'Client 1' },
-  { src: '/logos/slim (2).png', alt: 'Client 2' },
-  { src: '/logos/slim (3).png', alt: 'Client 3' },
-  { src: '/logos/slim (4).png', alt: 'Client 4' },
-  { src: '/logos/slim (5).png', alt: 'Client 5' },
-  { src: '/logos/slim (6).png', alt: 'Client 6' },
+  { src: '/logos/small (1).png', alt: 'Client 1' },
+  { src: '/logos/small (2).png', alt: 'Client 2' },
+  { src: '/logos/small (3).png', alt: 'Client 3' },
+  { src: '/logos/small (4).png', alt: 'Client 4' },
+  { src: '/logos/small (5).png', alt: 'Client 5' },
+  { src: '/logos/small (6).png', alt: 'Client 6' },
 ];
 
 export default function Home() {
@@ -123,7 +123,7 @@ export default function Home() {
                       alt={logo.alt}
                       width={400}
                       height={130}
-                      className="h-8 md:h-12 w-auto object-contain brightness-0 md:invert opacity-60 hover:opacity-100 transition-opacity duration-300 shrink-0 mx-2 md:mx-3"
+                      className="h-14 md:h-12 w-auto object-contain md:brightness-0 md:invert opacity-60 hover:opacity-100 transition-opacity duration-300 shrink-0 mx-4 md:mx-3"
                     />
                   ))}
                 </div>
@@ -135,7 +135,7 @@ export default function Home() {
                       alt={logo.alt}
                       width={400}
                       height={130}
-                      className="h-8 md:h-12 w-auto object-contain brightness-0 md:invert opacity-60 hover:opacity-100 transition-opacity duration-300 shrink-0 mx-2 md:mx-3"
+                      className="h-14 md:h-12 w-auto object-contain md:brightness-0 md:invert opacity-60 hover:opacity-100 transition-opacity duration-300 shrink-0 mx-4 md:mx-3"
                     />
                   ))}
                 </div>
