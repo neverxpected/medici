@@ -7,6 +7,7 @@ import { useState, useEffect } from 'react';
 import FaqAccordion from './components/FaqAccordion';
 import PricingPlans from './components/PricingPlans';
 import TestimonialCarousel from './components/TestimonialCarousel';
+import SpotlightCard from './components/SpotlightCard';
 
 /* ── Animation variants ── */
 const heroEase = [0.16, 1, 0.3, 1] as const;
@@ -131,13 +132,44 @@ export default function Home() {
 
 
               <motion.h1
-                variants={staggerItem}
+                variants={{
+                  hidden: {},
+                  visible: { transition: { staggerChildren: 0.08 } },
+                }}
+                initial="hidden"
+                animate="visible"
                 className="text-5xl md:text-6xl lg:text-[5.5rem] font-bold tracking-tight leading-[1.05]"
               >
-                Turn Views
+                {['Turn', 'Views'].map((word) => (
+                  <motion.span
+                    key={word}
+                    variants={{
+                      hidden: { opacity: 0, y: 20 },
+                      visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [...scrollEase] as [number, number, number, number] } },
+                    }}
+                    className="inline-block mr-[0.3em]"
+                  >
+                    {word}
+                  </motion.span>
+                ))}
                 <span className="flex items-center gap-3 md:gap-4">
-                  <span>Into</span>
-                  <span className="bg-red-700 text-white px-4 py-1 rounded-xl overflow-hidden relative flex items-center justify-center" style={{ height: '1.15em', minWidth: '4.5em' }}>
+                  <motion.span
+                    variants={{
+                      hidden: { opacity: 0, y: 20 },
+                      visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [...scrollEase] as [number, number, number, number] } },
+                    }}
+                    className="inline-block"
+                  >
+                    Into
+                  </motion.span>
+                  <motion.span
+                    variants={{
+                      hidden: { opacity: 0, y: 20, scale: 0.95 },
+                      visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.6, ease: [...scrollEase] as [number, number, number, number] } },
+                    }}
+                    className="bg-red-700 text-white px-4 py-1 rounded-xl overflow-hidden relative flex items-center justify-center"
+                    style={{ height: '1.15em', minWidth: '4.5em' }}
+                  >
                     <AnimatePresence mode="wait">
                       <motion.span
                         key={rotatingWords[wordIndex]}
@@ -150,7 +182,7 @@ export default function Home() {
                         {rotatingWords[wordIndex]}
                       </motion.span>
                     </AnimatePresence>
-                  </span>
+                  </motion.span>
                 </span>
               </motion.h1>
 
@@ -332,7 +364,8 @@ export default function Home() {
             viewport={viewportConfig}
           >
             {services.map((svc, idx) => (
-              <motion.div key={svc.title} variants={cardItem} whileHover={{ y: -6, scale: 1.02, transition: { duration: 0.25 } }} className="bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden hover:border-zinc-700 transition-colors duration-300 group cursor-default">
+              <motion.div key={svc.title} variants={cardItem} whileHover={{ y: -6, scale: 1.02, transition: { duration: 0.25 } }}>
+                <SpotlightCard className="bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden hover:border-zinc-700 transition-colors duration-300 group cursor-default h-full">
                 {/* Top — content */}
                 <div className="p-8 md:p-10">
                   <div className="flex items-center gap-4 mb-4">
@@ -379,6 +412,7 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
+                </SpotlightCard>
               </motion.div>
             ))}
           </motion.div>
@@ -483,7 +517,7 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="aspect-[4/3] md:aspect-auto overflow-hidden order-1 md:order-2">
-                    <img src={cs.img} alt={cs.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                    <img src={cs.img} alt={cs.name} className="w-full h-full object-cover transition-all duration-500 grayscale-[50%] brightness-75 group-hover:grayscale-0 group-hover:brightness-100 group-hover:scale-105" />
                   </div>
                 </div>
               </motion.div>
