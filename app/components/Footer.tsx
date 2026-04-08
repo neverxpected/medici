@@ -18,7 +18,7 @@ export default function Footer() {
             <span className="text-zinc-500 text-xs uppercase tracking-wider block mb-4">Pages</span>
             <div className="flex flex-col gap-2.5">
               {['Home', 'About', 'Contact'].map(page => (
-                <Link key={page} href={page === 'Home' ? '/' : `/${page.toLowerCase()}`} className="text-zinc-400 text-sm hover:text-white transition-colors">
+                <Link key={page} href={page === 'Home' ? '/' : `/${page.toLowerCase()}`} className="text-zinc-400 text-sm hover:text-white transition-colors hover-underline">
                   {page}
                 </Link>
               ))}
@@ -29,8 +29,8 @@ export default function Footer() {
           <div>
             <span className="text-zinc-500 text-xs uppercase tracking-wider block mb-4">Legal</span>
             <div className="flex flex-col gap-2.5">
-              <Link href="/privacy" className="text-zinc-400 text-sm hover:text-white transition-colors">Privacy Policy</Link>
-              <Link href="/terms" className="text-zinc-400 text-sm hover:text-white transition-colors">Terms & Conditions</Link>
+              <Link href="/privacy" className="text-zinc-400 text-sm hover:text-white transition-colors hover-underline">Privacy Policy</Link>
+              <Link href="/terms" className="text-zinc-400 text-sm hover:text-white transition-colors hover-underline">Terms & Conditions</Link>
             </div>
           </div>
         </div>
@@ -38,9 +38,9 @@ export default function Footer() {
         <div className="mt-12 pt-8 border-t border-zinc-800 flex flex-col md:flex-row items-center justify-between gap-4">
           <span className="text-zinc-500 text-xs">&copy; 2026 Medici Social. All rights reserved.</span>
           <div className="flex items-center gap-5">
-            <a href="https://www.instagram.com/medicisocial" target="_blank" rel="noopener noreferrer" className="text-zinc-400 text-xs hover:text-white transition-colors">Instagram</a>
-            <a href="https://www.facebook.com/medicisocial" target="_blank" rel="noopener noreferrer" className="text-zinc-400 text-xs hover:text-white transition-colors">Facebook</a>
-            <a href="#" className="text-zinc-400 text-xs hover:text-white transition-colors">LinkedIn</a>
+            <a href="https://www.instagram.com/medicisocial" target="_blank" rel="noopener noreferrer" className="text-zinc-400 text-xs hover:text-white transition-colors hover-underline">Instagram</a>
+            <a href="https://www.facebook.com/medicisocial" target="_blank" rel="noopener noreferrer" className="text-zinc-400 text-xs hover:text-white transition-colors hover-underline">Facebook</a>
+            <a href="#" className="text-zinc-400 text-xs hover:text-white transition-colors hover-underline">LinkedIn</a>
           </div>
         </div>
       </div>

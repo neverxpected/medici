@@ -25,7 +25,7 @@ export default function Navbar() {
 
   // Detect scroll
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
+    const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -49,9 +49,8 @@ export default function Navbar() {
       {/* ─── Fixed navbar ─── */}
       <div className="fixed top-0 w-full z-50 pt-[env(safe-area-inset-top)] pointer-events-none">
         <motion.header
-          className={`w-full pointer-events-auto transition-colors duration-300 ${
-            scrolled && !isOpen ? 'bg-black/80 backdrop-blur-md' : 'bg-transparent'
-          } ${isOpen ? 'bg-[#0a0a0a]' : ''}`}
+          className={`w-full pointer-events-auto transition-colors duration-300 ${scrolled && !isOpen ? 'bg-black/80 backdrop-blur-md' : 'bg-transparent'
+            } ${isOpen ? 'bg-[#0a0a0a]' : ''}`}
           initial={false}
           animate={{
             height: isOpen ? '100vh' : '72px',
@@ -82,7 +81,7 @@ export default function Navbar() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="text-white/60 text-sm hover:text-white transition-colors duration-200"
+                    className="text-white/60 text-sm hover:text-white transition-colors duration-200 hover-underline"
                   >
                     {link.label}
                   </Link>

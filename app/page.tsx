@@ -366,52 +366,52 @@ export default function Home() {
             {services.map((svc, idx) => (
               <motion.div key={svc.title} variants={cardItem} whileHover={{ y: -6, scale: 1.02, transition: { duration: 0.25 } }}>
                 <SpotlightCard className="bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden hover:border-zinc-700 transition-colors duration-300 group cursor-default h-full">
-                {/* Top — content */}
-                <div className="p-8 md:p-10">
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="w-11 h-11 rounded-xl bg-red-900/30 flex items-center justify-center shrink-0">
-                      {idx === 0 && (
-                        <svg className="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.8}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z" />
-                        </svg>
-                      )}
-                      {idx === 1 && (
-                        <svg className="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.8}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5a17.92 17.92 0 0 1-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418" />
-                        </svg>
-                      )}
-                      {idx === 2 && (
-                        <svg className="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.8}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z" />
-                        </svg>
-                      )}
-                      {idx === 3 && (
-                        <svg className="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.8}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M10.34 15.84c-.688-.06-1.386-.09-2.09-.09H7.5a4.5 4.5 0 1 1 0-9h.75c.704 0 1.402-.03 2.09-.09m0 9.18c.253.962.584 1.892.985 2.783.247.55.06 1.21-.463 1.511l-.657.38a.75.75 0 0 1-1.021-.26l-.365-.633a8.963 8.963 0 0 1-1.07-3.781m1.5-5.94c-.253-.962-.584-1.892-.985-2.783a1.125 1.125 0 0 1 .463-1.511l.657-.38a.75.75 0 0 1 1.021.26l.365.633a8.963 8.963 0 0 1 1.07 3.78M14.25 12h3m-3 0a2.25 2.25 0 0 0 0 4.5h3a2.25 2.25 0 0 0 0-4.5Z" />
-                        </svg>
-                      )}
+                  {/* Top — content */}
+                  <div className="p-8 md:p-10">
+                    <div className="flex items-center gap-4 mb-4">
+                      <div className="w-11 h-11 rounded-xl bg-red-900/30 flex items-center justify-center shrink-0">
+                        {idx === 0 && (
+                          <svg className="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.8}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z" />
+                          </svg>
+                        )}
+                        {idx === 1 && (
+                          <svg className="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.8}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5a17.92 17.92 0 0 1-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418" />
+                          </svg>
+                        )}
+                        {idx === 2 && (
+                          <svg className="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.8}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z" />
+                          </svg>
+                        )}
+                        {idx === 3 && (
+                          <svg className="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.8}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M10.34 15.84c-.688-.06-1.386-.09-2.09-.09H7.5a4.5 4.5 0 1 1 0-9h.75c.704 0 1.402-.03 2.09-.09m0 9.18c.253.962.584 1.892.985 2.783.247.55.06 1.21-.463 1.511l-.657.38a.75.75 0 0 1-1.021-.26l-.365-.633a8.963 8.963 0 0 1-1.07-3.781m1.5-5.94c-.253-.962-.584-1.892-.985-2.783a1.125 1.125 0 0 1 .463-1.511l.657-.38a.75.75 0 0 1 1.021.26l.365.633a8.963 8.963 0 0 1 1.07 3.78M14.25 12h3m-3 0a2.25 2.25 0 0 0 0 4.5h3a2.25 2.25 0 0 0 0-4.5Z" />
+                          </svg>
+                        )}
+                      </div>
+                      <h3 className="text-xl md:text-2xl font-semibold text-white">{svc.title}</h3>
                     </div>
-                    <h3 className="text-xl md:text-2xl font-semibold text-white">{svc.title}</h3>
+                    <p className="text-zinc-400 text-sm leading-relaxed">{svc.desc}</p>
                   </div>
-                  <p className="text-zinc-400 text-sm leading-relaxed">{svc.desc}</p>
-                </div>
-                {/* Bottom — scrolling tags */}
-                <div className="overflow-hidden relative py-4 md:py-5 border-t border-zinc-800">
-                  <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-zinc-900 to-transparent z-10 pointer-events-none" />
-                  <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-zinc-900 to-transparent z-10 pointer-events-none" />
-                  <div className="flex">
-                    <div className="flex flex-nowrap animate-marquee shrink-0 items-center">
-                      {[...svc.items, ...svc.items].map((item, i) => (
-                        <span key={`a-${i}`} className="text-xs text-zinc-500 border border-zinc-700 rounded-full px-4 py-1.5 whitespace-nowrap mx-1.5">{item}</span>
-                      ))}
-                    </div>
-                    <div className="flex flex-nowrap animate-marquee shrink-0 items-center" aria-hidden="true">
-                      {[...svc.items, ...svc.items].map((item, i) => (
-                        <span key={`b-${i}`} className="text-xs text-zinc-500 border border-zinc-700 rounded-full px-4 py-1.5 whitespace-nowrap mx-1.5">{item}</span>
-                      ))}
+                  {/* Bottom — scrolling tags */}
+                  <div className="overflow-hidden relative py-4 md:py-5 border-t border-zinc-800">
+                    <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-zinc-900 to-transparent z-10 pointer-events-none" />
+                    <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-zinc-900 to-transparent z-10 pointer-events-none" />
+                    <div className="flex">
+                      <div className="flex flex-nowrap animate-marquee shrink-0 items-center">
+                        {[...svc.items, ...svc.items].map((item, i) => (
+                          <span key={`a-${i}`} className="text-xs text-zinc-500 border border-zinc-700 rounded-full px-4 py-1.5 whitespace-nowrap mx-1.5">{item}</span>
+                        ))}
+                      </div>
+                      <div className="flex flex-nowrap animate-marquee shrink-0 items-center" aria-hidden="true">
+                        {[...svc.items, ...svc.items].map((item, i) => (
+                          <span key={`b-${i}`} className="text-xs text-zinc-500 border border-zinc-700 rounded-full px-4 py-1.5 whitespace-nowrap mx-1.5">{item}</span>
+                        ))}
+                      </div>
                     </div>
                   </div>
-                </div>
                 </SpotlightCard>
               </motion.div>
             ))}
@@ -516,9 +516,15 @@ export default function Home() {
                       </div>
                     </div>
                   </div>
-                  <div className="aspect-[4/3] md:aspect-auto overflow-hidden order-1 md:order-2">
+                  <motion.div
+                    className="aspect-[4/3] md:aspect-auto overflow-hidden order-1 md:order-2"
+                    initial={{ clipPath: 'inset(100% 0% 0% 0%)' }}
+                    whileInView={{ clipPath: 'inset(0% 0% 0% 0%)' }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.9, ease: [...scrollEase] as [number, number, number, number] }}
+                  >
                     <img src={cs.img} alt={cs.name} className="w-full h-full object-cover transition-all duration-500 grayscale-[50%] brightness-75 group-hover:grayscale-0 group-hover:brightness-100 group-hover:scale-105" />
-                  </div>
+                  </motion.div>
                 </div>
               </motion.div>
             ))}
