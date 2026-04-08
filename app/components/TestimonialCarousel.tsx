@@ -47,10 +47,10 @@ export default function TestimonialCarousel() {
   const t = testimonials[activeIdx];
 
   return (
-    <section className="py-20 md:py-32">
+    <section className="py-24 md:py-32 border-y border-zinc-800">
       <div className="max-w-screen-xl mx-auto px-5 md:px-8">
         <motion.div
-          className="bg-crimson border border-crimson/50 rounded-3xl p-8 md:p-16 text-center relative overflow-hidden"
+          className="text-center relative overflow-hidden"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-80px' }}
@@ -71,7 +71,7 @@ export default function TestimonialCarousel() {
                 </blockquote>
                 <div className="mt-8">
                   <span className="text-white font-semibold text-sm">{t.name}</span>
-                  <span className="text-white/40 text-sm ml-2">&mdash; {t.role}</span>
+                  <span className="text-red-600 text-sm ml-2">&mdash; {t.role}</span>
                 </div>
               </motion.div>
             </AnimatePresence>
@@ -86,8 +86,8 @@ export default function TestimonialCarousel() {
                 aria-label={`Go to testimonial ${i + 1}`}
                 className={`w-2 h-2 rounded-full transition-all duration-300 ${
                   i === activeIdx
-                    ? 'bg-white w-6'
-                    : 'bg-white/30 hover:bg-white/50'
+                    ? 'bg-red-600 w-6'
+                    : 'bg-zinc-700 hover:bg-zinc-500'
                 }`}
               />
             ))}
