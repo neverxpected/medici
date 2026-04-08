@@ -125,7 +125,7 @@ export default function Home() {
               >
                 Turn Views<br />
                 Into{' '}
-                <span className="bg-crimson text-white px-4 py-1 rounded-xl inline-flex items-center justify-center overflow-hidden relative w-[200px] md:w-[300px]">
+                <span className="bg-crimson text-white px-5 py-1.5 rounded-xl inline-flex items-center justify-center overflow-hidden relative w-[185px] md:w-[280px]">
                   <AnimatePresence mode="wait">
                     <motion.span
                       key={rotatingWords[wordIndex]}
@@ -133,7 +133,7 @@ export default function Home() {
                       animate={{ y: 0, opacity: 1 }}
                       exit={{ y: '-100%', opacity: 0 }}
                       transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                      className="inline-block"
+                      className="inline-block text-[2.6rem] md:text-6xl lg:text-[5.5rem]"
                     >
                       {rotatingWords[wordIndex]}
                     </motion.span>
