@@ -123,7 +123,7 @@ export default function Home() {
                       alt={logo.alt}
                       width={400}
                       height={130}
-                      className="h-14 md:h-12 w-auto object-contain md:brightness-0 md:invert opacity-60 hover:opacity-100 transition-opacity duration-300 shrink-0 mx-4 md:mx-3"
+                      className="h-14 md:h-12 w-auto object-contain md:brightness-0 md:invert opacity-60 hover:opacity-100 transition-opacity duration-300 shrink-0 mx-4 md:mx-6"
                     />
                   ))}
                 </div>
@@ -135,7 +135,7 @@ export default function Home() {
                       alt={logo.alt}
                       width={400}
                       height={130}
-                      className="h-14 md:h-12 w-auto object-contain md:brightness-0 md:invert opacity-60 hover:opacity-100 transition-opacity duration-300 shrink-0 mx-4 md:mx-3"
+                      className="h-14 md:h-12 w-auto object-contain md:brightness-0 md:invert opacity-60 hover:opacity-100 transition-opacity duration-300 shrink-0 mx-4 md:mx-6"
                     />
                   ))}
                 </div>
