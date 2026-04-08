@@ -63,7 +63,7 @@ export default function ServicesList() {
       {/* Header */}
       <div className="flex items-center justify-between mb-12">
         <span className="text-gray-500 text-sm">
-          <span className="text-gray-600 mr-1">/</span>Services
+          <span className="text-crimson mr-1">/</span>Services
         </span>
         <span className="text-gray-600 text-sm">(04)</span>
       </div>
