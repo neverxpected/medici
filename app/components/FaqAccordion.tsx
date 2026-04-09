@@ -4,34 +4,34 @@ import { useState } from 'react';
 
 const faqs = [
   {
-    question: 'What does Medici Social specialize in?',
+    question: 'What does Medici Social do?',
     answer:
-      'Medici Social specializes in short-form content and social media growth. We create and optimize content for platforms like TikTok, Instagram Reels, and YouTube Shorts with a strong focus on performance and measurable results.',
+      'We\'re a full-service marketing agency. We specialize in social media marketing and short-form content, and we also offer website design and development, SEO, content creation, and AI integrations. Most of our clients work with us as their complete marketing partner.',
   },
   {
-    question: 'Which platforms do you work with?',
+    question: 'What industries do you work with?',
     answer:
-      'We primarily work with TikTok, Instagram Reels, and YouTube Shorts. Depending on the project, we also adapt content for other social platforms where short-form video performs.',
+      'Our client base is rooted in hospitality, food and beverage, luxury lifestyle, and premium consumer brands. We work best with businesses that care as much about how their brand looks and sounds as they do about performance.',
   },
   {
-    question: 'Who is Medici Social best suited for?',
+    question: 'What makes Medici Social different from other agencies?',
     answer:
-      'Medici Social works with brands, startups, creators, and businesses that want to grow through social-first, short-form content. We\'re a great fit for teams that care about performance, not just aesthetics.',
+      'We bring an editorial eye to everything — your social content, your website, your search presence. Most agencies specialize in one channel. We build across all of them, with short-form content as our specialty and social media management as our backbone. We also integrate AI tools into client workflows, which gives our partners a competitive edge most agencies simply can\'t deliver.',
   },
   {
-    question: 'What services do you offer?',
+    question: 'What does a typical engagement look like?',
     answer:
-      'We specialize in content creation, social media strategy, performance optimization, paid social content, campaign management, and brand storytelling. Our goal is to create high-performing content that drives real growth.',
+      'It starts with a discovery conversation. We learn your brand, align on goals, and build a strategy. From there, it\'s an ongoing cycle of creation, measurement, and refinement — with clear communication throughout. Most clients retain us on a monthly basis.',
   },
   {
-    question: 'How long does it take to see results?',
+    question: 'How long before we see results?',
     answer:
-      'While results vary, most clients start seeing improvements in engagement and retention within the first few weeks. Meaningful growth typically builds over 30-90 days as we test and optimize.',
+      'Most clients see measurable improvements in engagement and audience quality within the first 30 days. Meaningful, compounding growth typically develops over 60–90 days as we test, learn, and optimize.',
   },
   {
-    question: 'What does the onboarding process look like?',
+    question: 'Do you build websites too?',
     answer:
-      'We start with a discovery call, align on goals and strategy, then move into production, testing, and optimization with clear communication throughout.',
+      'Yes. We design and develop websites that match the editorial standard of the content we create for your social channels. Many of our clients come to us for social media and end up having us rebuild their entire digital presence.',
   },
 ];
 
@@ -75,7 +75,7 @@ export default function FaqAccordion() {
             style={{
               maxHeight: openIndex === i ? '200px' : '0px',
               opacity: openIndex === i ? 1 : 0,
-              transition: 'max-height 600ms cubic-bezier(0.4, 0, 0.2, 1), opacity 400ms ease 100ms',
+              transition: 'max-height 900ms cubic-bezier(0.4, 0, 0.2, 1), opacity 600ms ease 150ms',
             }}
             className="overflow-hidden"
           >

@@ -72,7 +72,7 @@ export default function Navbar() {
               className="flex items-center"
               onClick={() => setIsOpen(false)}
             >
-              <img src="/images/medici slim.png?v=3" alt="Medici Social" className="h-12 md:h-14 w-auto object-contain -ml-3" style={{ filter: 'brightness(0) invert(1)' }} />
+              <img src="/images/footer logo medici.png" alt="Medici Social" className="h-12 md:h-14 w-auto object-contain -ml-3" />
             </Link>
 
             {/* Right — Nav links + CTA + Hamburger */}

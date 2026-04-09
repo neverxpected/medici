@@ -88,12 +88,12 @@ const caseStudies = [
     img: '/images/plume.jpg',
   },
   {
-    name: 'Ciel',
-    type: 'E-commerce Brand Growth',
-    desc: 'Helping a direct-to-consumer skincare brand scale sales through performance-driven short-form content.',
+    name: 'Arco Fit Gym',
+    type: 'Hospitality, Elevated',
+    desc: 'Translating the on-premise experience of a premier Houston hospitality group into a social media presence that matches the quality of the dining room.',
     stat1: { value: '3.4x', label: 'Increase in average video views' },
     stat2: { value: '58%', label: 'Growth in social-driven sales' },
-    img: '/images/ciel.jpg',
+    img: '/images/arco-gym.webp',
   },
   {
     name: 'Best Regards',
@@ -576,28 +576,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════════════════════
-          SECTION 8 — PRICING
-      ═══════════════════════════════════════════════════════════ */}
-      <section id="pricing" className="py-20 md:py-32">
-        <div className="max-w-screen-xl mx-auto px-5 md:px-8">
-          <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={viewportConfig} className="text-center md:text-left mb-14 md:mb-20">
-            <motion.span variants={staggerItem} className="inline-flex items-center gap-2 bg-red-900/30 text-red-400 text-xs font-medium px-4 py-1.5 rounded-full border border-red-800/40 mb-6">
-              Pricing
-            </motion.span>
-            <motion.h2 variants={staggerItem} className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight">
-              Simple & Flexible Pricing.
-            </motion.h2>
-            <motion.p variants={staggerItem} className="text-zinc-400 text-base mt-4 max-w-xl">
-              Choose a plan that fits how you work.
-            </motion.p>
-          </motion.div>
-
-          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={viewportConfig}>
-            <PricingPlans />
-          </motion.div>
-        </div>
-      </section>
 
       {/* ═══════════════════════════════════════════════════════════
           SECTION 9 — FAQ
@@ -609,11 +587,8 @@ export default function Home() {
               FAQ
             </motion.span>
             <motion.h2 variants={staggerItem} className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight">
-              Got Questions?
+              A few questions we hear often.
             </motion.h2>
-            <motion.p variants={staggerItem} className="text-zinc-400 text-base mt-4 max-w-xl">
-              Everything you need to know before working with us.
-            </motion.p>
           </motion.div>
 
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={viewportConfig}>
@@ -651,16 +626,16 @@ export default function Home() {
             {/* Content */}
             <div className="relative z-10 p-12 md:p-20 text-center">
               <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-6">
-                Stop Guessing.<br />Start Growing.
+                Let&apos;s build something timeless.
               </h2>
               <p className="text-zinc-400 text-base md:text-lg max-w-xl mx-auto mb-8">
-                Work with a team built to test, optimize, and scale what works on social media.
+                Your brand deserves its story to be told.
               </p>
               <Link
                 href="/contact"
                 className="inline-flex items-center gap-2 bg-red-700 text-white text-sm font-medium px-8 py-4 rounded-full hover:bg-red-600 hover:scale-[1.02] transition-all duration-300"
               >
-                Book a Call
+                Book a Call →
               </Link>
             </div>
           </motion.div>

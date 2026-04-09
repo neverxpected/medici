@@ -7,9 +7,9 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-8">
           {/* Logo + tagline */}
           <div className="md:col-span-2">
-            <img src="/images/medici slim.png?v=3" alt="Medici Social" className="h-12 md:h-14 w-auto object-contain mb-4" style={{ filter: 'brightness(0) invert(1)' }} />
+            <img src="/images/footer logo medici.png" alt="Medici Social" className="h-12 md:h-14 w-auto object-contain mb-4" />
             <p className="text-zinc-400 text-sm leading-relaxed max-w-xs">
-              We&apos;re a social-first marketing agency focused on short-form content.
+              We&apos;re a full-service marketing agency specializing in social media, web design, SEO, and AI-powered strategy — with the goal of building timeless brands.
             </p>
           </div>
 
@@ -46,7 +46,7 @@ export default function Footer() {
           <div className="flex items-center gap-5">
             <a href="https://www.instagram.com/medicisocial" target="_blank" rel="noopener noreferrer" className="text-zinc-400 text-xs hover:text-white transition-colors hover-underline">Instagram</a>
             <a href="https://www.facebook.com/medicisocial" target="_blank" rel="noopener noreferrer" className="text-zinc-400 text-xs hover:text-white transition-colors hover-underline">Facebook</a>
-            <a href="#" className="text-zinc-400 text-xs hover:text-white transition-colors hover-underline">LinkedIn</a>
+
           </div>
         </div>
       </div>
