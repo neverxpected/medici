@@ -17,9 +17,15 @@ export default function Footer() {
           <div>
             <span className="text-zinc-500 text-xs uppercase tracking-wider block mb-4">Pages</span>
             <div className="flex flex-col gap-2.5">
-              {['Home', 'About', 'Contact'].map(page => (
-                <Link key={page} href={page === 'Home' ? '/' : `/${page.toLowerCase()}`} className="text-zinc-400 text-sm hover:text-white transition-colors hover-underline">
-                  {page}
+              {[
+                { label: 'Home', href: '/' },
+                { label: 'Services', href: '/services' },
+                { label: 'Work', href: '/work' },
+                { label: 'About', href: '/about' },
+                { label: 'Contact', href: '/contact' },
+              ].map(link => (
+                <Link key={link.href} href={link.href} className="text-zinc-400 text-sm hover:text-white transition-colors hover-underline">
+                  {link.label}
                 </Link>
               ))}
             </div>

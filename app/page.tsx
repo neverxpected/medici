@@ -45,12 +45,14 @@ const rotatingWords = ['Traffic.', 'Revenue.', 'Growth.', 'Results.'];
 
 /* ── Data ── */
 const clientLogos = [
-  { src: '/logos/small (1).png', alt: 'Client 1' },
-  { src: '/logos/small (2).png', alt: 'Client 2' },
-  { src: '/logos/small (3).png', alt: 'Client 3' },
-  { src: '/logos/small (4).png', alt: 'Client 4' },
-  { src: '/logos/small (5).png', alt: 'Client 5' },
-  { src: '/logos/small (6).png', alt: 'Client 6' },
+  { src: '/logos/1 small.png', alt: 'Client 1' },
+  { src: '/logos/2 small.webp', alt: 'Client 2' },
+  { src: '/logos/3 small.png', alt: 'Client 3' },
+  { src: '/logos/4 small.png', alt: 'Client 4' },
+  { src: '/logos/5 small.png', alt: 'Client 5' },
+  { src: '/logos/6 small.png', alt: 'Client 6' },
+  { src: '/logos/7 small.png', alt: 'Client 7' },
+  { src: '/logos/8 small.png', alt: 'Client 8' },
 ];
 
 const services = [
@@ -138,7 +140,7 @@ export default function Home() {
                 }}
                 initial="hidden"
                 animate="visible"
-                className="text-5xl md:text-6xl lg:text-[5.5rem] font-bold tracking-tight leading-[1.05]"
+                className="text-5xl md:text-6xl lg:text-[5.5rem] font-bold tracking-tight leading-[1.05] text-center md:text-left"
               >
                 {['Turn', 'Views'].map((word) => (
                   <motion.span
@@ -152,7 +154,7 @@ export default function Home() {
                     {word}
                   </motion.span>
                 ))}
-                <span className="flex items-center gap-3 md:gap-4">
+                <span className="flex items-center justify-center md:justify-start gap-3 md:gap-4">
                   <motion.span
                     variants={{
                       hidden: { opacity: 0, y: 20 },
@@ -190,7 +192,7 @@ export default function Home() {
                 variants={staggerItem}
                 className="text-zinc-400 text-base md:text-lg mt-6 max-w-md leading-relaxed mx-auto md:mx-0"
               >
-                We&apos;re a social-first marketing agency focused on short-form content that captures attention and drives real growth.
+                A full-service marketing agency specializing in social media, web design, SEO, and AI-powered strategy — with the goal of building timeless brands.
               </motion.p>
 
               {/* CTAs */}
@@ -208,7 +210,7 @@ export default function Home() {
                   href="#pricing"
                   className="border border-zinc-800 text-white text-sm font-medium px-7 py-3.5 rounded-full hover:bg-zinc-900 hover:scale-[1.02] transition-all duration-300 text-center w-full md:w-auto md:min-w-[200px]"
                 >
-                  See Pricing
+                  Send an Inquiry
                 </Link>
               </motion.div>
             </div>
@@ -233,20 +235,20 @@ export default function Home() {
                 {/* Floating badges — top */}
                 <div className="absolute -top-2 -left-2 md:top-6 md:-left-4 flex flex-col gap-2 z-10">
                   <span className="bg-white/10 backdrop-blur-xl text-white text-[11px] md:text-xs px-4 py-2.5 rounded-xl border border-white/10 shadow-lg">
-                    Social Media Content
+                    Social Media Marketing
                   </span>
                   <span className="bg-white/10 backdrop-blur-xl text-white text-[11px] md:text-xs px-4 py-2.5 rounded-xl border border-white/10 shadow-lg">
-                    Marketing Strategies
+                    Content Strategy
                   </span>
                 </div>
 
                 {/* Floating badges — bottom */}
                 <div className="absolute -bottom-2 -right-2 md:bottom-12 md:-right-4 flex flex-col gap-2 items-end z-10">
                   <span className="bg-white/10 backdrop-blur-xl text-white text-[11px] md:text-xs px-4 py-2.5 rounded-xl border border-white/10 shadow-lg">
-                    Performance Analysis
+                    Web Design & SEO
                   </span>
                   <span className="bg-white/10 backdrop-blur-xl text-white text-[11px] md:text-xs px-4 py-2.5 rounded-xl border border-white/10 shadow-lg">
-                    Paid Social Content
+                    AI Integrations
                   </span>
                 </div>
               </div>
@@ -260,27 +262,7 @@ export default function Home() {
             initial="hidden"
             animate="visible"
           >
-            {/* Avatars + Rating */}
-            <div className="flex items-center gap-3 shrink-0">
-              <div className="flex -space-x-2.5">
-                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop&crop=face" alt="" className="w-8 h-8 rounded-full border-2 border-black object-cover" />
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face" alt="" className="w-8 h-8 rounded-full border-2 border-black object-cover" />
-                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&crop=face" alt="" className="w-8 h-8 rounded-full border-2 border-black object-cover" />
-              </div>
-              <div className="flex flex-col">
-                <div className="flex items-center gap-1.5">
-                  <div className="flex gap-0.5">
-                    {[...Array(5)].map((_, i) => (
-                      <svg key={i} className="w-3 h-3 text-red-600" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                      </svg>
-                    ))}
-                  </div>
-                  <span className="text-xs text-white/80 font-semibold">4.9/5</span>
-                </div>
-                <span className="text-[10px] text-white/40">60+ Trusted Partners</span>
-              </div>
-            </div>
+
 
             {/* Logo ticker */}
             <div className="flex-1 overflow-hidden relative flex items-center">
@@ -308,7 +290,7 @@ export default function Home() {
       ═══════════════════════════════════════════════════════════ */}
       <section className="py-24 md:py-32">
         <div className="max-w-screen-xl mx-auto px-5 md:px-8">
-          <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={viewportConfig}>
+          <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={viewportConfig} className="text-center md:text-left">
             <motion.span variants={staggerItem} className="inline-flex items-center gap-2 bg-white/5 text-white/60 text-xs font-medium px-4 py-1.5 rounded-full border border-white/10 mb-8">
               Who we are
             </motion.span>
@@ -333,7 +315,7 @@ export default function Home() {
               { number: '60+', label: 'Brands served' },
               { number: '50M+', label: 'Views generated' },
             ].map(stat => (
-              <motion.div key={stat.label} variants={cardItem} whileHover={{ y: -6, scale: 1.02, transition: { duration: 0.25 } }} className="bg-zinc-900 border border-zinc-800 rounded-xl p-6 md:p-8 cursor-default">
+              <motion.div key={stat.label} variants={cardItem} whileHover={{ y: -6, scale: 1.02, transition: { duration: 0.25 } }} className="bg-zinc-900 border border-zinc-800 rounded-xl p-6 md:p-8 cursor-default text-center md:text-left">
                 <span className="text-3xl md:text-5xl font-bold text-red-600">{stat.number}</span>
                 <span className="block text-zinc-400 text-sm mt-2">{stat.label}</span>
               </motion.div>
@@ -347,7 +329,7 @@ export default function Home() {
       ═══════════════════════════════════════════════════════════ */}
       <section className="py-20 md:py-32">
         <div className="max-w-screen-xl mx-auto px-5 md:px-8">
-          <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={viewportConfig} className="mb-14 md:mb-20">
+          <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={viewportConfig} className="text-center md:text-left mb-14 md:mb-20">
             <motion.span variants={staggerItem} className="inline-flex items-center gap-2 bg-white/5 text-white/60 text-xs font-medium px-4 py-1.5 rounded-full border border-white/10 mb-6">
               Services
             </motion.span>
@@ -424,7 +406,7 @@ export default function Home() {
       ═══════════════════════════════════════════════════════════ */}
       <section className="py-24 md:py-32">
         <div className="max-w-screen-xl mx-auto px-5 md:px-8">
-          <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={viewportConfig} className="mb-14 md:mb-20">
+          <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={viewportConfig} className="text-center md:text-left mb-14 md:mb-20">
             <motion.span variants={staggerItem} className="inline-flex items-center gap-2 bg-white/5 text-white/60 text-xs font-medium px-4 py-1.5 rounded-full border border-white/10 mb-6">
               Process
             </motion.span>
@@ -457,7 +439,7 @@ export default function Home() {
                 desc: 'We track performance and scale winning formats to drive growth.',
               },
             ].map(step => (
-              <motion.div key={step.step} variants={cardItem} whileHover={{ y: -6, scale: 1.02, transition: { duration: 0.25 } }} className="bg-zinc-900 border border-zinc-800 rounded-xl p-8 md:p-10 cursor-default">
+              <motion.div key={step.step} variants={cardItem} whileHover={{ y: -6, scale: 1.02, transition: { duration: 0.25 } }} className="bg-zinc-900 border border-zinc-800 rounded-xl p-8 md:p-10 cursor-default text-center md:text-left">
                 <span className="text-red-600 text-sm font-mono font-bold mb-6 block">{step.step}</span>
                 <h3 className="text-xl md:text-2xl font-semibold text-white mb-3">{step.title}</h3>
                 <p className="text-zinc-400 text-sm leading-relaxed">{step.desc}</p>
@@ -477,7 +459,7 @@ export default function Home() {
       ═══════════════════════════════════════════════════════════ */}
       <section className="py-20 md:py-32">
         <div className="max-w-screen-xl mx-auto px-5 md:px-8">
-          <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={viewportConfig} className="mb-14 md:mb-20">
+          <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={viewportConfig} className="text-center md:text-left mb-14 md:mb-20">
             <motion.span variants={staggerItem} className="inline-flex items-center gap-2 bg-white/5 text-white/60 text-xs font-medium px-4 py-1.5 rounded-full border border-white/10 mb-6">
               Case studies
             </motion.span>
@@ -537,7 +519,7 @@ export default function Home() {
       ═══════════════════════════════════════════════════════════ */}
       <section className="py-20 md:py-32">
         <div className="max-w-screen-xl mx-auto px-5 md:px-8">
-          <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={viewportConfig} className="mb-14 md:mb-20">
+          <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={viewportConfig} className="text-center md:text-left mb-14 md:mb-20">
             <motion.span variants={staggerItem} className="inline-flex items-center gap-2 bg-white/5 text-white/60 text-xs font-medium px-4 py-1.5 rounded-full border border-white/10 mb-6">
               Why us
             </motion.span>
@@ -599,7 +581,7 @@ export default function Home() {
       ═══════════════════════════════════════════════════════════ */}
       <section id="pricing" className="py-20 md:py-32">
         <div className="max-w-screen-xl mx-auto px-5 md:px-8">
-          <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={viewportConfig} className="mb-14 md:mb-20">
+          <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={viewportConfig} className="text-center md:text-left mb-14 md:mb-20">
             <motion.span variants={staggerItem} className="inline-flex items-center gap-2 bg-white/5 text-white/60 text-xs font-medium px-4 py-1.5 rounded-full border border-white/10 mb-6">
               Pricing
             </motion.span>
@@ -622,7 +604,7 @@ export default function Home() {
       ═══════════════════════════════════════════════════════════ */}
       <section className="py-20 md:py-32">
         <div className="max-w-screen-xl mx-auto px-5 md:px-8">
-          <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={viewportConfig} className="mb-14 md:mb-20">
+          <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={viewportConfig} className="text-center md:text-left mb-14 md:mb-20">
             <motion.span variants={staggerItem} className="inline-flex items-center gap-2 bg-white/5 text-white/60 text-xs font-medium px-4 py-1.5 rounded-full border border-white/10 mb-6">
               FAQ
             </motion.span>

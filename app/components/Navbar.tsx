@@ -6,6 +6,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const navLinks = [
   { label: 'Home', href: '/' },
+  { label: 'Services', href: '/services' },
+  { label: 'Work', href: '/work' },
   { label: 'About', href: '/about' },
 ];
 
@@ -93,7 +95,7 @@ export default function Navbar() {
                 className="hidden md:inline-flex items-center gap-2 bg-red-700 text-white text-sm font-medium px-5 py-2.5 rounded-full hover:bg-red-600 hover:scale-[1.02] transition-all duration-300"
                 onClick={() => setIsOpen(false)}
               >
-                Get in Touch
+                Contact
               </Link>
 
               {/* Mobile hamburger */}
@@ -157,7 +159,7 @@ export default function Navbar() {
                   onClick={() => setIsOpen(false)}
                   className="bg-red-700 text-white text-center text-base font-medium px-8 py-4 rounded-full hover:bg-red-600 hover:scale-[1.02] transition-all duration-300 mt-auto"
                 >
-                  Get in Touch
+                  Contact
                 </Link>
               </motion.div>
             )}
