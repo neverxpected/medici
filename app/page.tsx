@@ -222,10 +222,11 @@ export default function Home() {
                 <div className="rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl shadow-black/50 border border-white/5">
                   <video
                     src="/videos/Intro Video HD.mov"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
+                    autoPlay={true}
+                    loop={true}
+                    muted={true}
+                    defaultMuted={true}
+                    playsInline={true}
                     preload="auto"
                     poster="/images/hero-poster.webp"
                     className="w-full aspect-[9/16] object-cover pointer-events-none"
@@ -611,10 +612,11 @@ export default function Home() {
           >
             {/* Faded background video */}
             <video
-              autoPlay
-              muted
-              loop
-              playsInline
+              autoPlay={true}
+              loop={true}
+              muted={true}
+              defaultMuted={true}
+              playsInline={true}
               preload="auto"
               poster="/images/cta-poster.webp"
               className="absolute inset-0 w-full h-full object-cover opacity-35 pointer-events-none"

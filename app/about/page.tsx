@@ -292,10 +292,11 @@ export default function About() {
           >
             {/* Faded background video */}
             <video
-              autoPlay
-              muted
-              loop
-              playsInline
+              autoPlay={true}
+              loop={true}
+              muted={true}
+              defaultMuted={true}
+              playsInline={true}
               preload="auto"
               poster="/images/cta-poster.webp"
               className="absolute inset-0 w-full h-full object-cover opacity-35 pointer-events-none"
