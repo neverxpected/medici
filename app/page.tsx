@@ -81,8 +81,8 @@ const services = [
 const caseStudies = [
   {
     name: 'Plume',
-    type: 'Personal Brand Scaling',
-    desc: 'Scaling a founder\'s personal brand using optimized short-form storytelling and content structure.',
+    type: 'Social-Led Brand Building',
+    desc: 'Building a distinctive social presence for Houston\'s Plume through short-form storytelling and a content strategy rooted in the brand\'s identity.',
     stat1: { value: '295%', label: 'Increase in average watch time' },
     stat2: { value: '92%', label: 'Follower growth in 90 days' },
     img: '/images/plume.jpg',
@@ -334,7 +334,7 @@ export default function Home() {
               Services
             </motion.span>
             <motion.h2 variants={staggerItem} className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight">
-              Everything you need to grow your brand, all in one place.
+              Everything you need to grow your brand,<br className="hidden md:block" /> all in one place.
             </motion.h2>
           </motion.div>
 
@@ -359,7 +359,7 @@ export default function Home() {
                         )}
                         {idx === 1 && (
                           <svg className="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.8}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5a17.92 17.92 0 0 1-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418" />
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
                           </svg>
                         )}
                         {idx === 2 && (
@@ -369,7 +369,7 @@ export default function Home() {
                         )}
                         {idx === 3 && (
                           <svg className="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.8}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M10.34 15.84c-.688-.06-1.386-.09-2.09-.09H7.5a4.5 4.5 0 1 1 0-9h.75c.704 0 1.402-.03 2.09-.09m0 9.18c.253.962.584 1.892.985 2.783.247.55.06 1.21-.463 1.511l-.657.38a.75.75 0 0 1-1.021-.26l-.365-.633a8.963 8.963 0 0 1-1.07-3.781m1.5-5.94c-.253-.962-.584-1.892-.985-2.783a1.125 1.125 0 0 1 .463-1.511l.657-.38a.75.75 0 0 1 1.021.26l.365.633a8.963 8.963 0 0 1 1.07 3.78M14.25 12h3m-3 0a2.25 2.25 0 0 0 0 4.5h3a2.25 2.25 0 0 0 0-4.5Z" />
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h9a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0015.75 4.5h-9A2.25 2.25 0 004.5 6.75v10.5A2.25 2.25 0 006.75 19.5zM9 10.5a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm6 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
                           </svg>
                         )}
                       </div>
@@ -425,18 +425,18 @@ export default function Home() {
             {[
               {
                 step: '01',
-                title: 'Define the Hook',
-                desc: 'We identify your audience and the content angles that capture attention.',
+                title: 'Discover',
+                desc: 'We start with your brand — its voice, its audience, its goals. Before we build anything, we understand everything. Every engagement begins with a conversation, not a template.',
               },
               {
                 step: '02',
-                title: 'Create & Distribute',
-                desc: 'We produce high-impact short-form content, optimized for engagement.',
+                title: 'Build',
+                desc: 'Strategy, content, websites, campaigns — crafted with editorial precision and built for the platforms and channels where your audience lives. Every deliverable tested against a clear strategic framework.',
               },
               {
                 step: '03',
-                title: 'Analyze & Scale',
-                desc: 'We track performance and scale winning formats to drive growth.',
+                title: 'Refine',
+                desc: 'We measure what matters, learn from every piece of data, and iterate until the work performs as well as it looks. Great marketing isn\'t set-and-forget — it\'s a discipline.',
               },
             ].map(step => (
               <motion.div key={step.step} variants={cardItem} whileHover={{ y: -6, scale: 1.02, transition: { duration: 0.25 } }} className="bg-zinc-900 border border-zinc-800 rounded-xl p-8 md:p-10 cursor-default text-center md:text-left">
@@ -467,7 +467,7 @@ export default function Home() {
               Work That Delivers Results.
             </motion.h2>
             <motion.p variants={staggerItem} className="text-zinc-400 text-base mt-4 max-w-xl">
-              Medici Social helps brands grow through social-first strategies.
+              These are a selection of brands we&apos;ve partnered with
             </motion.p>
           </motion.div>
 
