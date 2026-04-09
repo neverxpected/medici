@@ -44,7 +44,7 @@ export default function RootLayout({
       <body className="font-sans">
         <Navbar />
         <SchemaOrg />
-        <main className="flex-1">
+        <main className="flex-1 overflow-x-hidden">
           {children}
         </main>
 
