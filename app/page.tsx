@@ -67,14 +67,14 @@ const services = [
     items: ['Short-form video production & editing', 'Brand photography & visual assets', 'Graphic design & copywriting', 'Brand guidelines & asset libraries'],
   },
   {
-    title: 'Performance & Optimization',
-    desc: 'Maximize watch time and engagement with content refined through data.',
-    items: ['Engagement analysis', 'Performance reporting', 'Ongoing optimization'],
+    title: 'Website Design & SEO',
+    desc: 'Your website is the foundation. Your search presence is how people find it. We handle both — designing and building sites as refined as your social content, then making sure they rank where it matters. One team, no disconnect.',
+    items: ['Custom website design & responsive development', 'Technical SEO audits & optimization', 'Local SEO & Google Business Profile', 'Keyword strategy & performance tracking'],
   },
   {
-    title: 'Paid Social Content',
-    desc: 'Ad-ready creatives designed to convert attention into results.',
-    items: ['Paid ads', 'Creative testing', 'Content formats'],
+    title: 'AI Integrations',
+    desc: 'The advantage most agencies can\'t offer. We integrate AI tools into your marketing workflows — from content ideation and analytics automation to chatbots and personalized customer journeys — so your team operates faster without sacrificing quality.',
+    items: ['AI-powered content workflows', 'Marketing automation & analytics', 'Chatbot & customer journey design', 'Custom AI tool implementation'],
   },
 ];
 
