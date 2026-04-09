@@ -57,14 +57,14 @@ const clientLogos = [
 
 const services = [
   {
-    title: 'Content Creation',
-    desc: 'Scroll-stopping video content built for TikTok, Reels, and Shorts.',
-    items: ['Concept development', 'Video production', 'Editing & pacing', 'Captions & formatting'],
+    title: 'Social Media Marketing',
+    desc: 'The core of what we do. We manage your brand\'s social presence end-to-end — from strategy and content planning to daily posting, community engagement, and performance reporting. Not just content for content\'s sake. A deliberate, measured system for growth.',
+    items: ['Platform Strategy & Management', 'Content Calendaring & Scheduling', 'Community Engagement & Response', 'Monthly Analytics & Reporting'],
   },
   {
-    title: 'Social Media Strategy',
-    desc: 'A clear plan for what to post, why it works, and how it grows.',
-    items: ['Posting strategy', 'Growth frameworks', 'Trend & research', 'Content planning'],
+    title: 'Content Creation',
+    desc: 'Short-form video, photography, graphic design, copywriting — every piece of content crafted to a single editorial standard across every channel. From TikTok scripts to brand photography, nothing leaves our studio without intention behind it.',
+    items: ['Short-form video production & editing', 'Brand photography & visual assets', 'Graphic design & copywriting', 'Brand guidelines & asset libraries'],
   },
   {
     title: 'Performance & Optimization',
@@ -291,13 +291,13 @@ export default function Home() {
       <section className="py-24 md:py-32">
         <div className="max-w-screen-xl mx-auto px-5 md:px-8">
           <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={viewportConfig} className="text-center md:text-left">
-            <motion.span variants={staggerItem} className="inline-flex items-center gap-2 bg-white/5 text-white/60 text-xs font-medium px-4 py-1.5 rounded-full border border-white/10 mb-8">
+            <motion.span variants={staggerItem} className="inline-flex items-center gap-2 bg-red-900/30 text-red-400 text-xs font-medium px-4 py-1.5 rounded-full border border-red-800/40 mb-8">
               Who we are
             </motion.span>
 
             <motion.h2 variants={staggerItem} className="text-2xl md:text-4xl lg:text-5xl font-bold leading-tight max-w-4xl mb-16">
-              Medici Social helps brands grow through{' '}
-              <span className="text-zinc-400">performance-driven short-form content built for today&apos;s social platforms.</span>
+              Medici Social is built on the belief that every brand has a story worth telling well.{' '}
+              <span className="text-zinc-400">We specialize in building brands across every digital touchpoint — from the social feeds that earn daily attention to the websites that anchor long-term credibility. Our specialty is short-form content, but our scope covers the full picture: strategy, social media management, web design, search optimization, and AI integrations that give our clients an edge most agencies can&apos;t offer.</span>
             </motion.h2>
           </motion.div>
 
@@ -312,8 +312,8 @@ export default function Home() {
             {[
               { number: '5+', label: 'Years of experience' },
               { number: '140+', label: 'Campaigns launched' },
-              { number: '60+', label: 'Brands served' },
-              { number: '50M+', label: 'Views generated' },
+              { number: '20+', label: 'Brands served' },
+              { number: '10M+', label: 'Views generated' },
             ].map(stat => (
               <motion.div key={stat.label} variants={cardItem} whileHover={{ y: -6, scale: 1.02, transition: { duration: 0.25 } }} className="bg-zinc-900 border border-zinc-800 rounded-xl p-6 md:p-8 cursor-default text-center md:text-left">
                 <span className="text-3xl md:text-5xl font-bold text-red-600">{stat.number}</span>
@@ -330,11 +330,11 @@ export default function Home() {
       <section className="py-20 md:py-32">
         <div className="max-w-screen-xl mx-auto px-5 md:px-8">
           <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={viewportConfig} className="text-center md:text-left mb-14 md:mb-20">
-            <motion.span variants={staggerItem} className="inline-flex items-center gap-2 bg-white/5 text-white/60 text-xs font-medium px-4 py-1.5 rounded-full border border-white/10 mb-6">
+            <motion.span variants={staggerItem} className="inline-flex items-center gap-2 bg-red-900/30 text-red-400 text-xs font-medium px-4 py-1.5 rounded-full border border-red-800/40 mb-6">
               Services
             </motion.span>
             <motion.h2 variants={staggerItem} className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight">
-              We help brands grow through short-form content.
+              Everything you need to grow your brand, all in one place.
             </motion.h2>
           </motion.div>
 
@@ -407,7 +407,7 @@ export default function Home() {
       <section className="py-24 md:py-32">
         <div className="max-w-screen-xl mx-auto px-5 md:px-8">
           <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={viewportConfig} className="text-center md:text-left mb-14 md:mb-20">
-            <motion.span variants={staggerItem} className="inline-flex items-center gap-2 bg-white/5 text-white/60 text-xs font-medium px-4 py-1.5 rounded-full border border-white/10 mb-6">
+            <motion.span variants={staggerItem} className="inline-flex items-center gap-2 bg-red-900/30 text-red-400 text-xs font-medium px-4 py-1.5 rounded-full border border-red-800/40 mb-6">
               Process
             </motion.span>
             <motion.h2 variants={staggerItem} className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight">
@@ -460,7 +460,7 @@ export default function Home() {
       <section className="py-20 md:py-32">
         <div className="max-w-screen-xl mx-auto px-5 md:px-8">
           <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={viewportConfig} className="text-center md:text-left mb-14 md:mb-20">
-            <motion.span variants={staggerItem} className="inline-flex items-center gap-2 bg-white/5 text-white/60 text-xs font-medium px-4 py-1.5 rounded-full border border-white/10 mb-6">
+            <motion.span variants={staggerItem} className="inline-flex items-center gap-2 bg-red-900/30 text-red-400 text-xs font-medium px-4 py-1.5 rounded-full border border-red-800/40 mb-6">
               Case studies
             </motion.span>
             <motion.h2 variants={staggerItem} className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight">
@@ -520,7 +520,7 @@ export default function Home() {
       <section className="py-20 md:py-32">
         <div className="max-w-screen-xl mx-auto px-5 md:px-8">
           <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={viewportConfig} className="text-center md:text-left mb-14 md:mb-20">
-            <motion.span variants={staggerItem} className="inline-flex items-center gap-2 bg-white/5 text-white/60 text-xs font-medium px-4 py-1.5 rounded-full border border-white/10 mb-6">
+            <motion.span variants={staggerItem} className="inline-flex items-center gap-2 bg-red-900/30 text-red-400 text-xs font-medium px-4 py-1.5 rounded-full border border-red-800/40 mb-6">
               Why us
             </motion.span>
             <motion.h2 variants={staggerItem} className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight">
@@ -582,7 +582,7 @@ export default function Home() {
       <section id="pricing" className="py-20 md:py-32">
         <div className="max-w-screen-xl mx-auto px-5 md:px-8">
           <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={viewportConfig} className="text-center md:text-left mb-14 md:mb-20">
-            <motion.span variants={staggerItem} className="inline-flex items-center gap-2 bg-white/5 text-white/60 text-xs font-medium px-4 py-1.5 rounded-full border border-white/10 mb-6">
+            <motion.span variants={staggerItem} className="inline-flex items-center gap-2 bg-red-900/30 text-red-400 text-xs font-medium px-4 py-1.5 rounded-full border border-red-800/40 mb-6">
               Pricing
             </motion.span>
             <motion.h2 variants={staggerItem} className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight">
@@ -605,7 +605,7 @@ export default function Home() {
       <section className="py-20 md:py-32">
         <div className="max-w-screen-xl mx-auto px-5 md:px-8">
           <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={viewportConfig} className="text-center md:text-left mb-14 md:mb-20">
-            <motion.span variants={staggerItem} className="inline-flex items-center gap-2 bg-white/5 text-white/60 text-xs font-medium px-4 py-1.5 rounded-full border border-white/10 mb-6">
+            <motion.span variants={staggerItem} className="inline-flex items-center gap-2 bg-red-900/30 text-red-400 text-xs font-medium px-4 py-1.5 rounded-full border border-red-800/40 mb-6">
               FAQ
             </motion.span>
             <motion.h2 variants={staggerItem} className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight">
