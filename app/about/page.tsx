@@ -284,27 +284,44 @@ export default function About() {
       <section className="py-20 md:py-24">
         <div className="max-w-screen-xl mx-auto px-5 md:px-8">
           <motion.div
-            className="bg-zinc-900 border border-zinc-800 rounded-3xl p-12 md:p-20 text-center"
+            className="relative border border-zinc-800 rounded-3xl overflow-hidden"
             variants={fadeUp}
             initial="hidden"
             whileInView="visible"
             viewport={viewportConfig}
           >
-            <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-6">
-              Ready to scale<br />your brand?
-            </h2>
-            <p className="text-zinc-400 text-base md:text-lg max-w-xl mx-auto mb-8">
-              Let&apos;s build a social strategy that turns content into compounding growth.
-            </p>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 bg-red-700 text-white text-sm font-medium px-8 py-4 rounded-full hover:bg-red-600 hover:scale-[1.02] transition-all duration-300"
+            {/* Faded background video */}
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="auto"
+              poster="/images/cta-poster.webp"
+              className="absolute inset-0 w-full h-full object-cover opacity-35 pointer-events-none"
             >
-              Book a Call
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </Link>
+              <source src="/videos/hero-vid-small.mp4" type="video/mp4" />
+            </video>
+            <div className="absolute inset-0 bg-black/40" />
+
+            {/* Content */}
+            <div className="relative z-10 p-12 md:p-20 text-center">
+              <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-6">
+                Ready to scale<br />your brand?
+              </h2>
+              <p className="text-zinc-400 text-base md:text-lg max-w-xl mx-auto mb-8">
+                Let&apos;s build a social strategy that turns content into compounding growth.
+              </p>
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 bg-red-700 text-white text-sm font-medium px-8 py-4 rounded-full hover:bg-red-600 hover:scale-[1.02] transition-all duration-300"
+              >
+                Book a Call
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </Link>
+            </div>
           </motion.div>
         </div>
       </section>
