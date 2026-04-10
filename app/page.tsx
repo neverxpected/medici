@@ -350,12 +350,18 @@ export default function Home() {
             viewport={viewportConfig}
           >
             {services.map((svc, idx) => (
-              <motion.div key={svc.title} variants={cardItem} whileHover={{ y: -6, scale: 1.02, transition: { duration: 0.25 } }}>
-                <SpotlightCard className="bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden hover:border-zinc-700 transition-colors duration-300 group cursor-default h-full flex flex-col">
+              <motion.div
+                key={svc.title}
+                variants={cardItem}
+                whileHover={{ y: -8, transition: { duration: 0.3, ease: 'easeOut' } }}
+              >
+                <SpotlightCard className="bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden hover:border-red-900/40 transition-all duration-400 group cursor-default h-full flex flex-col relative">
+                  {/* Red glow orb on hover */}
+                  <div className="absolute -top-20 -right-20 w-48 h-48 bg-red-600/0 group-hover:bg-red-600/[0.04] rounded-full transition-all duration-700 blur-3xl pointer-events-none" />
                   {/* Top — content */}
                   <div className="p-8 md:p-10 flex-1">
                     <div className="flex items-center gap-4 mb-4">
-                      <div className="w-11 h-11 rounded-xl bg-red-900/30 flex items-center justify-center shrink-0">
+                      <div className="w-11 h-11 rounded-xl bg-red-900/30 flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
                         {idx === 0 && (
                           <svg className="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.8}>
                             <path strokeLinecap="round" strokeLinejoin="round" d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z" />
@@ -377,9 +383,9 @@ export default function Home() {
                           </svg>
                         )}
                       </div>
-                      <h3 className="text-xl md:text-2xl font-semibold text-white">{svc.title}</h3>
+                      <h3 className="text-xl md:text-2xl font-semibold text-white group-hover:text-white transition-colors">{svc.title}</h3>
                     </div>
-                    <p className="text-zinc-400 text-sm leading-relaxed">{svc.desc}</p>
+                    <p className="text-zinc-400 text-sm leading-relaxed group-hover:text-zinc-300 transition-colors duration-300">{svc.desc}</p>
                   </div>
                   {/* Bottom — scrolling tags */}
                   <div className="overflow-hidden relative py-4 md:py-5 border-t border-zinc-800 mt-auto">
@@ -489,8 +495,14 @@ export default function Home() {
             viewport={viewportConfig}
           >
             {/* Medici column */}
-            <motion.div variants={cardItem} className="bg-zinc-900 border border-red-900/40 rounded-xl p-8 md:p-10">
-              <h3 className="text-xl font-bold text-red-600 mb-8">Medici Social</h3>
+            <motion.div
+              variants={cardItem}
+              whileHover={{ y: -4, transition: { duration: 0.3 } }}
+              className="bg-zinc-900 border border-red-900/40 rounded-xl p-8 md:p-10 hover:border-red-700/50 transition-all duration-300 relative overflow-hidden group"
+            >
+              {/* Red glow */}
+              <div className="absolute -top-16 -right-16 w-40 h-40 bg-red-600/0 group-hover:bg-red-600/[0.06] rounded-full transition-all duration-700 blur-3xl" />
+              <h3 className="relative text-xl font-bold text-red-600 mb-8">Medici Social</h3>
               {[
                 'Social-first, platform-native',
                 'Performance & growth',
@@ -498,17 +510,21 @@ export default function Home() {
                 'Fast testing & iteration',
                 'Continuous improvement',
               ].map(item => (
-                <div key={item} className="flex items-center gap-3 py-3 border-b border-zinc-800 last:border-0">
+                <div key={item} className="flex items-center gap-3 py-3 border-b border-zinc-800 last:border-0 hover:pl-2 transition-all duration-200">
                   <svg className="w-4 h-4 text-red-600 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
-                  <span className="text-sm text-zinc-300">{item}</span>
+                  <span className="text-sm text-zinc-300 group-hover:text-white transition-colors duration-200">{item}</span>
                 </div>
               ))}
             </motion.div>
 
             {/* Others column */}
-            <motion.div variants={cardItem} className="bg-zinc-900 border border-zinc-800 rounded-xl p-8 md:p-10">
+            <motion.div
+              variants={cardItem}
+              whileHover={{ y: -4, transition: { duration: 0.3 } }}
+              className="bg-zinc-900 border border-zinc-800 rounded-xl p-8 md:p-10 hover:border-zinc-700 transition-all duration-300"
+            >
               <h3 className="text-xl font-bold text-zinc-500 mb-8">Other Agencies</h3>
               {[
                 'Repurposed or generic',
