@@ -103,7 +103,7 @@ export default function ServicesList() {
 
                     {/* Title — shifts right on hover */}
                     <h3
-                      className="text-3xl md:text-4xl lg:text-[2.75rem] font-bold text-white tracking-[-0.02em] transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]"
+                      className="text-3xl md:text-5xl font-bold text-white tracking-[-0.02em] transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]"
                       style={{
                         transform: isHovered && !isOpen ? 'translateX(8px)' : 'translateX(0)',
                       }}

@@ -102,7 +102,7 @@ export default function About() {
               }}
               initial="hidden"
               animate="visible"
-              className="text-5xl md:text-7xl lg:text-[7rem] font-bold tracking-tight leading-none mb-8"
+              className="text-3xl md:text-5xl font-bold tracking-tight leading-none mb-8"
             >
               {heroWords.map((word) => (
                 <motion.span
@@ -144,7 +144,7 @@ export default function About() {
             viewport={viewportConfig}
             className="max-w-4xl mx-auto text-center"
           >
-            <blockquote className="text-2xl md:text-4xl lg:text-5xl font-medium text-white leading-snug">
+            <blockquote className="text-3xl md:text-5xl font-medium text-white leading-snug">
               &ldquo;Social media isn&apos;t a megaphone. It&apos;s a conversation. We build brands that people actually want to listen to.&rdquo;
             </blockquote>
             <div className="mt-10 flex items-center justify-center gap-3">

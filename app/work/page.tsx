@@ -74,7 +74,7 @@ export default function Work() {
             <motion.span variants={staggerItem} className="inline-flex items-center gap-2 bg-red-900/30 text-red-400 text-xs font-medium px-4 py-1.5 rounded-full border border-red-800/40 mb-8">
               Our Work
             </motion.span>
-            <motion.h1 variants={staggerItem} className="text-5xl md:text-6xl lg:text-[5.5rem] font-bold tracking-tight mb-6">
+            <motion.h1 variants={staggerItem} className="text-3xl md:text-5xl font-bold tracking-tight mb-6">
               Brands we&apos;ve<br className="md:hidden" /> helped build.
             </motion.h1>
             <motion.p variants={staggerItem} className="text-zinc-400 text-lg max-w-2xl mx-auto mb-10">

@@ -140,7 +140,7 @@ export default function Home() {
                 }}
                 initial="hidden"
                 animate="visible"
-                className="text-5xl md:text-6xl lg:text-[5.5rem] font-bold tracking-tight leading-[1.05] text-center md:text-left"
+                className="text-3xl md:text-5xl font-bold tracking-tight leading-[1.05] text-center md:text-left"
               >
                 {['Turn', 'Views'].map((word) => (
                   <motion.span
@@ -297,7 +297,7 @@ export default function Home() {
               Who we are
             </motion.span>
 
-            <motion.h2 variants={staggerItem} className="text-2xl md:text-4xl lg:text-5xl font-bold leading-tight max-w-5xl mb-6">
+            <motion.h2 variants={staggerItem} className="text-3xl md:text-5xl font-bold leading-tight max-w-5xl mb-6">
               Every brand has a story worth <span className="whitespace-nowrap">telling well.</span>
             </motion.h2>
             <motion.p variants={staggerItem} className="text-zinc-400 text-lg leading-relaxed max-w-4xl mb-16">
@@ -338,7 +338,7 @@ export default function Home() {
               Services
             </motion.span>
             <motion.h2 variants={staggerItem} className="text-3xl md:text-5xl font-bold tracking-tight">
-              Everything you need<br /> to grow your brand,<br /> all in one place.
+              Everything you need<br className="md:hidden" /> to grow your brand.
             </motion.h2>
           </motion.div>
 

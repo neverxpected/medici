@@ -133,8 +133,8 @@ export default function Services() {
             <motion.span variants={staggerItem} className="inline-flex items-center gap-2 bg-red-900/30 text-red-400 text-xs font-medium px-4 py-1.5 rounded-full border border-red-800/40 mb-8">
               Our Services
             </motion.span>
-            <motion.h1 variants={staggerItem} className="text-5xl md:text-6xl lg:text-[5.5rem] font-bold tracking-tight mb-6">
-              Everything you need to grow<br className="hidden md:block" /> your brand, all in one place.
+            <motion.h1 variants={staggerItem} className="text-3xl md:text-5xl font-bold tracking-tight mb-6">
+              Everything you need to grow your brand.
             </motion.h1>
             <motion.p variants={staggerItem} className="text-zinc-400 text-lg max-w-2xl mx-auto mb-10">
               We don&apos;t do one thing — we do everything it takes. Social media, content, websites, SEO, and AI integrations, built by one team with one standard.
@@ -169,7 +169,7 @@ export default function Services() {
                 <div className="inline-flex items-center justify-center w-12 h-12 bg-red-900/20 rounded-xl border border-red-800/30 mb-6">
                   {svc.icon}
                 </div>
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-5">
+                <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-5">
                   {svc.title}
                 </h2>
                 <p className="text-zinc-400 text-sm md:text-base leading-relaxed mb-8 max-w-lg mx-auto md:mx-0">
@@ -250,7 +250,7 @@ export default function Services() {
               Why Medici
             </motion.span>
             <motion.h2 variants={staggerItem} className="text-3xl md:text-5xl font-bold tracking-tight">
-              One team. Every channel.<br className="hidden md:block" /> No disconnect.
+              One team. Every channel. No disconnect.
             </motion.h2>
           </motion.div>
 
