@@ -50,7 +50,7 @@ const services = [
   },
   {
     title: 'Content Creation',
-    desc: 'Short-form video, photography, graphic design, copywriting — every piece of content crafted to a single editorial standard across every channel. From TikTok scripts to brand photography, nothing leaves our studio without intention behind it.',
+    desc: 'Short-form video, photography, graphic design, and copywriting crafted to one editorial standard across every channel. Nothing leaves without intention behind it.',
     details: [
       'Short-form video production & editing',
       'Brand photography & visual assets',
@@ -67,7 +67,7 @@ const services = [
   },
   {
     title: 'Website Design & SEO',
-    desc: 'Your website is the foundation. Your search presence is how people find it. We handle both — designing and building sites as refined as your social content, then making sure they rank where it matters. One team, no disconnect.',
+    desc: 'Your website is the foundation. Your search presence is how people find it. We design, build, and optimize both. One team, no disconnect.',
     details: [
       'Custom website design & responsive development',
       'Technical SEO audits & optimization',
@@ -84,7 +84,7 @@ const services = [
   },
   {
     title: 'AI Integrations',
-    desc: 'The advantage most agencies can\'t offer. We integrate AI tools into your marketing workflows — from content ideation and analytics automation to chatbots and personalized customer journeys — so your team operates faster without sacrificing quality.',
+    desc: 'The advantage most agencies can\'t offer. We integrate AI tools into your workflows so your team operates faster without sacrificing quality.',
     details: [
       'AI-powered content workflows',
       'Marketing automation & analytics',

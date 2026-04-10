@@ -63,17 +63,17 @@ const services = [
   },
   {
     title: 'Content Creation',
-    desc: 'Short-form video, photography, graphic design, copywriting — every piece of content crafted to a single editorial standard across every channel. From TikTok scripts to brand photography, nothing leaves our studio without intention behind it.',
+    desc: 'Short-form video, photography, graphic design, and copywriting crafted to one editorial standard across every channel. Nothing leaves without intention behind it.',
     items: ['Short-form video production & editing', 'Brand photography & visual assets', 'Graphic design & copywriting', 'Brand guidelines & asset libraries'],
   },
   {
     title: 'Website Design & SEO',
-    desc: 'Your website is the foundation. Your search presence is how people find it. We handle both — designing and building sites as refined as your social content, then making sure they rank where it matters. One team, no disconnect.',
+    desc: 'Your website is the foundation. Your search presence is how people find it. We design, build, and optimize both. One team, no disconnect.',
     items: ['Custom website design & responsive development', 'Technical SEO audits & optimization', 'Local SEO & Google Business Profile', 'Keyword strategy & performance tracking'],
   },
   {
     title: 'AI Integrations',
-    desc: 'The advantage most agencies can\'t offer. We integrate AI tools into your marketing workflows — from content ideation and analytics automation to chatbots and personalized customer journeys — so your team operates faster without sacrificing quality.',
+    desc: 'The advantage most agencies can\'t offer. We integrate AI tools into your workflows so your team operates faster without sacrificing quality.',
     items: ['AI-powered content workflows', 'Marketing automation & analytics', 'Chatbot & customer journey design', 'Custom AI tool implementation'],
   },
 ];
@@ -351,9 +351,9 @@ export default function Home() {
           >
             {services.map((svc, idx) => (
               <motion.div key={svc.title} variants={cardItem} whileHover={{ y: -6, scale: 1.02, transition: { duration: 0.25 } }}>
-                <SpotlightCard className="bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden hover:border-zinc-700 transition-colors duration-300 group cursor-default h-full">
+                <SpotlightCard className="bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden hover:border-zinc-700 transition-colors duration-300 group cursor-default h-full flex flex-col">
                   {/* Top — content */}
-                  <div className="p-8 md:p-10">
+                  <div className="p-8 md:p-10 flex-1">
                     <div className="flex items-center gap-4 mb-4">
                       <div className="w-11 h-11 rounded-xl bg-red-900/30 flex items-center justify-center shrink-0">
                         {idx === 0 && (
@@ -382,7 +382,7 @@ export default function Home() {
                     <p className="text-zinc-400 text-sm leading-relaxed">{svc.desc}</p>
                   </div>
                   {/* Bottom — scrolling tags */}
-                  <div className="overflow-hidden relative py-4 md:py-5 border-t border-zinc-800">
+                  <div className="overflow-hidden relative py-4 md:py-5 border-t border-zinc-800 mt-auto">
                     <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-zinc-900 to-transparent z-10 pointer-events-none" />
                     <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-zinc-900 to-transparent z-10 pointer-events-none" />
                     <div className="flex">
