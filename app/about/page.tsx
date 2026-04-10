@@ -89,7 +89,7 @@ export default function About() {
             {/* Section pill */}
             <motion.span
               variants={staggerItem}
-              className="inline-flex items-center gap-2 bg-white/5 text-white/60 text-xs font-medium px-4 py-1.5 rounded-full border border-white/10 mb-8"
+              className="inline-flex items-center gap-2 bg-red-900/30 text-red-400 text-xs font-medium px-4 py-1.5 rounded-full border border-red-800/40 mb-8"
             >
               Our Story
             </motion.span>
@@ -170,7 +170,7 @@ export default function About() {
           >
             <motion.span
               variants={staggerItem}
-              className="inline-flex items-center gap-2 bg-white/5 text-white/60 text-xs font-medium px-4 py-1.5 rounded-full border border-white/10 mb-6"
+              className="inline-flex items-center gap-2 bg-red-900/30 text-red-400 text-xs font-medium px-4 py-1.5 rounded-full border border-red-800/40 mb-6"
             >
               What drives us
             </motion.span>
@@ -226,7 +226,7 @@ export default function About() {
           >
             <motion.span
               variants={staggerItem}
-              className="inline-flex items-center gap-2 bg-white/5 text-white/60 text-xs font-medium px-4 py-1.5 rounded-full border border-white/10 mb-6"
+              className="inline-flex items-center gap-2 bg-red-900/30 text-red-400 text-xs font-medium px-4 py-1.5 rounded-full border border-red-800/40 mb-6"
             >
               The team
             </motion.span>
