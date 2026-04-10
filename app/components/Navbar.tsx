@@ -76,7 +76,7 @@ export default function Navbar() {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
             >
-              <img src="/images/footer logo medici.png" alt="Medici Social" className="h-12 md:h-14 w-auto object-contain -ml-3" />
+              <img src="/images/footer logo medici.png" alt="Medici Social" className="h-9 md:h-10 w-auto object-contain -ml-3" />
             </Link>
 
             {/* Right — Nav links + CTA + Hamburger */}
