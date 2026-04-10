@@ -47,7 +47,7 @@ export default function TestimonialCarousel() {
   const t = testimonials[activeIdx];
 
   return (
-    <section className="py-24 md:py-32 border-y border-zinc-800">
+    <section className="py-24 md:py-32">
       <div className="max-w-screen-xl mx-auto px-5 md:px-8">
         <motion.div
           className="text-center relative overflow-hidden"
