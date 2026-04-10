@@ -7,7 +7,13 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-8">
           {/* Logo + tagline */}
           <div className="md:col-span-2">
-            <img src="/images/footer logo medici.png" alt="Medici Social" className="h-12 md:h-14 w-auto object-contain mb-4" />
+            <Link
+              href="/"
+              scroll={false}
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            >
+              <img src="/images/footer logo medici.png" alt="Medici Social" className="h-12 md:h-14 w-auto object-contain mb-4" />
+            </Link>
             <p className="text-zinc-400 text-sm leading-relaxed max-w-xs">
               We&apos;re a full-service marketing agency specializing in social media, web design, SEO, and AI-powered strategy — with the goal of building timeless brands.
             </p>

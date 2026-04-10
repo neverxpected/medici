@@ -69,8 +69,12 @@ export default function Navbar() {
             {/* Logo */}
             <Link
               href="/"
+              scroll={false}
               className="flex items-center"
-              onClick={() => setIsOpen(false)}
+              onClick={() => {
+                setIsOpen(false);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
             >
               <img src="/images/footer logo medici.png" alt="Medici Social" className="h-12 md:h-14 w-auto object-contain -ml-3" />
             </Link>

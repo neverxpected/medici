@@ -295,6 +295,7 @@ export default function About() {
               autoPlay={true}
               loop={true}
               muted={true}
+              // @ts-expect-error: React types omit defaultMuted, but it is strictly required for iOS Safari autoplay bypass
               defaultMuted={true}
               playsInline={true}
               preload="auto"
