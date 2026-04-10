@@ -222,6 +222,7 @@ export default function Home() {
                 <div className="rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl shadow-black/50 border border-white/5">
                   <video
                     src="/videos/Intro Video HD.mov"
+                    // @ts-expect-error: fetchPriority is a valid HTML attribute but not yet in React's VideoHTMLAttributes types
                     fetchPriority="high"
                     autoPlay={true}
                     loop={true}
