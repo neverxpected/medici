@@ -75,10 +75,10 @@ export default function Work() {
               Our Work
             </motion.span>
             <motion.h1 variants={staggerItem} className="text-3xl md:text-5xl font-bold tracking-tight mb-6">
-              Brands we&apos;ve<br className="md:hidden" /> helped build.
+              Brands We've<br className="md:hidden" /> Helped Build.
             </motion.h1>
             <motion.p variants={staggerItem} className="text-zinc-400 text-lg max-w-2xl mx-auto mb-10">
-              A selection of the brands we&apos;ve partnered with — from hospitality and lifestyle to tech and consumer. Every project is a story of strategy, craft, and measurable growth.
+              A selection of the brands we&apos;ve partnered with, from hospitality and lifestyle to tech and consumer. Every project is a story of strategy, craft, and measurable growth.
             </motion.p>
           </motion.div>
         </div>
@@ -159,7 +159,7 @@ export default function Work() {
               Gallery
             </motion.span>
             <motion.h2 variants={staggerItem} className="text-3xl md:text-5xl font-bold tracking-tight mb-4">
-              Behind the work.
+              Behind The Work.
             </motion.h2>
             <motion.p variants={staggerItem} className="text-zinc-400 text-lg max-w-xl mx-auto">
               A look inside the content, campaigns, and creative we produce every day.
@@ -211,7 +211,7 @@ export default function Work() {
               What we deliver
             </motion.span>
             <motion.h2 variants={staggerItem} className="text-3xl md:text-5xl font-bold tracking-tight mb-4">
-              The full picture.
+              The Full Picture.
             </motion.h2>
             <motion.p variants={staggerItem} className="text-zinc-400 text-lg max-w-xl mx-auto">
               Every project draws from our full suite of capabilities.
@@ -271,7 +271,7 @@ export default function Work() {
 
             <div className="relative z-10 p-12 md:p-20 text-center">
               <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-6">
-                Your brand could be next.
+                Your Brand Could Be Next.
               </h2>
               <p className="text-zinc-400 text-lg max-w-xl mx-auto mb-8">
                 Let&apos;s talk about what we can build together.

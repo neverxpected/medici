@@ -85,7 +85,7 @@ export default function Contact() {
               variants={staggerItem}
               className="text-3xl md:text-5xl font-bold tracking-tight leading-[1.1] text-white mb-6"
             >
-              Let&apos;s build something extraordinary.
+              Let&apos;s Build Something Extraordinary.
             </motion.h1>
 
             {/* Subtitle */}
@@ -151,7 +151,7 @@ export default function Contact() {
             transition={{ delay: 0.3 }}
           >
             <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-8 md:p-10">
-              <h2 className="text-xl font-semibold text-white mb-1">Send us a message</h2>
+              <h2 className="text-xl font-semibold text-white mb-1">Send Us A Message</h2>
               <p className="text-zinc-500 text-sm mb-8">Fill out the form below and we&apos;ll be in touch.</p>
 
               <form

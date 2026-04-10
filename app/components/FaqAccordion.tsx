@@ -16,12 +16,12 @@ const faqs = [
   {
     question: 'What makes Medici Social different from other agencies?',
     answer:
-      'We bring an editorial eye to everything — your social content, your website, your search presence. Most agencies specialize in one channel. We build across all of them, with short-form content as our specialty and social media management as our backbone. We also integrate AI tools into client workflows, which gives our partners a competitive edge most agencies simply can\'t deliver.',
+      'We bring an editorial eye to everything: your social content, your website, your search presence. Most agencies specialize in one channel. We build across all of them, with short-form content as our specialty and social media management as our backbone. We also integrate AI tools into client workflows, which gives our partners a competitive edge most agencies simply can\'t deliver.',
   },
   {
     question: 'What does a typical engagement look like?',
     answer:
-      'It starts with a discovery conversation. We learn your brand, align on goals, and build a strategy. From there, it\'s an ongoing cycle of creation, measurement, and refinement — with clear communication throughout. Most clients retain us on a monthly basis.',
+      'It starts with a discovery conversation. We learn your brand, align on goals, and build a strategy. From there, it\'s an ongoing cycle of creation, measurement, and refinement, with clear communication throughout. Most clients retain us on a monthly basis.',
   },
   {
     question: 'How long before we see results?',

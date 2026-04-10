@@ -140,7 +140,7 @@ export default function Home() {
                 }}
                 initial="hidden"
                 animate="visible"
-                className="text-3xl md:text-5xl font-bold tracking-tight leading-[1.05] text-center md:text-left"
+                className="text-5xl md:text-6xl lg:text-[5.5rem] font-bold tracking-tight leading-[1.05] text-center md:text-left"
               >
                 {['Turn', 'Views'].map((word) => (
                   <motion.span
@@ -298,7 +298,7 @@ export default function Home() {
             </motion.span>
 
             <motion.h2 variants={staggerItem} className="text-3xl md:text-5xl font-bold leading-tight max-w-5xl mb-6">
-              Every brand has a story worth <span className="whitespace-nowrap">telling well.</span>
+              Every Brand Has A Story Worth <span className="whitespace-nowrap">Telling Well.</span>
             </motion.h2>
             <motion.p variants={staggerItem} className="text-zinc-400 text-lg leading-relaxed max-w-4xl mb-16">
               We build brands across every digital touchpoint: social media, web design, SEO, and AI integrations that give our clients an edge most agencies can&apos;t offer.
@@ -338,7 +338,7 @@ export default function Home() {
               Services
             </motion.span>
             <motion.h2 variants={staggerItem} className="text-3xl md:text-5xl font-bold tracking-tight">
-              Everything you need<br className="md:hidden" /> to grow your brand.
+              Everything You Need<br className="md:hidden" /> To Grow Your Brand.
             </motion.h2>
           </motion.div>
 
@@ -477,7 +477,7 @@ export default function Home() {
               Why us
             </motion.span>
             <motion.h2 variants={staggerItem} className="text-3xl md:text-5xl font-bold tracking-tight">
-              A better approach to social growth.
+              A Better Approach To Social Growth.
             </motion.h2>
           </motion.div>
 
@@ -540,7 +540,7 @@ export default function Home() {
               FAQ
             </motion.span>
             <motion.h2 variants={staggerItem} className="text-3xl md:text-5xl font-bold tracking-tight">
-              A few questions we hear often.
+              A Few Questions We Hear Often.
             </motion.h2>
           </motion.div>
 
@@ -581,7 +581,7 @@ export default function Home() {
             {/* Content */}
             <div className="relative z-10 p-12 md:p-20 text-center">
               <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-6">
-                Let&apos;s build something timeless.
+                Let&apos;s Build Something Timeless.
               </h2>
               <p className="text-zinc-400 text-lg max-w-xl mx-auto mb-8">
                 Your brand deserves its story to be told.

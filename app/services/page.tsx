@@ -106,17 +106,17 @@ const process = [
   {
     step: '01',
     title: 'Discover',
-    desc: 'We start with your brand — its voice, its audience, its goals. Before we build anything, we understand everything. Every engagement begins with a conversation, not a template.',
+    desc: 'We start with your brand: its voice, its audience, its goals. Before we build anything, we understand everything. Every engagement begins with a conversation, not a template.',
   },
   {
     step: '02',
     title: 'Build',
-    desc: 'Strategy, content, websites, campaigns — crafted with editorial precision and built for the platforms and channels where your audience lives.',
+    desc: 'Strategy, content, websites, and campaigns, crafted with editorial precision and built for the platforms and channels where your audience lives.',
   },
   {
     step: '03',
     title: 'Refine',
-    desc: 'We measure what matters, learn from every piece of data, and iterate until the work performs as well as it looks. Great marketing isn\'t set-and-forget — it\'s a discipline.',
+    desc: 'We measure what matters, learn from every piece of data, and iterate until the work performs as well as it looks. Great marketing isn\'t set-and-forget. It\'s a discipline.',
   },
 ];
 
@@ -134,10 +134,10 @@ export default function Services() {
               Our Services
             </motion.span>
             <motion.h1 variants={staggerItem} className="text-3xl md:text-5xl font-bold tracking-tight mb-6">
-              Everything you need to grow your brand.
+              Everything You Need To Grow Your Brand.
             </motion.h1>
             <motion.p variants={staggerItem} className="text-zinc-400 text-lg max-w-2xl mx-auto mb-10">
-              We don&apos;t do one thing — we do everything it takes. Social media, content, websites, SEO, and AI integrations, built by one team with one standard.
+              We don&apos;t do one thing. We do everything it takes. Social media, content, websites, SEO, and AI integrations, built by one team with one standard.
             </motion.p>
             <motion.div variants={staggerItem}>
               <Link
@@ -219,7 +219,7 @@ export default function Services() {
               Process
             </motion.span>
             <motion.h2 variants={staggerItem} className="text-3xl md:text-5xl font-bold tracking-tight">
-              How every engagement works.
+              How Every Engagement Works.
             </motion.h2>
           </motion.div>
 
@@ -250,7 +250,7 @@ export default function Services() {
               Why Medici
             </motion.span>
             <motion.h2 variants={staggerItem} className="text-3xl md:text-5xl font-bold tracking-tight">
-              One team. Every channel. No disconnect.
+              One Team. Every Channel. No Disconnect.
             </motion.h2>
           </motion.div>
 
@@ -262,7 +262,7 @@ export default function Services() {
               },
               {
                 title: 'Editorial Quality',
-                desc: 'Every deliverable — from a TikTok to a homepage — is crafted to the same editorial standard. Your brand looks premium everywhere.',
+                desc: 'Every deliverable, from a TikTok to a homepage, is crafted to the same editorial standard. Your brand looks premium everywhere.',
               },
               {
                 title: 'AI-Powered Edge',
@@ -278,7 +278,7 @@ export default function Services() {
               },
               {
                 title: 'Built for Growth',
-                desc: 'Our work compounds. The brands we partner with don\'t just look better — they grow measurably, month over month.',
+                desc: 'Our work compounds. The brands we partner with don\'t just look better. They grow measurably, month over month.',
               },
             ].map((item) => (
               <motion.div
@@ -324,7 +324,7 @@ export default function Services() {
 
             <div className="relative z-10 p-12 md:p-20 text-center">
               <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-6">
-                Let&apos;s build something timeless.
+                Let&apos;s Build Something Timeless.
               </h2>
               <p className="text-zinc-400 text-lg max-w-xl mx-auto mb-8">
                 Your brand deserves its story to be told.

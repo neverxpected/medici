@@ -34,7 +34,7 @@ const values = [
   {
     num: '01',
     title: 'Data-Driven Creativity',
-    desc: 'Every concept we produce is backed by performance data. We test, measure, and iterate so your creative always improves. No gut feelings — just results.',
+    desc: 'Every concept we produce is backed by performance data. We test, measure, and iterate so your creative always improves. No gut feelings, just results.',
   },
   {
     num: '02',
@@ -309,7 +309,7 @@ export default function About() {
             {/* Content */}
             <div className="relative z-10 p-12 md:p-20 text-center">
               <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-6">
-                Ready to scale<br />your brand?
+                Ready To Scale<br />Your Brand?
               </h2>
               <p className="text-zinc-400 text-lg max-w-xl mx-auto mb-8">
                 Let&apos;s build a social strategy that turns content into compounding growth.
