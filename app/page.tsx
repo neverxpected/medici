@@ -338,7 +338,7 @@ export default function Home() {
               Services
             </motion.span>
             <motion.h2 variants={staggerItem} className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight">
-              Everything you need to grow your brand,<br className="hidden md:block" /> all in one place.
+              Everything you need<br /> to grow your brand,<br /> all in one place.
             </motion.h2>
           </motion.div>
 
@@ -415,11 +415,8 @@ export default function Home() {
               Case studies
             </motion.span>
             <motion.h2 variants={staggerItem} className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight">
-              Work That Delivers Results.
+              Work That<br className="md:hidden" /> Delivers Results.
             </motion.h2>
-            <motion.p variants={staggerItem} className="text-zinc-400 text-base mt-4 max-w-xl">
-              These are a selection of brands we&apos;ve partnered with
-            </motion.p>
           </motion.div>
 
           <div className="flex flex-col gap-8 md:gap-0">
