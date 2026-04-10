@@ -52,7 +52,8 @@ const inputClasses =
 
 export default function Contact() {
   return (
-    <section className="pt-32 md:pt-44 pb-20 md:pb-28">
+    <main className="bg-black text-white overflow-hidden">
+      <section className="pt-32 md:pt-44 pb-20 md:pb-28">
       <div className="max-w-screen-xl mx-auto px-5 md:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-start">
 
@@ -145,9 +146,28 @@ export default function Contact() {
               <p className="text-zinc-500 text-sm mb-8">Fill out the form below and we&apos;ll be in touch.</p>
 
               <form
-                onSubmit={(e) => e.preventDefault()}
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  const form = e.currentTarget;
+                  const honeypot = (form.elements.namedItem('website_url') as HTMLInputElement)?.value;
+                  if (honeypot) {
+                    // Bot detected — silently pretend success
+                    form.reset();
+                    return;
+                  }
+                  // Normal form submission logic here
+                }}
                 className="space-y-5"
               >
+                {/* Honeypot — invisible to real users */}
+                <div className="absolute w-0 h-0 opacity-0 -z-10 pointer-events-none overflow-hidden" aria-hidden="true">
+                  <input
+                    type="text"
+                    name="website_url"
+                    tabIndex={-1}
+                    autoComplete="off"
+                  />
+                </div>
                 {/* Name + Email row */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
@@ -238,5 +258,6 @@ export default function Contact() {
         </div>
       </div>
     </section>
+    </main>
   );
 }

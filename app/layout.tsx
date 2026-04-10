@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/og-image.jpg',
+        url: '/images/og-image.webp',
         width: 1200,
         height: 630,
         alt: 'Medici Social - Elite Short-Form Content Agency',
@@ -67,7 +67,7 @@ export const metadata: Metadata = {
     title: 'Medici Social | Elite Short-Form Content Agency',
     description:
       'We are a collective of strategists, editors, and creators turning attention into measurable growth for modern brands.',
-    images: ['/og-image.jpg'],
+    images: ['/images/og-image.webp'],
   },
   robots: {
     index: true,

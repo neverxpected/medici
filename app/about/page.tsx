@@ -74,7 +74,7 @@ const heroWords = ['Built', 'for', 'the', 'modern', 'social', 'era.'];
 
 export default function About() {
   return (
-    <>
+    <main className="bg-black text-white overflow-hidden">
       {/* ═══════════════════════════════════════════════════════════
           SECTION 1 — HERO (Massive & Centered)
       ═══════════════════════════════════════════════════════════ */}
@@ -327,6 +327,6 @@ export default function About() {
           </motion.div>
         </div>
       </section>
-    </>
+    </main>
   );
 }

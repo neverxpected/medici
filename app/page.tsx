@@ -116,7 +116,7 @@ export default function Home() {
   }, []);
 
   return (
-    <>
+    <main className="bg-black text-white overflow-hidden">
       {/* ═══════════════════════════════════════════════════════════
           SECTION 1 — HERO
       ═══════════════════════════════════════════════════════════ */}
@@ -222,6 +222,7 @@ export default function Home() {
                 <div className="rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl shadow-black/50 border border-white/5">
                   <video
                     src="/videos/Intro Video HD.mov"
+                    fetchPriority="high"
                     autoPlay={true}
                     loop={true}
                     muted={true}
@@ -612,6 +613,6 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
-    </>
+    </main>
   );
 }

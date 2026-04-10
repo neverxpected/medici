@@ -48,6 +48,8 @@ export default function FaqAccordion() {
         <div key={i} className="border-b border-white/10">
           <button
             onClick={() => toggle(i)}
+            aria-label={`${openIndex === i ? 'Collapse' : 'Expand'} ${faq.question}`}
+            aria-expanded={openIndex === i}
             className="w-full flex items-center justify-between py-6 px-0 text-left hover:opacity-80 transition-opacity duration-150 group"
           >
             <span className="text-sm md:text-base text-white font-medium pr-8">

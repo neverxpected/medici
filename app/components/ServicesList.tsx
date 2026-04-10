@@ -79,6 +79,7 @@ export default function ServicesList() {
               {/* Title row */}
               <button
                 className="w-full text-left group cursor-pointer"
+                aria-label={`${isOpen ? 'Collapse' : 'Expand'} ${service.title}`}
                 onMouseEnter={() => handleMouseEnter(i)}
                 onMouseLeave={() => setHoveredIndex(null)}
                 onClick={() => handleClick(i)}
