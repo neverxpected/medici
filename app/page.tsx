@@ -297,10 +297,12 @@ export default function Home() {
               Who we are
             </motion.span>
 
-            <motion.h2 variants={staggerItem} className="text-2xl md:text-4xl lg:text-5xl font-bold leading-tight max-w-4xl mb-16">
-              Medici Social is built on the belief that every brand has a story worth telling well.{' '}
-              <span className="text-zinc-400">We specialize in building brands across every digital touchpoint — from the social feeds that earn daily attention to the websites that anchor long-term credibility. Our specialty is short-form content, but our scope covers the full picture: strategy, social media management, web design, search optimization, and AI integrations that give our clients an edge most agencies can&apos;t offer.</span>
+            <motion.h2 variants={staggerItem} className="text-2xl md:text-4xl lg:text-5xl font-bold leading-tight max-w-5xl mb-6">
+              Every brand has a story worth <span className="whitespace-nowrap">telling well.</span>
             </motion.h2>
+            <motion.p variants={staggerItem} className="text-zinc-400 text-base md:text-lg leading-relaxed max-w-4xl mb-16">
+              We specialize in building brands across every digital touchpoint — from the social feeds that earn daily attention to the websites that anchor long-term credibility. Our specialty is short-form content, but our scope covers the full picture: strategy, social media management, web design, search optimization, and AI integrations that give our clients an edge most agencies can&apos;t offer.
+            </motion.p>
           </motion.div>
 
           {/* Stats grid */}

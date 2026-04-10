@@ -18,19 +18,70 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: 'Medici Social | Social Media Marketing Agency',
-  description: 'A social media marketing agency blending storytelling, aesthetics, and data-driven strategy to elevate brands.',
-  metadataBase: new URL('https://medici-zeta.vercel.app'),
+  metadataBase: new URL('https://www.medicisocial.com'),
+  title: {
+    template: '%s | Medici Social',
+    default: 'Medici Social | Elite Short-Form Content Agency',
+  },
+  description:
+    'We are a collective of strategists, editors, and creators turning attention into measurable growth for modern brands. Based in Houston, TX.',
+  keywords: [
+    'social media marketing agency',
+    'short-form video agency',
+    'content creation Houston',
+    'social media management',
+    'website design Houston',
+    'SEO agency Houston',
+    'AI marketing',
+    'Medici Social',
+    'Houston marketing agency',
+    'brand strategy',
+    'TikTok marketing',
+    'Instagram marketing',
+  ],
+  authors: [{ name: 'Medici Social', url: 'https://www.medicisocial.com' }],
+  creator: 'Medici Social',
+  publisher: 'Medici Social',
   other: {
     'viewport': 'width=device-width, initial-scale=1, viewport-fit=cover',
   },
   openGraph: {
-    title: 'Medici Social | Social Media Marketing Agency',
-    description: 'A social media marketing agency blending storytelling, aesthetics, and data-driven strategy to elevate brands.',
-    url: 'https://medici-zeta.vercel.app',
+    title: 'Medici Social | Elite Short-Form Content Agency',
+    description:
+      'We are a collective of strategists, editors, and creators turning attention into measurable growth for modern brands. Based in Houston, TX.',
+    url: 'https://www.medicisocial.com',
     siteName: 'Medici Social',
-    images: [{ url: '/og-image.jpg', width: 1200, height: 630 }],
+    locale: 'en_US',
     type: 'website',
+    images: [
+      {
+        url: '/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Medici Social - Elite Short-Form Content Agency',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Medici Social | Elite Short-Form Content Agency',
+    description:
+      'We are a collective of strategists, editors, and creators turning attention into measurable growth for modern brands.',
+    images: ['/og-image.jpg'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  alternates: {
+    canonical: 'https://www.medicisocial.com',
   },
 };
 

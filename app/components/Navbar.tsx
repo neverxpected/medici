@@ -139,7 +139,7 @@ export default function Navbar() {
                 transition={{ delay: 0.1, duration: 0.4 }}
                 className="flex flex-col px-5 pt-8 pb-12 h-[calc(100vh-72px)]"
               >
-                <div className="flex flex-col gap-1 flex-1">
+                <div className="flex flex-col gap-1">
                   {navLinks.map((link, i) => (
                     <motion.div
                       key={link.href}
@@ -161,7 +161,7 @@ export default function Navbar() {
                 <Link
                   href="/contact"
                   onClick={() => setIsOpen(false)}
-                  className="bg-red-700 text-white text-center text-base font-medium px-8 py-4 rounded-full hover:bg-red-600 hover:scale-[1.02] transition-all duration-300 mt-auto"
+                  className="bg-red-700 text-white text-center text-base font-medium px-8 py-4 rounded-full hover:bg-red-600 hover:scale-[1.02] transition-all duration-300 mt-6"
                 >
                   Contact
                 </Link>

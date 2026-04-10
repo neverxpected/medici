@@ -1,6 +1,38 @@
 import { MetadataRoute } from 'next'
+
+const BASE_URL = 'https://www.medicisocial.com'
+
 export default function sitemap(): MetadataRoute.Sitemap {
-    return [
-        { url: 'https://medici-zeta.vercel.app', lastModified: new Date(), changeFrequency: 'monthly', priority: 1 },
-    ]
+  return [
+    {
+      url: BASE_URL,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 1.0,
+    },
+    {
+      url: `${BASE_URL}/services`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/work`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/about`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/contact`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+  ]
 }
