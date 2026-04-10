@@ -190,7 +190,7 @@ export default function Home() {
 
               <motion.p
                 variants={staggerItem}
-                className="text-zinc-400 text-base md:text-lg mt-6 max-w-md leading-relaxed mx-auto md:mx-0"
+                className="text-zinc-400 text-base md:text-lg mt-6 max-w-none md:max-w-md leading-relaxed mx-auto md:mx-0"
               >
                 A full-service marketing agency specializing in social media, web design, SEO, and AI integrations.
               </motion.p>
