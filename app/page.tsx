@@ -190,7 +190,7 @@ export default function Home() {
 
               <motion.p
                 variants={staggerItem}
-                className="text-zinc-400 text-base md:text-lg mt-6 max-w-none md:max-w-md leading-relaxed mx-auto md:mx-0"
+                className="text-zinc-400 text-lg mt-6 max-w-none md:max-w-md leading-relaxed mx-auto md:mx-0"
               >
                 A full-service marketing agency specializing in social media, web design, SEO, and AI integrations.
               </motion.p>
@@ -300,7 +300,7 @@ export default function Home() {
             <motion.h2 variants={staggerItem} className="text-2xl md:text-4xl lg:text-5xl font-bold leading-tight max-w-5xl mb-6">
               Every brand has a story worth <span className="whitespace-nowrap">telling well.</span>
             </motion.h2>
-            <motion.p variants={staggerItem} className="text-zinc-400 text-base md:text-lg leading-relaxed max-w-4xl mb-16">
+            <motion.p variants={staggerItem} className="text-zinc-400 text-lg leading-relaxed max-w-4xl mb-16">
               We build brands across every digital touchpoint: social media, web design, SEO, and AI integrations that give our clients an edge most agencies can&apos;t offer.
             </motion.p>
           </motion.div>
@@ -337,7 +337,7 @@ export default function Home() {
             <motion.span variants={staggerItem} className="inline-flex items-center gap-2 bg-red-900/30 text-red-400 text-xs font-medium px-4 py-1.5 rounded-full border border-red-800/40 mb-6">
               Services
             </motion.span>
-            <motion.h2 variants={staggerItem} className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight">
+            <motion.h2 variants={staggerItem} className="text-3xl md:text-5xl font-bold tracking-tight">
               Everything you need<br /> to grow your brand,<br /> all in one place.
             </motion.h2>
           </motion.div>
@@ -414,7 +414,7 @@ export default function Home() {
             <motion.span variants={staggerItem} className="inline-flex items-center gap-2 bg-red-900/30 text-red-400 text-xs font-medium px-4 py-1.5 rounded-full border border-red-800/40 mb-6">
               Case studies
             </motion.span>
-            <motion.h2 variants={staggerItem} className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight">
+            <motion.h2 variants={staggerItem} className="text-3xl md:text-5xl font-bold tracking-tight">
               Work That<br className="md:hidden" /> Delivers Results.
             </motion.h2>
           </motion.div>
@@ -476,7 +476,7 @@ export default function Home() {
             <motion.span variants={staggerItem} className="inline-flex items-center gap-2 bg-red-900/30 text-red-400 text-xs font-medium px-4 py-1.5 rounded-full border border-red-800/40 mb-6">
               Why us
             </motion.span>
-            <motion.h2 variants={staggerItem} className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight">
+            <motion.h2 variants={staggerItem} className="text-3xl md:text-5xl font-bold tracking-tight">
               A better approach to social growth.
             </motion.h2>
           </motion.div>
@@ -539,7 +539,7 @@ export default function Home() {
             <motion.span variants={staggerItem} className="inline-flex items-center gap-2 bg-red-900/30 text-red-400 text-xs font-medium px-4 py-1.5 rounded-full border border-red-800/40 mb-6">
               FAQ
             </motion.span>
-            <motion.h2 variants={staggerItem} className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight">
+            <motion.h2 variants={staggerItem} className="text-3xl md:text-5xl font-bold tracking-tight">
               A few questions we hear often.
             </motion.h2>
           </motion.div>
@@ -580,10 +580,10 @@ export default function Home() {
 
             {/* Content */}
             <div className="relative z-10 p-12 md:p-20 text-center">
-              <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-6">
+              <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-6">
                 Let&apos;s build something timeless.
               </h2>
-              <p className="text-zinc-400 text-base md:text-lg max-w-xl mx-auto mb-8">
+              <p className="text-zinc-400 text-lg max-w-xl mx-auto mb-8">
                 Your brand deserves its story to be told.
               </p>
               <Link

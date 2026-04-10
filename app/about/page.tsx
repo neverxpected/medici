@@ -176,13 +176,13 @@ export default function About() {
             </motion.span>
             <motion.h2
               variants={staggerItem}
-              className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight"
+              className="text-3xl md:text-5xl font-bold tracking-tight"
             >
               Our Core Values.
             </motion.h2>
             <motion.p
               variants={staggerItem}
-              className="text-zinc-400 text-base mt-4 max-w-xl"
+              className="text-zinc-400 text-lg mt-4 max-w-xl"
             >
               The principles behind every strategy, edit, and campaign we deliver.
             </motion.p>
@@ -232,13 +232,13 @@ export default function About() {
             </motion.span>
             <motion.h2
               variants={staggerItem}
-              className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight"
+              className="text-3xl md:text-5xl font-bold tracking-tight"
             >
               The People Behind Medici.
             </motion.h2>
             <motion.p
               variants={staggerItem}
-              className="text-zinc-400 text-base mt-4 max-w-xl"
+              className="text-zinc-400 text-lg mt-4 max-w-xl"
             >
               Meet the team driving strategy, creative, and growth for brands ready to scale.
             </motion.p>
@@ -308,10 +308,10 @@ export default function About() {
 
             {/* Content */}
             <div className="relative z-10 p-12 md:p-20 text-center">
-              <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-6">
+              <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-6">
                 Ready to scale<br />your brand?
               </h2>
-              <p className="text-zinc-400 text-base md:text-lg max-w-xl mx-auto mb-8">
+              <p className="text-zinc-400 text-lg max-w-xl mx-auto mb-8">
                 Let&apos;s build a social strategy that turns content into compounding growth.
               </p>
               <Link

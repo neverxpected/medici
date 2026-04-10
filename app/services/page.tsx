@@ -133,10 +133,10 @@ export default function Services() {
             <motion.span variants={staggerItem} className="inline-flex items-center gap-2 bg-red-900/30 text-red-400 text-xs font-medium px-4 py-1.5 rounded-full border border-red-800/40 mb-8">
               Our Services
             </motion.span>
-            <motion.h1 variants={staggerItem} className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6">
+            <motion.h1 variants={staggerItem} className="text-5xl md:text-6xl lg:text-[5.5rem] font-bold tracking-tight mb-6">
               Everything you need to grow<br className="hidden md:block" /> your brand, all in one place.
             </motion.h1>
-            <motion.p variants={staggerItem} className="text-zinc-400 text-base md:text-lg max-w-2xl mx-auto mb-10">
+            <motion.p variants={staggerItem} className="text-zinc-400 text-lg max-w-2xl mx-auto mb-10">
               We don&apos;t do one thing — we do everything it takes. Social media, content, websites, SEO, and AI integrations, built by one team with one standard.
             </motion.p>
             <motion.div variants={staggerItem}>
@@ -218,7 +218,7 @@ export default function Services() {
             <motion.span variants={staggerItem} className="inline-flex items-center gap-2 bg-red-900/30 text-red-400 text-xs font-medium px-4 py-1.5 rounded-full border border-red-800/40 mb-6">
               Process
             </motion.span>
-            <motion.h2 variants={staggerItem} className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight">
+            <motion.h2 variants={staggerItem} className="text-3xl md:text-5xl font-bold tracking-tight">
               How every engagement works.
             </motion.h2>
           </motion.div>
@@ -249,7 +249,7 @@ export default function Services() {
             <motion.span variants={staggerItem} className="inline-flex items-center gap-2 bg-red-900/30 text-red-400 text-xs font-medium px-4 py-1.5 rounded-full border border-red-800/40 mb-6">
               Why Medici
             </motion.span>
-            <motion.h2 variants={staggerItem} className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight">
+            <motion.h2 variants={staggerItem} className="text-3xl md:text-5xl font-bold tracking-tight">
               One team. Every channel.<br className="hidden md:block" /> No disconnect.
             </motion.h2>
           </motion.div>
@@ -323,10 +323,10 @@ export default function Services() {
             <div className="absolute inset-0 bg-black/40" />
 
             <div className="relative z-10 p-12 md:p-20 text-center">
-              <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-6">
+              <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-6">
                 Let&apos;s build something timeless.
               </h2>
-              <p className="text-zinc-400 text-base md:text-lg max-w-xl mx-auto mb-8">
+              <p className="text-zinc-400 text-lg max-w-xl mx-auto mb-8">
                 Your brand deserves its story to be told.
               </p>
               <Link

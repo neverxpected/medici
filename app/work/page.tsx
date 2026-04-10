@@ -74,10 +74,10 @@ export default function Work() {
             <motion.span variants={staggerItem} className="inline-flex items-center gap-2 bg-red-900/30 text-red-400 text-xs font-medium px-4 py-1.5 rounded-full border border-red-800/40 mb-8">
               Our Work
             </motion.span>
-            <motion.h1 variants={staggerItem} className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6">
+            <motion.h1 variants={staggerItem} className="text-5xl md:text-6xl lg:text-[5.5rem] font-bold tracking-tight mb-6">
               Brands we&apos;ve<br className="md:hidden" /> helped build.
             </motion.h1>
-            <motion.p variants={staggerItem} className="text-zinc-400 text-base md:text-lg max-w-2xl mx-auto mb-10">
+            <motion.p variants={staggerItem} className="text-zinc-400 text-lg max-w-2xl mx-auto mb-10">
               A selection of the brands we&apos;ve partnered with — from hospitality and lifestyle to tech and consumer. Every project is a story of strategy, craft, and measurable growth.
             </motion.p>
           </motion.div>
@@ -108,7 +108,7 @@ export default function Work() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                 {/* Project name overlay */}
                 <div className="absolute bottom-6 left-6 md:bottom-10 md:left-10">
-                  <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white drop-shadow-lg">
+                  <h2 className="text-3xl md:text-5xl font-bold text-white drop-shadow-lg">
                     {project.name}.
                   </h2>
                 </div>
@@ -158,10 +158,10 @@ export default function Work() {
             <motion.span variants={staggerItem} className="inline-flex items-center gap-2 bg-red-900/30 text-red-400 text-xs font-medium px-4 py-1.5 rounded-full border border-red-800/40 mb-6">
               Gallery
             </motion.span>
-            <motion.h2 variants={staggerItem} className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4">
+            <motion.h2 variants={staggerItem} className="text-3xl md:text-5xl font-bold tracking-tight mb-4">
               Behind the work.
             </motion.h2>
-            <motion.p variants={staggerItem} className="text-zinc-400 text-base max-w-xl mx-auto">
+            <motion.p variants={staggerItem} className="text-zinc-400 text-lg max-w-xl mx-auto">
               A look inside the content, campaigns, and creative we produce every day.
             </motion.p>
           </motion.div>
@@ -210,10 +210,10 @@ export default function Work() {
             <motion.span variants={staggerItem} className="inline-flex items-center gap-2 bg-red-900/30 text-red-400 text-xs font-medium px-4 py-1.5 rounded-full border border-red-800/40 mb-6">
               What we deliver
             </motion.span>
-            <motion.h2 variants={staggerItem} className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4">
+            <motion.h2 variants={staggerItem} className="text-3xl md:text-5xl font-bold tracking-tight mb-4">
               The full picture.
             </motion.h2>
-            <motion.p variants={staggerItem} className="text-zinc-400 text-base max-w-xl mx-auto">
+            <motion.p variants={staggerItem} className="text-zinc-400 text-lg max-w-xl mx-auto">
               Every project draws from our full suite of capabilities.
             </motion.p>
           </motion.div>
@@ -270,10 +270,10 @@ export default function Work() {
             <div className="absolute inset-0 bg-black/40" />
 
             <div className="relative z-10 p-12 md:p-20 text-center">
-              <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-6">
+              <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-6">
                 Your brand could be next.
               </h2>
-              <p className="text-zinc-400 text-base md:text-lg max-w-xl mx-auto mb-8">
+              <p className="text-zinc-400 text-lg max-w-xl mx-auto mb-8">
                 Let&apos;s talk about what we can build together.
               </p>
               <Link

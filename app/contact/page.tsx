@@ -83,7 +83,7 @@ export default function Contact() {
             {/* H1 */}
             <motion.h1
               variants={staggerItem}
-              className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1] text-white mb-6"
+              className="text-3xl md:text-5xl font-bold tracking-tight leading-[1.1] text-white mb-6"
             >
               Let&apos;s build something extraordinary.
             </motion.h1>
@@ -91,7 +91,7 @@ export default function Contact() {
             {/* Subtitle */}
             <motion.p
               variants={staggerItem}
-              className="text-zinc-400 text-base md:text-lg leading-relaxed max-w-md mb-12"
+              className="text-zinc-400 text-lg leading-relaxed max-w-md mb-12"
             >
               Drop us a line to discuss your brand&apos;s next move. We typically respond within 24 hours.
             </motion.p>

@@ -17,7 +17,7 @@ export default function Footer() {
               <img src="/images/footer logo medici.png" alt="Medici Social" className="h-12 md:h-14 w-auto object-contain mb-4" />
             </Link>
             <p className="text-zinc-400 text-sm leading-relaxed max-w-xs">
-              We&apos;re a full-service marketing agency specializing in social media, web design, SEO, and AI-powered strategy — with the goal of building timeless brands.
+              A full-service marketing agency specializing in social media, web design, SEO, and AI integrations.
             </p>
           </div>
 
