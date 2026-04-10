@@ -406,60 +406,7 @@ export default function Home() {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════
-          SECTION 4 — PROCESS
-      ═══════════════════════════════════════════════════════════ */}
-      <section className="py-24 md:py-32">
-        <div className="max-w-screen-xl mx-auto px-5 md:px-8">
-          <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={viewportConfig} className="text-center md:text-left mb-14 md:mb-20">
-            <motion.span variants={staggerItem} className="inline-flex items-center gap-2 bg-red-900/30 text-red-400 text-xs font-medium px-4 py-1.5 rounded-full border border-red-800/40 mb-6">
-              Process
-            </motion.span>
-            <motion.h2 variants={staggerItem} className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight">
-              A streamlined process built for consistent performance.
-            </motion.h2>
-          </motion.div>
-
-          <motion.div
-            className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8"
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={viewportConfig}
-          >
-            {[
-              {
-                step: '01',
-                title: 'Discover',
-                desc: 'We start with your brand — its voice, its audience, its goals. Before we build anything, we understand everything. Every engagement begins with a conversation, not a template.',
-              },
-              {
-                step: '02',
-                title: 'Build',
-                desc: 'Strategy, content, websites, campaigns — crafted with editorial precision and built for the platforms and channels where your audience lives. Every deliverable tested against a clear strategic framework.',
-              },
-              {
-                step: '03',
-                title: 'Refine',
-                desc: 'We measure what matters, learn from every piece of data, and iterate until the work performs as well as it looks. Great marketing isn\'t set-and-forget — it\'s a discipline.',
-              },
-            ].map(step => (
-              <motion.div key={step.step} variants={cardItem} whileHover={{ y: -6, scale: 1.02, transition: { duration: 0.25 } }} className="bg-zinc-900 border border-zinc-800 rounded-xl p-8 md:p-10 cursor-default text-center md:text-left">
-                <span className="text-red-600 text-sm font-mono font-bold mb-6 block">{step.step}</span>
-                <h3 className="text-xl md:text-2xl font-semibold text-white mb-3">{step.title}</h3>
-                <p className="text-zinc-400 text-sm leading-relaxed">{step.desc}</p>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════════════════════
-          SECTION 5 — TESTIMONIAL QUOTE
-      ═══════════════════════════════════════════════════════════ */}
-      <TestimonialCarousel />
-
-      {/* ═══════════════════════════════════════════════════════════
-          SECTION 6 — CASE STUDIES
+          SECTION 4 — CASE STUDIES
       ═══════════════════════════════════════════════════════════ */}
       <section className="py-20 md:py-32">
         <div className="max-w-screen-xl mx-auto px-5 md:px-8">
@@ -517,6 +464,11 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* ═══════════════════════════════════════════════════════════
+          SECTION 5 — TESTIMONIAL QUOTE
+      ═══════════════════════════════════════════════════════════ */}
+      <TestimonialCarousel />
 
       {/* ═══════════════════════════════════════════════════════════
           SECTION 7 — WHY US (COMPARISON TABLE)
