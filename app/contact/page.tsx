@@ -33,17 +33,7 @@ const contactInfo = [
       </svg>
     ),
   },
-  {
-    label: 'Location',
-    value: 'Houston, TX',
-    href: null,
-    icon: (
-      <svg className="w-4 h-4 text-red-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.8}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
-      </svg>
-    ),
-  },
+
   {
     label: 'Response Time',
     value: 'Within 24 hours',
@@ -85,7 +75,7 @@ export default function Contact() {
               variants={staggerItem}
               className="text-3xl md:text-5xl font-bold tracking-tight leading-[1.1] text-white mb-6"
             >
-              Let&apos;s Build Something Extraordinary.
+              Let&apos;s Build Something Timeless.
             </motion.h1>
 
             {/* Subtitle */}
@@ -93,7 +83,7 @@ export default function Contact() {
               variants={staggerItem}
               className="text-zinc-400 text-lg leading-relaxed max-w-md mb-12"
             >
-              Drop us a line to discuss your brand&apos;s next move. We typically respond within 24 hours.
+              Connect with us to discuss your brands next move.
             </motion.p>
 
             {/* Contact info cards */}
@@ -167,7 +157,7 @@ export default function Contact() {
                     <input
                       id="contact-name"
                       type="text"
-                      placeholder="John Doe"
+                      placeholder="Name"
                       className={inputClasses}
                     />
                   </div>
@@ -178,7 +168,7 @@ export default function Contact() {
                     <input
                       id="contact-email"
                       type="email"
-                      placeholder="john@company.com"
+                      placeholder="Email"
                       className={inputClasses}
                     />
                   </div>
@@ -192,27 +182,29 @@ export default function Contact() {
                   <input
                     id="contact-company"
                     type="text"
-                    placeholder="Acme Inc."
+                    placeholder="Company Name"
                     className={inputClasses}
                   />
                 </div>
 
-                {/* Budget range */}
+                {/* Where Have You Seen Us? */}
                 <div>
-                  <label htmlFor="contact-budget" className="text-zinc-400 text-xs uppercase tracking-wider block mb-2">
-                    Monthly Budget
-                  </label>
-                  <select
-                    id="contact-budget"
-                    className={`${inputClasses} appearance-none cursor-pointer`}
-                    defaultValue=""
-                  >
-                    <option value="" disabled className="text-zinc-500 bg-zinc-900">Select a range</option>
-                    <option value="<5k" className="bg-zinc-900">Under $5,000</option>
-                    <option value="5k-10k" className="bg-zinc-900">$5,000 – $10,000</option>
-                    <option value="10k-25k" className="bg-zinc-900">$10,000 – $25,000</option>
-                    <option value="25k+" className="bg-zinc-900">$25,000+</option>
-                  </select>
+                  <span className="text-zinc-400 text-xs uppercase tracking-wider block mb-3">
+                    Where Have You Seen Us?
+                  </span>
+                  <div className="grid grid-cols-2 gap-3">
+                    {['Facebook', 'Instagram', 'TikTok', 'LinkedIn', 'YouTube', 'Google'].map((platform) => (
+                      <label key={platform} className="flex items-center gap-3 cursor-pointer group">
+                        <input
+                          type="checkbox"
+                          name="referral"
+                          value={platform.toLowerCase()}
+                          className="w-4 h-4 rounded border-zinc-700 bg-zinc-900 text-red-600 focus:ring-red-600/30 focus:ring-offset-0 focus:ring-1 cursor-pointer accent-red-600"
+                        />
+                        <span className="text-sm text-zinc-400 group-hover:text-white transition-colors duration-200">{platform}</span>
+                      </label>
+                    ))}
+                  </div>
                 </div>
 
                 {/* Message */}

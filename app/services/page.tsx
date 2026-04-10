@@ -158,30 +158,38 @@ export default function Services() {
         <section key={svc.title} className={`py-20 md:py-28 ${idx % 2 === 1 ? 'bg-zinc-950' : ''}`}>
           <div className="max-w-screen-xl mx-auto px-5 md:px-8">
             <motion.div
-              variants={fadeUp}
+              variants={staggerContainer}
               initial="hidden"
               whileInView="visible"
               viewport={viewportConfig}
               className={`grid md:grid-cols-2 gap-12 md:gap-20 items-center ${idx % 2 === 1 ? 'md:[direction:rtl]' : ''}`}
             >
               {/* Text side */}
-              <div className={`text-center md:text-left ${idx % 2 === 1 ? 'md:[direction:ltr]' : ''}`}>
-                <div className="inline-flex items-center justify-center w-12 h-12 bg-red-900/20 rounded-xl border border-red-800/30 mb-6">
+              <motion.div
+                variants={staggerItem}
+                className={`text-center md:text-left ${idx % 2 === 1 ? 'md:[direction:ltr]' : ''}`}
+              >
+                <motion.div
+                  className="inline-flex items-center justify-center w-12 h-12 bg-red-900/20 rounded-xl border border-red-800/30 mb-6"
+                  whileHover={{ scale: 1.1, rotate: 5, transition: { duration: 0.3 } }}
+                >
                   {svc.icon}
-                </div>
+                </motion.div>
                 <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-5">
                   {svc.title}
                 </h2>
                 <p className="text-zinc-400 text-sm md:text-base leading-relaxed mb-8 max-w-lg mx-auto md:mx-0">
                   {svc.desc}
                 </p>
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center gap-2 bg-red-700 text-white text-sm font-medium px-6 py-3 rounded-full hover:bg-red-600 hover:scale-[1.02] transition-all duration-300"
-                >
-                  Get Started →
-                </Link>
-              </div>
+                <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }} transition={{ duration: 0.2 }}>
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center gap-2 bg-red-700 text-white text-sm font-medium px-6 py-3 rounded-full hover:bg-red-600 transition-colors duration-300"
+                  >
+                    Get Started →
+                  </Link>
+                </motion.div>
+              </motion.div>
 
               {/* Deliverables side */}
               <div className={idx % 2 === 1 ? 'md:[direction:ltr]' : ''}>
@@ -192,14 +200,33 @@ export default function Services() {
                   viewport={viewportConfig}
                   className="grid gap-4"
                 >
-                  {svc.details.map((detail) => (
+                  {svc.details.map((detail, dIdx) => (
                     <motion.div
                       key={detail}
                       variants={cardItem}
-                      className="flex items-center gap-4 bg-zinc-900 border border-zinc-800 rounded-xl px-6 py-5 hover:border-zinc-700 transition-colors duration-300"
+                      whileHover={{
+                        x: 8,
+                        backgroundColor: 'rgba(127,29,29,0.08)',
+                        borderColor: 'rgba(185,28,28,0.4)',
+                        transition: { duration: 0.25 },
+                      }}
+                      className="flex items-center gap-4 bg-zinc-900 border border-zinc-800 rounded-xl px-6 py-5 cursor-default group"
                     >
-                      <span className="w-2 h-2 rounded-full bg-red-600 shrink-0" />
-                      <span className="text-sm text-zinc-300">{detail}</span>
+                      <motion.span
+                        className="w-2 h-2 rounded-full bg-red-600 shrink-0"
+                        whileHover={{ scale: 1.8 }}
+                        transition={{ duration: 0.2 }}
+                      />
+                      <span className="text-sm text-zinc-300 group-hover:text-white transition-colors duration-300">{detail}</span>
+                      <svg
+                        className="w-4 h-4 text-zinc-700 group-hover:text-red-500 ml-auto shrink-0 opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-x-2 group-hover:translate-x-0"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        strokeWidth={2}
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                      </svg>
                     </motion.div>
                   ))}
                 </motion.div>
@@ -228,12 +255,16 @@ export default function Services() {
               <motion.div
                 key={step.step}
                 variants={cardItem}
-                whileHover={{ y: -6, scale: 1.02, transition: { duration: 0.25 } }}
-                className="bg-zinc-900 border border-zinc-800 rounded-xl p-8 md:p-10 cursor-default text-center md:text-left"
+                whileHover={{ y: -8, transition: { duration: 0.3, ease: 'easeOut' } }}
+                className="relative bg-zinc-900 border border-zinc-800 rounded-xl p-8 md:p-10 cursor-default text-center md:text-left overflow-hidden group hover:border-zinc-700 transition-colors duration-300"
               >
-                <span className="text-red-600 text-sm font-mono font-bold mb-6 block">{step.step}</span>
-                <h3 className="text-xl md:text-2xl font-semibold text-white mb-3">{step.title}</h3>
-                <p className="text-zinc-400 text-sm leading-relaxed">{step.desc}</p>
+                {/* Animated red accent bar at top */}
+                <div className="absolute top-0 left-0 h-[3px] bg-red-600 w-0 group-hover:w-full transition-all duration-500 ease-out" />
+                {/* Subtle red glow on hover */}
+                <div className="absolute -top-20 -right-20 w-40 h-40 bg-red-600/0 group-hover:bg-red-600/5 rounded-full transition-all duration-500 blur-3xl" />
+                <span className="relative text-red-600 text-sm font-mono font-bold mb-6 block">{step.step}</span>
+                <h3 className="relative text-xl md:text-2xl font-semibold text-white mb-3 group-hover:text-white transition-colors">{step.title}</h3>
+                <p className="relative text-zinc-400 text-sm leading-relaxed group-hover:text-zinc-300 transition-colors duration-300">{step.desc}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -259,36 +290,76 @@ export default function Services() {
               {
                 title: 'Full-Service, One Team',
                 desc: 'No more juggling freelancers and agencies. Your social media, content, website, and SEO all come from one team with one standard.',
+                icon: (
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
+                  </svg>
+                ),
               },
               {
                 title: 'Editorial Quality',
                 desc: 'Every deliverable, from a TikTok to a homepage, is crafted to the same editorial standard. Your brand looks premium everywhere.',
+                icon: (
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
+                  </svg>
+                ),
               },
               {
                 title: 'AI-Powered Edge',
                 desc: 'We integrate AI tools into your workflows to move faster, surface insights earlier, and outperform competitors still working manually.',
+                icon: (
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+                  </svg>
+                ),
               },
               {
                 title: 'Data-Driven Refinement',
                 desc: 'We don\'t guess. Every decision is backed by performance data, and every month we refine the strategy based on what the numbers tell us.',
+                icon: (
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
+                  </svg>
+                ),
               },
               {
                 title: 'Houston Roots',
                 desc: 'We understand Houston\'s market, its culture, and its people. Local insight paired with national-caliber execution.',
+                icon: (
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                  </svg>
+                ),
               },
               {
                 title: 'Built for Growth',
                 desc: 'Our work compounds. The brands we partner with don\'t just look better. They grow measurably, month over month.',
+                icon: (
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941" />
+                  </svg>
+                ),
               },
             ].map((item) => (
               <motion.div
                 key={item.title}
                 variants={cardItem}
-                whileHover={{ y: -6, scale: 1.02, transition: { duration: 0.25 } }}
-                className="bg-zinc-900/50 border border-zinc-800 rounded-xl p-8 cursor-default text-center md:text-left"
+                whileHover={{ y: -6, transition: { duration: 0.3, ease: 'easeOut' } }}
+                className="relative bg-zinc-900/50 border border-zinc-800 rounded-xl p-8 cursor-default text-center md:text-left overflow-hidden group hover:border-red-900/40 transition-all duration-400"
               >
-                <h3 className="text-lg font-semibold text-white mb-3">{item.title}</h3>
-                <p className="text-zinc-400 text-sm leading-relaxed">{item.desc}</p>
+                {/* Glow orb on hover */}
+                <div className="absolute -bottom-16 -right-16 w-32 h-32 bg-red-600/0 group-hover:bg-red-600/[0.06] rounded-full transition-all duration-700 blur-2xl" />
+                <motion.div
+                  className="relative inline-flex items-center justify-center w-10 h-10 bg-red-900/20 rounded-lg border border-red-800/30 mb-5 text-red-500"
+                  whileHover={{ scale: 1.1, rotate: -5 }}
+                  transition={{ duration: 0.25 }}
+                >
+                  {item.icon}
+                </motion.div>
+                <h3 className="relative text-lg font-semibold text-white mb-3 group-hover:text-white transition-colors">{item.title}</h3>
+                <p className="relative text-zinc-400 text-sm leading-relaxed group-hover:text-zinc-300 transition-colors duration-300">{item.desc}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -329,12 +400,14 @@ export default function Services() {
               <p className="text-zinc-400 text-lg max-w-xl mx-auto mb-8">
                 Your brand deserves its story to be told.
               </p>
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 bg-red-700 text-white text-sm font-medium px-8 py-4 rounded-full hover:bg-red-600 hover:scale-[1.02] transition-all duration-300"
-              >
-                Book a Call →
-              </Link>
+              <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }} transition={{ duration: 0.2 }}>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 bg-red-700 text-white text-sm font-medium px-8 py-4 rounded-full hover:bg-red-600 transition-colors duration-300"
+                >
+                  Book a Call →
+                </Link>
+              </motion.div>
             </div>
           </motion.div>
         </div>
