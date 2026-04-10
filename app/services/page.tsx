@@ -33,7 +33,7 @@ const viewportConfig = { once: true, margin: '-100px' as const };
 const services = [
   {
     title: 'Social Media Marketing',
-    desc: 'The core of what we do. We manage your brand\'s social presence end-to-end — from strategy and content planning to daily posting, community engagement, and performance reporting. Not just content for content\'s sake. A deliberate, measured system for growth.',
+    desc: 'We manage your brand\'s social presence end-to-end: strategy, content, posting, engagement, and reporting. A deliberate system for growth.',
     details: [
       'Platform strategy & management',
       'Content calendaring & scheduling',

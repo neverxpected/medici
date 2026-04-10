@@ -58,7 +58,7 @@ const clientLogos = [
 const services = [
   {
     title: 'Social Media Marketing',
-    desc: 'The core of what we do. We manage your brand\'s social presence end-to-end — from strategy and content planning to daily posting, community engagement, and performance reporting. Not just content for content\'s sake. A deliberate, measured system for growth.',
+    desc: 'We manage your brand\'s social presence end-to-end: strategy, content, posting, engagement, and reporting. A deliberate system for growth.',
     items: ['Platform Strategy & Management', 'Content Calendaring & Scheduling', 'Community Engagement & Response', 'Monthly Analytics & Reporting'],
   },
   {
@@ -301,7 +301,7 @@ export default function Home() {
               Every brand has a story worth <span className="whitespace-nowrap">telling well.</span>
             </motion.h2>
             <motion.p variants={staggerItem} className="text-zinc-400 text-base md:text-lg leading-relaxed max-w-4xl mb-16">
-              We specialize in building brands across every digital touchpoint — from the social feeds that earn daily attention to the websites that anchor long-term credibility. Our specialty is short-form content, but our scope covers the full picture: strategy, social media management, web design, search optimization, and AI integrations that give our clients an edge most agencies can&apos;t offer.
+              We build brands across every digital touchpoint: social media, web design, SEO, and AI integrations that give our clients an edge most agencies can&apos;t offer.
             </motion.p>
           </motion.div>
 
