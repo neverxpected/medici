@@ -45,14 +45,14 @@ const rotatingWords = ['Traffic.', 'Revenue.', 'Growth.', 'Results.'];
 
 /* ── Data ── */
 const clientLogos = [
-  { src: '/logos/1 small.png', alt: 'Client 1' },
-  { src: '/logos/2 small.webp', alt: 'Client 2' },
-  { src: '/logos/3 small.png', alt: 'Client 3' },
-  { src: '/logos/4 small.png', alt: 'Client 4' },
-  { src: '/logos/5 small.png', alt: 'Client 5' },
-  { src: '/logos/6 small.png', alt: 'Client 6' },
-  { src: '/logos/7 small.png', alt: 'Client 7' },
-  { src: '/logos/8 small.png', alt: 'Client 8' },
+  { src: '/logos/1-small.png', alt: 'Client 1' },
+  { src: '/logos/2-small.webp', alt: 'Client 2' },
+  { src: '/logos/3-small.png', alt: 'Client 3' },
+  { src: '/logos/4-small.png', alt: 'Client 4' },
+  { src: '/logos/5-small.png', alt: 'Client 5' },
+  { src: '/logos/6-small.png', alt: 'Client 6' },
+  { src: '/logos/7-small.png', alt: 'Client 7' },
+  { src: '/logos/8-small.png', alt: 'Client 8' },
 ];
 
 const services = [
@@ -140,52 +140,41 @@ export default function Home() {
                 }}
                 initial="hidden"
                 animate="visible"
-                className="text-5xl md:text-6xl lg:text-[5.5rem] font-bold tracking-tight leading-[1.05] text-center md:text-left"
+                className="text-5xl md:text-6xl lg:text-[5.5rem] font-bold tracking-tight leading-[1.05] text-center md:text-left flex flex-wrap items-center justify-center md:justify-start gap-x-3 md:gap-x-4 gap-y-2"
               >
-                {['Turn', 'Views'].map((word) => (
+                {['Turn', 'Views', 'Into'].map((word) => (
                   <motion.span
                     key={word}
                     variants={{
                       hidden: { opacity: 0, y: 20 },
                       visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [...scrollEase] as [number, number, number, number] } },
                     }}
-                    className="inline-block mr-[0.3em]"
+                    className="inline-block"
                   >
                     {word}
                   </motion.span>
                 ))}
-                <span className="flex items-center justify-center md:justify-start gap-3 md:gap-4">
-                  <motion.span
-                    variants={{
-                      hidden: { opacity: 0, y: 20 },
-                      visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [...scrollEase] as [number, number, number, number] } },
-                    }}
-                    className="inline-block"
-                  >
-                    Into
-                  </motion.span>
-                  <motion.span
-                    variants={{
-                      hidden: { opacity: 0, y: 20, scale: 0.95 },
-                      visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.6, ease: [...scrollEase] as [number, number, number, number] } },
-                    }}
-                    className="bg-red-700 text-white px-4 py-1 rounded-xl overflow-hidden relative flex items-center justify-center"
-                    style={{ height: '1.15em', minWidth: '4.5em' }}
-                  >
-                    <AnimatePresence mode="wait">
-                      <motion.span
-                        key={rotatingWords[wordIndex]}
-                        initial={{ y: '100%', opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        exit={{ y: '-100%', opacity: 0 }}
-                        transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                        className="absolute inset-0 flex items-center justify-center font-bold"
-                      >
-                        {rotatingWords[wordIndex]}
-                      </motion.span>
-                    </AnimatePresence>
-                  </motion.span>
-                </span>
+                <motion.span
+                  variants={{
+                    hidden: { opacity: 0, y: 20, scale: 0.95 },
+                    visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.6, ease: [...scrollEase] as [number, number, number, number] } },
+                  }}
+                  className="bg-red-700 text-white px-4 py-1 rounded-xl overflow-hidden relative flex items-center justify-center"
+                  style={{ height: '1.15em', minWidth: '4.5em' }}
+                >
+                  <AnimatePresence mode="wait">
+                    <motion.span
+                      key={rotatingWords[wordIndex]}
+                      initial={{ y: '100%', opacity: 0 }}
+                      animate={{ y: 0, opacity: 1 }}
+                      exit={{ y: '-100%', opacity: 0 }}
+                      transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                      className="absolute inset-0 flex items-center justify-center font-bold"
+                    >
+                      {rotatingWords[wordIndex]}
+                    </motion.span>
+                  </AnimatePresence>
+                </motion.span>
               </motion.h1>
 
               <motion.p
@@ -389,20 +378,11 @@ export default function Home() {
                     <p className="text-zinc-400 text-sm leading-relaxed group-hover:text-zinc-300 transition-colors duration-300">{svc.desc}</p>
                   </div>
                   {/* Bottom — scrolling tags */}
-                  <div className="overflow-hidden relative py-4 md:py-5 border-t border-zinc-800 mt-auto">
-                    <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-zinc-900 to-transparent z-10 pointer-events-none" />
-                    <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-zinc-900 to-transparent z-10 pointer-events-none" />
-                    <div className="flex">
-                      <div className="flex flex-nowrap animate-marquee shrink-0 items-center">
-                        {[...svc.items, ...svc.items].map((item, i) => (
-                          <span key={`a-${i}`} className="text-xs text-zinc-500 border border-zinc-700 rounded-full px-4 py-1.5 whitespace-nowrap mx-1.5">{item}</span>
-                        ))}
-                      </div>
-                      <div className="flex flex-nowrap animate-marquee shrink-0 items-center" aria-hidden="true">
-                        {[...svc.items, ...svc.items].map((item, i) => (
-                          <span key={`b-${i}`} className="text-xs text-zinc-500 border border-zinc-700 rounded-full px-4 py-1.5 whitespace-nowrap mx-1.5">{item}</span>
-                        ))}
-                      </div>
+                  <div className="relative py-4 md:py-5 border-t border-zinc-800 mt-auto px-5 md:px-8">
+                    <div className="flex flex-wrap gap-2">
+                      {svc.items.map((item, i) => (
+                        <span key={i} className="text-xs text-zinc-500 border border-zinc-700 rounded-full px-4 py-1.5 whitespace-nowrap">{item}</span>
+                      ))}
                     </div>
                   </div>
                 </SpotlightCard>
